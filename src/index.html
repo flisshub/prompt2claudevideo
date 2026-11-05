@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="ms"><head><meta charset="utf-8"><title>Tip Emas</title>
+<style>
+:root{--bg:#0A0A0F;--gold:#F5C451;--gold2:#C8901A;--cream:#FFF4D6;--red:#FF5A4F;--dim:#8d8a80}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;background:var(--bg);overflow:hidden;font-family:Inter,'Inter Display',sans-serif;color:#fff}
+#stage{position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:hidden;background:var(--bg)}
+#glow{position:absolute;inset:0}
+.scene{position:absolute;inset:0;opacity:0}
+.c{position:absolute;left:90px;width:900px;text-align:center}
+.t{white-space:nowrap;font-weight:900;letter-spacing:-2px;line-height:.98;text-transform:uppercase}
+.g{color:var(--gold)}
+.chip{display:inline-block;padding:14px 34px;border-radius:999px;border:3px solid var(--gold);color:var(--gold);font-weight:800;font-size:38px;letter-spacing:3px;background:rgba(245,196,81,.08)}
+.badge{display:inline-block;padding:16px 44px;border-radius:20px;background:var(--gold);color:#1a1200;font-weight:900;font-size:56px;letter-spacing:2px}
+.a{opacity:0}
+#bar{position:absolute;left:90px;top:176px;width:900px;height:10px;border-radius:5px;background:rgba(255,255,255,.12)}
+#barf{height:100%;width:0;border-radius:5px;background:linear-gradient(90deg,var(--gold2),var(--gold))}
+#cap{position:absolute;left:90px;width:900px;top:1500px;text-align:center;font-weight:800;font-size:54px;line-height:1.3;text-shadow:0 4px 18px rgba(0,0,0,.9)}
+#cap span{display:inline-block;margin:0 11px;color:#fff;transition:none}
+#cap span.on{color:var(--gold);transform:scale(1.06)}
+#cap span.done{color:#fff}
+#cap span.next{color:rgba(255,255,255,.45)}
+#capbg{position:absolute;left:70px;width:940px;top:1480px;height:210px;border-radius:36px;background:rgba(10,10,15,.72);border:2px solid rgba(245,196,81,.25)}
+.cell{position:absolute;width:200px;height:118px;border-radius:20px;border:3px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:34px;color:#777}
+</style></head><body>
+<div id="stage">
+<canvas id="glow" width="1080" height="1920"></canvas>
+<div id="bar"><div id="barf"></div></div>
+
+<!-- S1 hook -->
+<div class="scene" id="s1">
+  <div class="c a" data-d="0.05" data-k="down" style="top:250px"><span class="chip">TIP EMAS UNTUK PEMULA</span></div>
+  <div class="c t a" data-d="0.15" data-k="up" style="top:380px;font-size:128px">Ramai nak<br>kumpul</div>
+  <div class="c t g a" data-d="0.55" data-k="pop" style="top:640px;font-size:330px;letter-spacing:-8px;text-shadow:0 0 80px rgba(245,196,81,.45)">EMAS</div>
+  <svg class="c" style="top:1000px;height:300px" viewBox="0 0 900 300" id="bars1"></svg>
+  <div class="c t a" data-d="2.3" data-k="up" style="top:1310px;font-size:64px;letter-spacing:-1px;text-transform:none;color:var(--cream)">tapi tak tahu nak mula <span class="g" style="font-size:90px">?</span></div>
+</div>
+
+<!-- S2 3 tips -->
+<div class="scene" id="s2">
+  <div class="c t g a" data-d="0.05" data-k="pop" style="top:230px;left:90px;width:420px;font-size:560px;letter-spacing:-20px;text-align:center;line-height:.9;text-shadow:0 0 90px rgba(245,196,81,.4)">3</div>
+  <div class="c t a" data-d="0.3" data-k="left" style="top:330px;left:500px;width:490px;text-align:left;font-size:118px">TIP<br><span class="g">MUDAH</span></div>
+  <div class="c a" data-d="1.0" data-k="left" style="top:900px;text-align:left"><div id="r1" style="display:flex;align-items:center;gap:30px;font-size:52px;font-weight:800"><b style="width:92px;height:92px;border-radius:50%;background:var(--gold);color:#1a1200;display:flex;align-items:center;justify-content:center;font-size:52px;font-weight:900">1</b>Mula dengan kemampuan</div></div>
+  <div class="c a" data-d="1.6" data-k="left" style="top:1040px;text-align:left"><div style="display:flex;align-items:center;gap:30px;font-size:52px;font-weight:800"><b style="width:92px;height:92px;border-radius:50%;background:var(--gold);color:#1a1200;display:flex;align-items:center;justify-content:center;font-size:52px;font-weight:900">2</b>Tetapkan sasaran</div></div>
+  <div class="c a" data-d="2.2" data-k="left" style="top:1180px;text-align:left"><div style="display:flex;align-items:center;gap:30px;font-size:52px;font-weight:800"><b style="width:92px;height:92px;border-radius:50%;background:var(--gold);color:#1a1200;display:flex;align-items:center;justify-content:center;font-size:52px;font-weight:900">3</b>Konsisten</div></div>
+</div>
+
+<!-- S3 tip 1 -->
+<div class="scene" id="s3">
+  <div class="c a" data-d="0.05" data-k="down" style="top:250px"><span class="badge">TIP 1</span></div>
+  <div class="c t a" data-d="0.2" data-k="up" style="top:400px;font-size:150px">MULA<br>DENGAN</div>
+  <div class="c t g a" data-d="0.8" data-k="pop" style="top:700px;font-size:128px;letter-spacing:-4px">KEMAMPUAN<br>SENDIRI</div>
+  <svg class="c" style="top:1020px;height:400px" viewBox="0 0 900 400" id="jar"></svg>
+</div>
+
+<!-- S4 sikit demi sikit -->
+<div class="scene" id="s4">
+  <div class="c t a" data-d="0.05" data-k="up" style="top:260px;font-size:84px;text-transform:none;letter-spacing:-1px;color:var(--cream)">Tak perlu tunggu</div>
+  <div class="c t a" data-d="0.3" data-k="up" style="top:380px;font-size:116px;color:#fff"><span id="strk" style="position:relative;display:inline-block">DUIT BANYAK<i id="strkl" style="position:absolute;left:-10px;top:50%;height:14px;width:0;background:var(--red);border-radius:7px;transform:rotate(-3deg)"></i></span></div>
+  <div class="c t g a" data-d="2.1" data-k="pop" style="top:590px;font-size:108px;letter-spacing:-3px;white-space:normal">SEDIKIT<br>DEMI SEDIKIT</div>
+  <svg class="c" style="top:880px;height:560px" viewBox="0 0 900 560" id="stack"></svg>
+</div>
+
+<!-- S5 tip 2 -->
+<div class="scene" id="s5">
+  <div class="c a" data-d="0.05" data-k="down" style="top:250px"><span class="badge">TIP 2</span></div>
+  <div class="c t a" data-d="0.15" data-k="up" style="top:400px;font-size:140px">TETAPKAN</div>
+  <div class="c t g a" data-d="0.4" data-k="pop" style="top:540px;font-size:170px;letter-spacing:-5px">SASARAN</div>
+  <svg class="c" style="top:800px;height:600px" viewBox="0 0 900 600" id="target"></svg>
+</div>
+
+<!-- S6 1 gram -->
+<div class="scene" id="s6">
+  <div class="c a" data-d="0.05" data-k="down" style="top:240px"><span class="chip">CONTOHNYA</span></div>
+  <div class="c t g a" data-d="0.2" data-k="pop" style="top:340px;font-size:250px;letter-spacing:-7px;text-shadow:0 0 80px rgba(245,196,81,.4)">1 GRAM</div>
+  <div class="c t a" data-d="0.5" data-k="up" style="top:640px;font-size:74px">EMAS SETIAP BULAN</div>
+  <div id="cal" class="c" style="top:820px;height:420px"></div>
+  <div class="c t a" data-d="2.5" data-k="up" style="top:1290px;font-size:64px;text-transform:none;letter-spacing:-1px;color:var(--cream)">= <span class="g" style="font-size:84px">12 gram</span> setahun</div>
+</div>
+
+<!-- S7 konsisten -->
+<div class="scene" id="s7">
+  <div class="c a" data-d="0.05" data-k="down" style="top:250px"><span class="badge">TIP 3</span></div>
+  <div class="c t g a" data-d="0.2" data-k="pop" style="top:420px;font-size:156px;letter-spacing:-6px;text-shadow:0 0 80px rgba(245,196,81,.45)">KONSISTEN!</div>
+  <svg class="c" style="top:700px;height:640px" viewBox="0 0 900 640" id="loop"></svg>
+</div>
+
+<!-- S8 tabiat -->
+<div class="scene" id="s8">
+  <div id="s8a" style="position:absolute;inset:0">
+    <div class="c t a" data-d="0.05" data-k="up" style="top:300px;font-size:84px;text-transform:none;letter-spacing:-2px;color:var(--cream)">Jangan hanya simpan</div>
+    <div class="c t a" data-d="0.5" data-k="up" style="top:430px;font-size:104px;color:#fff;letter-spacing:-3px">BILA ADA<br><span style="position:relative;display:inline-block">DUIT LEBIH<i id="s8x" style="position:absolute;left:-10px;top:50%;height:14px;width:0;background:var(--red);border-radius:7px;transform:rotate(-3deg)"></i></span></div>
+    <svg class="c" style="top:800px;height:400px" viewBox="0 0 900 400" id="xmark"></svg>
+  </div>
+  <div id="s8b" style="position:absolute;inset:0;opacity:0">
+    <div class="c t a" data-d="2.7" data-k="up" style="top:290px;font-size:72px;text-transform:none;letter-spacing:-1px;color:var(--cream)">Jadikan simpanan emas</div>
+    <div class="c t g a" data-d="2.95" data-k="pop" style="top:410px;font-size:84px;letter-spacing:-2px;color:#fff;white-space:normal;line-height:1.1">SEBAGAI <span class="g" style="font-size:170px;display:block;line-height:1;text-shadow:0 0 70px rgba(245,196,81,.45)">TABIAT</span></div>
+    <div id="streak" class="c" style="top:880px;height:500px"></div>
+  </div>
+</div>
+
+<!-- S9 quote -->
+<div class="scene" id="s9">
+  <div id="s9a" style="position:absolute;inset:0">
+    <div class="c t a" data-d="0.05" data-k="down" style="top:250px"><span class="chip">INGAT</span></div>
+    <div class="c t a" data-d="0.3" data-k="up" style="top:400px;font-size:104px;letter-spacing:-3px"><span style="color:var(--red)">BUKAN</span> SOAL<br>BERAPA BANYAK<br><span class="g">KITA MULA</span></div>
+    <svg class="c" style="top:880px;height:400px" viewBox="0 0 900 400" id="small"></svg>
+  </div>
+  <div id="s9b" style="position:absolute;inset:0;opacity:0">
+    <div class="c t a" data-d="3.0" data-k="up" style="top:300px;font-size:70px;text-transform:none;letter-spacing:-1px;color:var(--cream)">tetapi sejauh mana kita</div>
+    <div class="c t g a" data-d="3.3" data-k="pop" style="top:400px;font-size:150px;letter-spacing:-6px;text-shadow:0 0 80px rgba(245,196,81,.45)">KONSISTEN</div>
+    <svg class="c" style="top:700px;height:640px" viewBox="0 0 900 640" id="chart"></svg>
+  </div>
+</div>
+
+<!-- S10 CTA -->
+<div class="scene" id="s10">
+  <div id="s10a" style="position:absolute;inset:0">
+    <svg class="c a" data-d="0.05" data-k="pop" style="top:240px;height:260px" viewBox="0 0 900 260"><defs><radialGradient id="cg" cx=".35" cy=".3" r=".9"><stop offset="0" stop-color="#FFE9A8"/><stop offset=".6" stop-color="#F5C451"/><stop offset="1" stop-color="#B07A12"/></radialGradient></defs><circle cx="450" cy="130" r="120" fill="url(#cg)"/><circle cx="450" cy="130" r="98" fill="none" stroke="#8a5d0b" stroke-width="5" opacity=".5"/><text x="450" y="162" text-anchor="middle" font-family="Inter" font-weight="900" font-size="96" fill="#7a5206">Au</text></svg>
+    <div class="c t a" data-d="0.3" data-k="up" style="top:540px;font-size:62px;text-transform:none;letter-spacing:-1px;color:var(--gold)">@theazminapg</div>
+    <div class="c a" data-d="0.6" data-k="pop" style="top:660px"><span id="fbtn" style="display:inline-block;padding:34px 120px;border-radius:999px;background:var(--gold);color:#1a1200;font-weight:900;font-size:110px;letter-spacing:-2px;box-shadow:0 0 70px rgba(245,196,81,.5)">FOLLOW</span></div>
+    <div class="c a" data-d="1.4" data-k="up" style="top:920px;font-size:56px;font-weight:800;color:var(--cream);line-height:1.2">untuk ilmu <span class="g">emas</span><br>dan <span class="g">kewangan</span></div>
+  </div>
+  <div id="s10b" style="position:absolute;inset:0;opacity:0">
+    <div class="c t a" data-d="3.95" data-k="up" style="top:300px;font-size:90px;text-transform:none;letter-spacing:-2px;color:var(--cream)">Klik</div>
+    <div class="c a" data-d="4.15" data-k="pop" style="top:430px"><span id="sbtn" style="display:inline-block;padding:34px 100px;border-radius:30px;background:var(--gold);color:#1a1200;font-weight:900;font-size:120px;letter-spacing:-2px;box-shadow:0 0 70px rgba(245,196,81,.5)">SIGN UP</span></div>
+    <div class="c t a" data-d="4.6" data-k="up" style="top:690px;font-size:80px;text-transform:none;letter-spacing:-2px;color:var(--cream)">untuk bermula</div>
+    <svg class="c a" data-d="4.6" data-k="fade" style="top:560px;height:200px;pointer-events:none" viewBox="0 0 900 200" id="hand"></svg>
+  </div>
+  <div id="s10c" style="position:absolute;inset:0;opacity:0">
+    <div class="c t g a" data-d="5.7" data-k="pop" style="top:900px;font-size:110px;letter-spacing:-3px;text-shadow:0 0 70px rgba(245,196,81,.4)">SAYA BANTU<br>SEBAIKNYA</div>
+  </div>
+</div>
+
+<div id="capbg" style="opacity:0"></div>
+<div id="cap"></div>
+</div>
+
+<script>
+const DUR=42.28;
+const SEGS=[
+[0,3.63,"Ramai nak kumpul emas, tapi tak tahu nak mula macam mana."],
+[3.95,7.23,"Ini 3 tip mudah yang tuan puan boleh amalkan."],
+[7.97,10.56,"Pertama, mulakan dengan kemampuan sendiri."],
+[10.98,14.75,"Tak perlu tunggu duit banyak, simpan sedikit demi sedikit."],
+[15.63,17.65,"Kedua, tetapkan sasaran."],
+[18.05,21.17,"Contohnya, kumpul 1 gram emas setiap bulan."],
+[21.54,23.22,"Ketiga, konsisten!"],
+[23.63,25.79,"Jangan hanya simpan apabila ada duit lebih."],
+[26.23,28.67,"Jadikan simpanan emas sebagai satu tabiat."],
+[29.35,34.71,"Ingat, bukan soal berapa banyak kita mula, tetapi sejauh mana kita konsisten."],
+[34.98,38.53,"Follow @theazminapg untuk ilmu emas dan kewangan."],
+[38.96,40.35,"Klik sign up untuk bermula."],
+[40.65,41.95,"Saya bantu sebaiknya!"]
+];
+// scene windows [start,end]
+const SC=[[0,3.95],[3.95,7.97],[7.97,10.98],[10.98,15.63],[15.63,18.05],[18.05,21.54],[21.54,23.63],[23.63,29.35],[29.35,34.98],[34.98,42.28]];
+const HL=/^(emas|tip|sasaran|konsisten|tabiat|@theazminapg|follow|sign|up|sedikit|gram)/i;
+const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const eo=p=>1-Math.pow(1-p,3);
+const eb=p=>{const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(p-1,3)+c1*Math.pow(p-1,2)};
+const $=s=>document.querySelector(s);
+const NS='http://www.w3.org/2000/svg';
+function S(html){return html}
+
+// ---- build SVG graphics ----
+function bar(x,y,w,h,id){return `<g data-bar="${id}"><polygon points="${x+w*0.12},${y} ${x+w*0.88},${y} ${x+w},${y+h} ${x},${y+h}" fill="url(#bg)"/><polygon points="${x+w*0.12},${y} ${x+w*0.88},${y} ${x+w*0.82},${y+h*0.28} ${x+w*0.18},${y+h*0.28}" fill="#FFF0B8" opacity=".75"/><text x="${x+w/2}" y="${y+h*0.72}" text-anchor="middle" font-family="Inter" font-weight="900" font-size="${h*0.32}" fill="#7a5206" opacity=".7">999.9</text></g>`}
+const DEFS=`<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE08A"/><stop offset=".55" stop-color="#F5C451"/><stop offset="1" stop-color="#B07A12"/></linearGradient><radialGradient id="cn" cx=".35" cy=".3" r=".9"><stop offset="0" stop-color="#FFE9A8"/><stop offset=".6" stop-color="#F5C451"/><stop offset="1" stop-color="#B07A12"/></radialGradient></defs>`;
+$('#bars1').innerHTML=DEFS+bar(300,120,300,110,'b0')+bar(160,230,300,110,'b1')+bar(440,230,300,110,'b2').replace(/y="/g,'y="')
+  // shift rows so base sits in viewBox
+;
+$('#bars1').setAttribute('viewBox','0 100 900 260');
+
+// jar
+$('#jar').innerHTML=DEFS+`<rect x="270" y="90" width="360" height="290" rx="60" fill="rgba(255,255,255,.06)" stroke="rgba(245,196,81,.8)" stroke-width="8"/><rect x="300" y="50" width="300" height="46" rx="14" fill="none" stroke="rgba(245,196,81,.8)" stroke-width="8"/><g id="jarcoins"></g><g id="jarfall"></g>`;
+// stack
+let st='';for(let i=0;i<7;i++){const y=500-i*62;st+=`<g data-coin="${i}"><ellipse cx="450" cy="${y+20}" rx="170" ry="44" fill="#8a5d0b"/><rect x="280" y="${y-18}" width="340" height="38" fill="#C8901A"/><ellipse cx="450" cy="${y-18}" rx="170" ry="44" fill="url(#cn)"/><ellipse cx="450" cy="${y-18}" rx="130" ry="30" fill="none" stroke="#8a5d0b" stroke-width="4" opacity=".4"/></g>`}
+$('#stack').innerHTML=DEFS+st;
+// target
+$('#target').innerHTML=DEFS+`<g id="rings">${[250,190,130,70].map((r,i)=>`<circle cx="450" cy="300" r="${r}" fill="${i%2?'#F5C451':'#fff'}" opacity="${i%2?1:.92}" data-ring="${i}"/>`).join('')}<circle cx="450" cy="300" r="26" fill="#FF5A4F"/></g><g id="arrow"><line x1="-220" y1="-150" x2="-24" y2="-14" stroke="#fff" stroke-width="14" stroke-linecap="round"/><polygon points="0,0 -46,-12 -20,-46" fill="#F5C451"/><polygon points="-220,-150 -262,-150 -236,-196" fill="#FF5A4F"/></g>`;
+// calendar
+const MON=['Jan','Feb','Mac','Apr','Mei','Jun','Jul','Ogo','Sep','Okt','Nov','Dis'];
+$('#cal').innerHTML=MON.map((m,i)=>`<div class="cell" data-m="${i}" style="left:${(i%4)*233}px;top:${Math.floor(i/4)*140}px">${m}</div>`).join('');
+// loop arrows
+$('#loop').innerHTML=DEFS+`<g id="lp"><circle cx="450" cy="320" r="230" fill="none" stroke="rgba(245,196,81,.25)" stroke-width="26"/><path d="M450 90 A230 230 0 1 1 222 380" fill="none" stroke="#F5C451" stroke-width="26" stroke-linecap="round"/><polygon points="170,350 270,350 222,430" fill="#F5C451"/></g><circle cx="450" cy="320" r="120" fill="url(#cn)"/><text x="450" y="352" text-anchor="middle" font-family="Inter" font-weight="900" font-size="100" fill="#7a5206">Au</text>`;
+// x mark
+$('#xmark').innerHTML=`<g id="xm"><circle cx="450" cy="200" r="150" fill="none" stroke="#FF5A4F" stroke-width="22"/><line x1="380" y1="130" x2="520" y2="270" stroke="#FF5A4F" stroke-width="22" stroke-linecap="round"/><line x1="520" y1="130" x2="380" y2="270" stroke="#FF5A4F" stroke-width="22" stroke-linecap="round"/></g>`;
+// streak
+const DAYS=['Isn','Sel','Rab','Kha','Jum','Sab','Ahd'];
+$('#streak').innerHTML=DAYS.map((d,i)=>`<div data-sd="${i}" style="position:absolute;left:${i*130}px;top:0;width:110px;text-align:center;font-weight:800;font-size:28px;color:#888"><div style="height:110px;width:110px;border-radius:50%;border:5px solid rgba(255,255,255,.18);margin-bottom:14px;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 60 60" width="60" height="60" class="ck" style="opacity:0"><path d="M10 32 L25 46 L50 14" fill="none" stroke="#1a1200" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg></div>${d}</div>`).join('')+`<div id="fire" style="position:absolute;left:0;top:220px;width:900px;text-align:center;font-weight:900;font-size:150px;letter-spacing:-4px;color:var(--gold);opacity:0">7 / 7</div>`;
+// small start vs big line
+$('#small').innerHTML=DEFS+`<g>${[0,1,2].map(i=>`<circle cx="${290+i*160}" cy="230" r="${60-i*8}" fill="url(#cn)" opacity=".9"/>`).join('')}</g><text x="450" y="370" text-anchor="middle" font-family="Inter" font-weight="800" font-size="46" fill="#8d8a80">mula kecil pun tak apa</text>`;
+// chart
+$('#chart').innerHTML=DEFS+`<g stroke="rgba(255,255,255,.12)" stroke-width="3">${[100,240,380,520].map(y=>`<line x1="40" x2="860" y1="${y}" y2="${y}"/>`).join('')}</g><path id="cp" d="M40 540 L160 500 L280 450 L400 380 L520 310 L640 220 L760 140 L860 70" fill="none" stroke="#F5C451" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/><g id="cd"></g><text x="40" y="610" font-family="Inter" font-weight="800" font-size="36" fill="#8d8a80">bulan 1</text><text x="860" y="610" text-anchor="end" font-family="Inter" font-weight="800" font-size="36" fill="#8d8a80">bulan 12</text>`;
+{let d='';const pts=[[40,540],[160,500],[280,450],[400,380],[520,310],[640,220],[760,140],[860,70]];pts.forEach((p,i)=>d+=`<circle data-dot="${i}" cx="${p[0]}" cy="${p[1]}" r="16" fill="#0A0A0F" stroke="#F5C451" stroke-width="8"/>`);$('#cd').innerHTML=d}
+// hand/tap ring
+$('#hand').innerHTML=`<g id="tap"><circle cx="640" cy="40" r="30" fill="none" stroke="#fff" stroke-width="8" opacity=".9"/><path d="M640 40 l0 100 l30 -22 l24 52 l22 -10 l-24 -52 l36 -4 z" fill="#fff" transform="translate(-20,-10)" stroke="#0A0A0F" stroke-width="5"/></g>`;
+
+// ---- caption build ----
+const capEl=$('#cap');
+SEGS.forEach((s,i)=>{
+  const words=s[2].split(' ');const tot=words.reduce((a,w)=>a+w.length+1,0);let acc=0;
+  s.words=words.map(w=>{const a=s[0]+(s[1]-s[0])*acc/tot;acc+=w.length+1;const b=s[0]+(s[1]-s[0])*acc/tot;return{w,a,b}});
+});
+
+// ---- backgrounds ----
+const gctx=$('#glow').getContext('2d');
+function drawBG(t){
+  gctx.clearRect(0,0,1080,1920);
+  const g=gctx.createRadialGradient(540+Math.sin(t*0.5)*80,700+Math.cos(t*0.4)*60,50,540,800,1100);
+  g.addColorStop(0,'rgba(245,196,81,.20)');g.addColorStop(.5,'rgba(200,144,26,.07)');g.addColorStop(1,'rgba(10,10,15,0)');
+  gctx.fillStyle=g;gctx.fillRect(0,0,1080,1920);
+  gctx.fillStyle='rgba(245,196,81,.5)';
+  for(let i=0;i<34;i++){
+    const sx=(i*173)%1080, sp=18+(i*37)%40, y=((1920+ (i*271)%1920) - t*sp*2)%1920;
+    const r=1.5+(i%4);gctx.globalAlpha=.15+((i*13)%10)/40;
+    gctx.beginPath();gctx.arc(sx+Math.sin(t+i)*20,y,r,0,7);gctx.fill();
+  }
+  gctx.globalAlpha=1;
+}
+
+// ---- animation helpers ----
+function anim(el,l){
+  const d=parseFloat(el.dataset.d||0), k=el.dataset.k||'fade';
+  const sceneStart=el._ss;
+  const p=clamp((l-(d-(el._sceneOffset||0)))/0.55);
+  const e=eo(p);
+  let tf='';let op=p>0?Math.min(1,p*2.5):0;
+  if(k==='up')tf=`translateY(${(1-e)*70}px)`;
+  else if(k==='down')tf=`translateY(${-(1-e)*60}px)`;
+  else if(k==='left')tf=`translateX(${-(1-e)*120}px)`;
+  else if(k==='pop'){const s=0.4+0.6*eb(p);tf=`scale(${s})`;}
+  el.style.opacity=op;el.style.transform=tf;
+}
+function sceneAlpha(t,[a,b],first,last){
+  const fi=first?1:clamp((t-a)/0.25), fo=last?1:clamp((b-t)/0.2);
+  return Math.min(fi,fo);
+}
+// data-d are absolute seconds within scene-local timeline (offset by scene start where scenes are sub-parted)
+const ANIMS=[...document.querySelectorAll('.a')];
+// compute scene start for each .a element for local time
+ANIMS.forEach(el=>{
+  const sc=el.closest('.scene');const idx=parseInt(sc.id.slice(1))-1;el._si=idx;
+});
+
+function render(t){
+  drawBG(t);
+  $('#barf').style.width=(t/DUR*100)+'%';
+  // scenes
+  SC.forEach((w,i)=>{
+    const el=document.getElementById('s'+(i+1));
+    const on=t>=w[0]&&t<w[1];
+    el.style.opacity=on?sceneAlpha(t,w,i===0,i===SC.length-1):0;
+    el.style.display=on?'block':'none';
+  });
+  const si=SC.findIndex(w=>t>=w[0]&&t<w[1]);
+  const idx=si<0?SC.length-1:si;const l=t-SC[idx][0];
+  ANIMS.filter(e=>e._si===idx).forEach(e=>anim(e,l));
+
+  // ---- scene specifics ----
+  if(idx===0){
+    ['b0','b1','b2'].forEach((id,i)=>{const g=document.querySelector(`[data-bar="${id}"]`);const p=clamp((l-1.0-i*0.35)/0.5);g.style.opacity=p>0?1:0;g.setAttribute('transform',`translate(0,${-(1-eo(p))*120})`)});
+  }
+  if(idx===2){
+    // coin falls into jar looping
+    const per=1.0;const k=Math.floor(Math.max(0,l-0.9)/per);const ph=((Math.max(0,l-0.9))%per)/per;
+    let h='';const n=Math.min(5,Math.max(0,k));
+    for(let i=0;i<n;i++)h+=`<ellipse cx="${390+(i%3)*60}" cy="${350-Math.floor(i/3)*34}" rx="52" ry="16" fill="url(#cn)" stroke="#8a5d0b" stroke-width="3"/>`;
+    $('#jarcoins').innerHTML=h;
+    if(l>0.9&&k<5){const y=-40+ph*ph*380;$('#jarfall').innerHTML=`<circle cx="${450}" cy="${y}" r="42" fill="url(#cn)" stroke="#8a5d0b" stroke-width="5"/>`}else $('#jarfall').innerHTML='';
+  }
+  if(idx===3){
+    const p=clamp((l-1.4)/0.4);$('#strkl').style.width=(p*108)+'%';
+    document.querySelectorAll('[data-coin]').forEach(c=>{const i=+c.dataset.coin;const q=clamp((l-2.2-i*0.28)/0.3);c.style.opacity=q>0?1:0;c.setAttribute('transform',`translate(0,${-(1-eo(q))*120})`)});
+  }
+  if(idx===4){
+    const p=clamp((l-0.2)/0.5);$('#target').style.opacity=p;
+    const q=clamp((l-0.9)/0.35);const e=eo(q);
+    $('#arrow').setAttribute('transform',`translate(${450-(1-e)*520},${300-(1-e)*420})`);
+    $('#rings').style.transform=q>=1?`scale(${1+Math.max(0,.08-(l-1.25)*0.2)})`:'scale(1)';
+    $('#rings').style.transformOrigin='450px 300px';
+  }
+  if(idx===5){
+    document.querySelectorAll('.cell').forEach(c=>{const i=+c.dataset.m;const q=clamp((l-0.8-i*0.15)/0.25);
+      c.style.background=q>0?`rgba(245,196,81,${.15+.85*q})`:'transparent';c.style.color=q>0.5?'#1a1200':'#777';
+      c.style.borderColor=q>0?'#F5C451':'rgba(255,255,255,.15)';c.style.transform=`scale(${1+(q>0&&q<1?.12*(1-q):0)})`;
+      c.textContent=q>0.5?'+1g':MON[i];c.style.opacity=l>0.5?1:0});
+  }
+  if(idx===6){
+    const rot=l*140;$('#lp').setAttribute('transform',`rotate(${rot} 450 320)`);
+    const p=clamp((l-0.3)/0.4);$('#loop').style.opacity=p;
+  }
+  if(idx===7){
+    const a=clamp((l-2.4)/0.4), b=clamp((l-2.4)/0.4);
+    $('#s8a').style.opacity=1-a;$('#s8b').style.opacity=a;
+    $('#s8x').style.width=(clamp((l-1.2)/0.35)*108)+'%';
+    const xp=clamp((l-1.3)/0.5);$('#xm').style.opacity=xp;$('#xm').style.transform=`scale(${0.5+0.5*eb(xp)})`;$('#xm').style.transformOrigin='450px 200px';
+    document.querySelectorAll('[data-sd]').forEach(d=>{const i=+d.dataset.sd;const q=clamp((l-3.3-i*0.3)/0.25);const c=d.firstChild;
+      c.style.background=q>0?'#F5C451':'transparent';c.style.borderColor=q>0?'#F5C451':'rgba(255,255,255,.18)';d.querySelector('.ck').style.opacity=q;d.style.color=q>0?'#fff':'#888'});
+    $('#fire').style.opacity=clamp((l-5.4)/0.2);
+  }
+  if(idx===8){
+    const a=clamp((l-2.8)/0.4);$('#s9a').style.opacity=1-a;$('#s9b').style.opacity=a;
+    const sp=clamp((l-0.8)/0.5);$('#small').style.opacity=sp;
+    const path=$('#cp');const L=path.getTotalLength();const q=clamp((l-3.8)/1.5);
+    path.style.strokeDasharray=L;path.style.strokeDashoffset=L*(1-eo(q));
+    document.querySelectorAll('[data-dot]').forEach(c=>{const i=+c.dataset.dot;const dq=clamp((q*8-i)/1);c.style.opacity=dq>0?1:0});
+  }
+  if(idx===9){
+    const a=clamp((l-3.7)/0.3), c=clamp((l-5.5)/0.3);
+    $('#s10a').style.opacity=l<3.7?1:(l<5.5?1-a:0);
+    $('#s10b').style.opacity=l<3.7?0:(l<5.5?a:1-c);
+    $('#s10c').style.opacity=c;
+    $('#fbtn').style.transform=`scale(${1+0.05*Math.sin(l*8)})`;
+    const tp=clamp((l-5.0)/0.5);$('#tap').style.transform=`translate(${-(1-eo(tp))*0}px,${-(1-eo(tp))*0}px) scale(${l>5.0&&l<5.4?0.9:1})`;
+    $('#sbtn').style.transform=`scale(${l>5.0&&l<5.35?0.94:1+0.03*Math.sin(l*8)})`;
+  }
+
+  // ---- captions ----
+  const seg=SEGS.find(s=>t>=s[0]-0.05&&t<=s[1]+0.15);
+  const cap=$('#cap'),cbg=$('#capbg');
+  if(!seg){cap.innerHTML='';cap.style.opacity=0;cbg.style.opacity=0}
+  else{
+    cap.style.opacity=1;cbg.style.opacity=1;
+    const key=SEGS.indexOf(seg);
+    if(cap._k!==key){cap._k=key;cap.innerHTML=seg.words.map((w,i)=>`<span data-i="${i}" ${HL.test(w.w.replace(/[^\w@]/g,''))?'data-hl=1':''}>${w.w}</span>`).join('');
+      cap.style.top='1500px';cbg.style.top='1480px';cbg.style.height=(cap.offsetHeight+40)+'px'}
+    cap.querySelectorAll('span').forEach((s,i)=>{const w=seg.words[i];
+      const cur=t>=w.a&&t<w.b;const past=t>=w.b;
+      s.className=cur?'on':(past?'done':'next');
+      if(s.dataset.hl&&(cur||past))s.style.color='#F5C451';else s.style.color='';
+    });
+  }
+}
+window.render=render;render(0);
+</script></body></html>
