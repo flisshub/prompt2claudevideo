@@ -164,8 +164,14 @@ const NS='http://www.w3.org/2000/svg';
 function S(html){return html}
 
 // ---- build SVG graphics ----
-function bar(x,y,w,h,id){return `<g data-bar="${id}"><polygon points="${x+w*0.12},${y} ${x+w*0.88},${y} ${x+w},${y+h} ${x},${y+h}" fill="url(#bg)"/><polygon points="${x+w*0.12},${y} ${x+w*0.88},${y} ${x+w*0.82},${y+h*0.28} ${x+w*0.18},${y+h*0.28}" fill="#FFF0B8" opacity=".75"/><text x="${x+w/2}" y="${y+h*0.72}" text-anchor="middle" font-family="Inter" font-weight="900" font-size="${h*0.32}" fill="#7a5206" opacity=".7">999.9</text></g>`}
-const DEFS=`<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE08A"/><stop offset=".55" stop-color="#F5C451"/><stop offset="1" stop-color="#B07A12"/></linearGradient><radialGradient id="cn" cx=".35" cy=".3" r=".9"><stop offset="0" stop-color="#FFE9A8"/><stop offset=".6" stop-color="#F5C451"/><stop offset="1" stop-color="#B07A12"/></radialGradient></defs>`;
+function flower(R){let f='';for(let i=0;i<=360;i++){const a=i/360*Math.PI*2-Math.PI/2;const rr=R*(0.74+0.26*Math.abs(Math.cos(4*a)));f+=(i?'L':'M')+(rr*Math.cos(a)).toFixed(1)+' '+(rr*Math.sin(a)).toFixed(1)}return f}
+const FL=flower(105);
+function dinar(cx,cy,r,txt=true){const N=12,sec=Math.PI*2/N;let edge='';
+ for(let i=0;i<=360;i++){const ang=i/360*Math.PI*2;const m=((ang%sec)+sec)%sec;const poly=Math.cos(Math.PI/N)/Math.cos(m-sec/2);const rr=r*(0.55+0.45*poly);edge+=(i?'L':'M')+(cx+rr*Math.cos(ang)).toFixed(1)+' '+(cy+rr*Math.sin(ang)).toFixed(1)}
+ const fl=flower(r*.56).replace(/([ML])(-?[\d.]+) (-?[\d.]+)/g,(m,c,x,y)=>c+(cx+ +x).toFixed(1)+' '+(cy+ +y).toFixed(1));
+ return `<g><path d="${edge}Z" fill="${txt?'url(#bgd)':'#E9B63A'}" stroke="#B98417" stroke-width="${r*.05}"/><circle cx="${cx}" cy="${cy}" r="${r*.86}" fill="none" stroke="#8a5d0b" stroke-width="${r*.035}" stroke-dasharray="${r*.012} ${r*.07}" stroke-linecap="round" opacity=".6"/><path d="${fl}Z" fill="#F6CF62" stroke="#8a5d0b" stroke-width="${r*.04}" opacity=".95"/>`+(txt?`<text x="${cx}" y="${cy+r*.02}" text-anchor="middle" font-family="Inter" font-weight="900" font-size="${r*.34}" fill="#7a5206">10</text><text x="${cx}" y="${cy+r*.24}" text-anchor="middle" font-family="Inter" font-weight="900" font-size="${r*.2}" letter-spacing="1" fill="#7a5206">DINAR</text>`:'')+`</g>`}
+function bar(x,y,w,h,id){const rr=h*.2,fs=h*.2;const tx=(yy,t)=>`<text x="${x+w*.56}" y="${y+h*yy}" text-anchor="middle" font-family="Inter" font-weight="900" font-size="${fs}" fill="#FFF3C4" opacity=".8" transform="translate(-1.5,-1.5)">${t}</text><text x="${x+w*.56}" y="${y+h*yy}" text-anchor="middle" font-family="Inter" font-weight="900" font-size="${fs}" fill="#8a5d0b" opacity=".85">${t}</text>`;return `<g data-bar="${id}"><rect x="${x}" y="${y+h*.04}" width="${w}" height="${h}" rx="${rr}" fill="#000" opacity=".35"/><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${rr}" fill="url(#bgd)" stroke="#B98417" stroke-width="${h*.025}"/><rect x="${x+w*.04}" y="${y+h*.08}" width="${w*.92}" height="${h*.84}" rx="${rr*.7}" fill="none" stroke="#FFF3C4" stroke-width="${h*.02}" opacity=".7"/><polygon points="${x+w*.18},${y+h*.02} ${x+w*.38},${y+h*.02} ${x+w*.22},${y+h*.98} ${x+w*.02},${y+h*.98}" fill="url(#shn)" opacity=".7"/>${tx(.37,'250g')}${tx(.61,'GOLD')}${tx(.85,'999.9')}</g>`}
+const DEFS=`<defs><linearGradient id="bgd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFE9A0"/><stop offset=".35" stop-color="#F2C24A"/><stop offset=".7" stop-color="#D79F22"/><stop offset="1" stop-color="#A87510"/></linearGradient><linearGradient id="shn" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE08A"/><stop offset=".55" stop-color="#F5C451"/><stop offset="1" stop-color="#B07A12"/></linearGradient><radialGradient id="cn" cx=".35" cy=".3" r=".9"><stop offset="0" stop-color="#FFE9A8"/><stop offset=".6" stop-color="#F5C451"/><stop offset="1" stop-color="#B07A12"/></radialGradient></defs>`;
 $('#bars1').innerHTML=DEFS+bar(300,120,300,110,'b0')+bar(160,230,300,110,'b1')+bar(440,230,300,110,'b2').replace(/y="/g,'y="')
   // shift rows so base sits in viewBox
 ;
@@ -174,7 +180,7 @@ $('#bars1').setAttribute('viewBox','0 100 900 260');
 // jar
 $('#jar').innerHTML=DEFS+`<rect x="270" y="90" width="360" height="290" rx="60" fill="rgba(255,255,255,.06)" stroke="rgba(245,196,81,.8)" stroke-width="8"/><rect x="300" y="50" width="300" height="46" rx="14" fill="none" stroke="rgba(245,196,81,.8)" stroke-width="8"/><g id="jarcoins"></g><g id="jarfall"></g>`;
 // stack
-let st='';for(let i=0;i<7;i++){const y=500-i*62;st+=`<g data-coin="${i}"><ellipse cx="450" cy="${y+20}" rx="170" ry="44" fill="#8a5d0b"/><rect x="280" y="${y-18}" width="340" height="38" fill="#C8901A"/><ellipse cx="450" cy="${y-18}" rx="170" ry="44" fill="url(#cn)"/><ellipse cx="450" cy="${y-18}" rx="130" ry="30" fill="none" stroke="#8a5d0b" stroke-width="4" opacity=".4"/></g>`}
+let st='';for(let i=0;i<7;i++){const y=500-i*62;st+=`<g data-coin="${i}"><ellipse cx="450" cy="${y+20}" rx="170" ry="44" fill="#8a5d0b"/><rect x="280" y="${y-18}" width="340" height="38" fill="#C8901A"/><ellipse cx="450" cy="${y-18}" rx="170" ry="44" fill="url(#cn)"/><ellipse cx="450" cy="${y-18}" rx="146" ry="35" fill="none" stroke="#8a5d0b" stroke-width="4" stroke-dasharray="2 12" stroke-linecap="round" opacity=".55"/><g transform="translate(450,${y-18}) scale(1,.22)"><path d="${FL}Z" fill="#F6CF62" stroke="#8a5d0b" stroke-width="7" opacity=".95"/></g></g>`}
 $('#stack').innerHTML=DEFS+st;
 // target
 $('#target').innerHTML=DEFS+`<g id="rings">${[250,190,130,70].map((r,i)=>`<circle cx="450" cy="300" r="${r}" fill="${i%2?'#F5C451':'#fff'}" opacity="${i%2?1:.92}" data-ring="${i}"/>`).join('')}<circle cx="450" cy="300" r="26" fill="#FF5A4F"/></g><g id="arrow"><line x1="-220" y1="-150" x2="-24" y2="-14" stroke="#fff" stroke-width="14" stroke-linecap="round"/><polygon points="0,0 -46,-12 -20,-46" fill="#F5C451"/><polygon points="-220,-150 -262,-150 -236,-196" fill="#FF5A4F"/></g>`;
@@ -265,9 +271,9 @@ function render(t){
     // coin falls into jar looping
     const per=1.0;const k=Math.floor(Math.max(0,l-0.9)/per);const ph=((Math.max(0,l-0.9))%per)/per;
     let h='';const n=Math.min(5,Math.max(0,k));
-    for(let i=0;i<n;i++)h+=`<ellipse cx="${390+(i%3)*60}" cy="${350-Math.floor(i/3)*34}" rx="52" ry="16" fill="url(#cn)" stroke="#8a5d0b" stroke-width="3"/>`;
+    const P=[[340,330],[450,330],[560,330],[395,272],[505,272]];for(let i=0;i<n;i++)h+=dinar(P[i][0],P[i][1],40,false);
     $('#jarcoins').innerHTML=h;
-    if(l>0.9&&k<5){const y=-40+ph*ph*380;$('#jarfall').innerHTML=`<circle cx="${450}" cy="${y}" r="42" fill="url(#cn)" stroke="#8a5d0b" stroke-width="5"/>`}else $('#jarfall').innerHTML='';
+    if(l>0.9&&k<5){const y=-40+ph*ph*380;$('#jarfall').innerHTML=dinar(P[k][0],Math.min(y,P[k][1]),40,false)}else $('#jarfall').innerHTML='';
   }
   if(idx===3){
     const p=clamp((l-1.4)/0.4);$('#strkl').style.width=(p*108)+'%';
