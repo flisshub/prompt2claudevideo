@@ -244,7 +244,8 @@ $('#k7').innerHTML=
 // wallet for 9a
 $('#wal9').innerHTML=bar(110,70,320,150)+dinar(640,145,100);
 // stack
-{let st='';for(let i=0;i<8;i++){const y=500-i*58;st+=`<g class="a" data-d="${4.0+i*0.28}" data-k="pop"><ellipse cx="450" cy="${y+20}" rx="170" ry="44" fill="#8a5d0b"/><rect x="280" y="${y-18}" width="340" height="38" fill="#C8901A"/><ellipse cx="450" cy="${y-18}" rx="170" ry="44" fill="url(#cn)"/><ellipse cx="450" cy="${y-18}" rx="130" ry="30" fill="none" stroke="#8a5d0b" stroke-width="4" opacity=".4"/></g>`}$('#stack').innerHTML=st}
+const FL=(()=>{let f='';const R=105;for(let i=0;i<=360;i++){const a=i/360*Math.PI*2-Math.PI/2;const rr=R*(0.74+0.26*Math.abs(Math.cos(4*a)));f+=(i?'L':'M')+(rr*Math.cos(a)).toFixed(1)+' '+(rr*Math.sin(a)).toFixed(1)}return f})();
+{let st='';for(let i=0;i<8;i++){const y=500-i*58;st+=`<g class="a" data-d="${4.0+i*0.28}" data-k="pop"><ellipse cx="450" cy="${y+20}" rx="170" ry="44" fill="#8a5d0b"/><rect x="280" y="${y-18}" width="340" height="38" fill="#C8901A"/><ellipse cx="450" cy="${y-18}" rx="170" ry="44" fill="url(#cn)"/><ellipse cx="450" cy="${y-18}" rx="146" ry="35" fill="none" stroke="#8a5d0b" stroke-width="4" stroke-dasharray="2 12" stroke-linecap="round" opacity=".55"/><g transform="translate(450,${y-18}) scale(1,.22)"><path d="${FL}Z" fill="#F6CF62" stroke="#8a5d0b" stroke-width="7" opacity=".95"/></g></g>`}$('#stack').innerHTML=st}
 // hand
 $('#hand').innerHTML=`<g id="tap"><circle cx="640" cy="40" r="30" fill="none" stroke="#0B2545" stroke-width="8" opacity=".9"/><path d="M640 40 l0 100 l30 -22 l24 52 l22 -10 l-24 -52 l36 -4 z" fill="#fff" transform="translate(-20,-10)" stroke="#0B2545" stroke-width="6"/></g>`;
 
