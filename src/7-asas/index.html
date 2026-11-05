@@ -164,8 +164,8 @@ const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
 const eo=p=>1-Math.pow(1-p,3);
 const eb=p=>{const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(p-1,3)+c1*Math.pow(p-1,2)};
 const $=s=>document.querySelector(s);
-const bar=(x,y,w,h)=>`<g><polygon points="${x+w*.12},${y} ${x+w*.88},${y} ${x+w},${y+h} ${x},${y+h}" fill="url(#bg)"/><polygon points="${x+w*.12},${y} ${x+w*.88},${y} ${x+w*.82},${y+h*.28} ${x+w*.18},${y+h*.28}" fill="#FFF0B8" opacity=".8"/><text x="${x+w/2}" y="${y+h*.72}" text-anchor="middle" font-family="Inter" font-weight="900" font-size="${h*.34}" fill="#7a5206" opacity=".75">Au</text></g>`;
-const coin=(cx,cy,r)=>`<g><circle cx="${cx}" cy="${cy}" r="${r}" fill="url(#cn)" stroke="#B98417" stroke-width="${r*.06}"/><circle cx="${cx}" cy="${cy}" r="${r*.78}" fill="none" stroke="#B98417" stroke-width="${r*.04}" opacity=".5"/><text x="${cx}" y="${cy+r*.3}" text-anchor="middle" font-family="Inter" font-weight="900" font-size="${r*.9}" fill="#7a5206">Au</text></g>`;
+const bar=(x,y,w,h)=>`<g><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${h*.1}" fill="url(#bg)" stroke="#B98417" stroke-width="${h*.03}"/><rect x="${x+w*.06}" y="${y+h*.12}" width="${w*.88}" height="${h*.76}" rx="${h*.06}" fill="none" stroke="#FFF0B8" stroke-width="${h*.025}" opacity=".85"/><rect x="${x+w*.06}" y="${y+h*.12}" width="${w*.88}" height="${h*.2}" rx="${h*.06}" fill="#FFF0B8" opacity=".35"/><text x="${x+w/2}" y="${y+h*.68}" text-anchor="middle" font-family="Inter" font-weight="900" font-size="${h*.36}" fill="#7a5206" opacity=".8">Au</text></g>`;
+const dinar=(cx,cy,r)=>{let d='';const n=14;for(let i=0;i<=n*8;i++){const ang=i/(n*8)*Math.PI*2;const rr=r*(1+0.045*Math.cos(ang*n));d+=(i?'L':'M')+(cx+rr*Math.cos(ang)).toFixed(1)+' '+(cy+rr*Math.sin(ang)).toFixed(1)}return `<g><path d="${d}Z" fill="url(#cn)" stroke="#B98417" stroke-width="${r*.05}"/><circle cx="${cx}" cy="${cy}" r="${r*.78}" fill="none" stroke="#B98417" stroke-width="${r*.04}" opacity=".55"/><text x="${cx}" y="${cy+r*.12}" text-anchor="middle" font-family="Inter" font-weight="900" font-size="${r*.62}" fill="#7a5206">Au</text><text x="${cx}" y="${cy+r*.5}" text-anchor="middle" font-family="Inter" font-weight="800" font-size="${r*.22}" letter-spacing="2" fill="#7a5206" opacity=".85">DINAR</text></g>`};
 const T=(x,y,s,txt,fill='#0B2545',w=800,anchor='middle')=>`<text x="${x}" y="${y}" text-anchor="${anchor}" font-family="Inter" font-weight="${w}" font-size="${s}" fill="${fill}">${txt}</text>`;
 const A=(d,k,inner,extra='')=>`<g class="a" data-d="${d}" data-k="${k}" ${extra}>${inner}</g>`;
 
@@ -185,8 +185,8 @@ $('#k1').innerHTML=
 // K2 physical gold options
 $('#k2').innerHTML=
  A(0.7,'up',T(450,80,34,'PILIHAN MENDAPATKAN EMAS FIZIKAL','#5A6B85',800))+
- A(1.3,'pop',`<rect x="60" y="130" width="360" height="360" rx="34" fill="#F3F6FB" stroke="#D5DCE8" stroke-width="3"/>${bar(100,230,280,130)}${T(240,440,44,'Jongkong','#0B2545',800)}`)+
- A(2.3,'pop',`<rect x="480" y="130" width="360" height="360" rx="34" fill="#F3F6FB" stroke="#D5DCE8" stroke-width="3"/>${coin(660,290,100)}${T(660,440,44,'Syiling','#0B2545',800)}`)+
+ A(1.3,'pop',`<rect x="60" y="130" width="360" height="360" rx="34" fill="#F3F6FB" stroke="#D5DCE8" stroke-width="3"/>${bar(95,225,290,150)}${T(240,440,44,'Jongkong','#0B2545',800)}`)+
+ A(2.3,'pop',`<rect x="480" y="130" width="360" height="360" rx="34" fill="#F3F6FB" stroke="#D5DCE8" stroke-width="3"/>${dinar(660,290,105)}${T(660,440,44,'Dinar','#0B2545',800)}`)+
  A(4.0,'pop',`<rect x="120" y="525" width="660" height="82" rx="41" fill="#0B2545"/>${T(450,582,40,'Pastikan anda faham','#fff',800)}`);
 
 // K3 timeline 2 years
@@ -237,7 +237,7 @@ $('#k7').innerHTML=
  A(3.2,'pop',`<rect x="470" y="130" width="380" height="420" rx="34" fill="#F3F6FB" stroke="#D5DCE8" stroke-width="3"/><circle cx="660" cy="270" r="90" fill="#0B2545"/><line x1="630" y1="330" x2="630" y2="215" stroke="#fff" stroke-width="10" stroke-linecap="round"/><polygon points="630,215 705,238 630,262" fill="#E0A92B"/>${T(660,450,48,'Capai matlamat','#0B2545',800)}${T(660,505,48,'kewangan','#0B2545',800)}`);
 
 // wallet for 9a
-$('#wal9').innerHTML=bar(120,60,300,130)+coin(620,125,95);
+$('#wal9').innerHTML=bar(110,70,320,150)+dinar(640,145,100);
 // stack
 {let st='';for(let i=0;i<8;i++){const y=500-i*58;st+=`<g class="a" data-d="${4.0+i*0.28}" data-k="pop"><ellipse cx="450" cy="${y+20}" rx="170" ry="44" fill="#8a5d0b"/><rect x="280" y="${y-18}" width="340" height="38" fill="#C8901A"/><ellipse cx="450" cy="${y-18}" rx="170" ry="44" fill="url(#cn)"/><ellipse cx="450" cy="${y-18}" rx="130" ry="30" fill="none" stroke="#8a5d0b" stroke-width="4" opacity=".4"/></g>`}$('#stack').innerHTML=st}
 // hand
