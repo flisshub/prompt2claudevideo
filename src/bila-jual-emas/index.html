@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="ms"><head><meta charset="utf-8"><title>Bila Jual Emas</title>
+<style>
+:root{--bg:#0A0A0F;--gold:#F5C451;--gold2:#C8901A;--cream:#FFF4D6;--red:#FF5A4F;--green:#2FBF7F}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;background:var(--bg);overflow:hidden;font-family:Inter,'Inter Display',sans-serif;color:#fff}
+#stage{position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:hidden;background:var(--bg)}
+#glow{position:absolute;inset:0}
+.scene{position:absolute;inset:0;opacity:0}
+.c{position:absolute;left:90px;width:900px;text-align:center}
+.t{white-space:nowrap;font-weight:900;letter-spacing:-2px;line-height:.98;text-transform:uppercase}
+.g{color:var(--gold)}
+.chip{display:inline-block;padding:14px 34px;border-radius:999px;border:3px solid var(--gold);color:var(--gold);font-weight:800;font-size:38px;letter-spacing:3px;background:rgba(245,196,81,.08)}
+.badge{display:inline-block;padding:16px 44px;border-radius:20px;background:var(--gold);color:#1a1200;font-weight:900;font-size:56px;letter-spacing:2px}
+.a{opacity:0;transform-box:fill-box;transform-origin:center}
+#bar{position:absolute;left:90px;top:176px;width:900px;height:10px;border-radius:5px;background:rgba(255,255,255,.12)}
+#barf{height:100%;width:0;border-radius:5px;background:linear-gradient(90deg,var(--gold2),var(--gold))}
+#cap{position:absolute;left:100px;width:880px;top:1500px;text-align:center;font-weight:800;font-size:54px;line-height:1.3;text-shadow:0 4px 18px rgba(0,0,0,.9)}
+#cap span{display:inline-block;margin:0 11px;color:rgba(255,255,255,.45)}
+#cap span.done{color:#fff}
+#cap span.on{color:var(--gold);transform:scale(1.06)}
+#capbg{position:absolute;left:70px;width:940px;top:1480px;height:210px;border-radius:36px;background:rgba(10,10,15,.78);border:2px solid rgba(245,196,81,.28)}
+.sl{position:absolute;left:-8px;top:52%;height:14px;width:0;background:var(--red);border-radius:7px;transform:rotate(-2.5deg)}
+.btn{display:inline-block;border-radius:999px;background:var(--gold);color:#1a1200;font-weight:900;letter-spacing:-1px;box-shadow:0 0 70px rgba(245,196,81,.5)}
+</style></head><body>
+<div id="stage">
+<canvas id="glow" width="1080" height="1920"></canvas>
+<svg width="0" height="0" style="position:absolute"><defs>
+<linearGradient id="bgd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFE9A0"/><stop offset=".35" stop-color="#F2C24A"/><stop offset=".7" stop-color="#D79F22"/><stop offset="1" stop-color="#A87510"/></linearGradient>
+<linearGradient id="shn" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+</defs></svg>
+<img id="wm" src="../../assets/logo-dark.png" style="position:absolute;left:880px;top:238px;width:110px;height:110px;border-radius:50%;opacity:0;box-shadow:0 8px 24px rgba(0,0,0,.35)">
+<div id="bar"><div id="barf"></div></div>
+
+<!-- 0 hook -->
+<div class="scene" id="s0">
+  <div class="c a" data-d="0.05" data-k="down" style="top:270px"><span class="chip">TIP EMAS</span></div>
+  <div class="c t a" data-d="0.15" data-k="up" style="top:400px;font-size:80px;letter-spacing:-1px">Bila waktu terbaik</div>
+  <div class="c t g a" data-d="0.6" data-k="pop" style="top:540px;font-size:340px;letter-spacing:-9px;text-shadow:0 0 80px rgba(245,196,81,.45)">JUAL</div>
+  <div class="c t a" data-d="0.9" data-k="up" style="top:900px;font-size:130px">EMAS<span class="g">?</span></div>
+  <svg class="c" style="top:1110px;height:300px" viewBox="0 0 900 300" id="g0"></svg>
+</div>
+
+<!-- 1 tiga situasi -->
+<div class="scene" id="s1">
+  <div class="c t g a" data-d="0.05" data-k="pop" style="top:240px;font-size:520px;letter-spacing:-18px;line-height:.9;text-shadow:0 0 90px rgba(245,196,81,.4)">3</div>
+  <div class="c t a" data-d="0.3" data-k="up" style="top:770px;font-size:150px">SITUASI</div>
+  <svg class="c" style="top:960px;height:430px" viewBox="0 0 900 430" id="g1"></svg>
+</div>
+
+<!-- 2 situasi 1 -->
+<div class="scene" id="s2">
+  <div class="c a" data-d="0.05" data-k="down" style="top:260px"><span class="badge">SITUASI 1</span></div>
+  <div class="c t a" data-d="0.15" data-k="up" style="top:390px;font-size:92px">Capai matlamat</div>
+  <div class="c t g a" data-d="0.35" data-k="pop" style="top:500px;font-size:150px;letter-spacing:-4px;text-shadow:0 0 60px rgba(245,196,81,.35)">SIMPANAN</div>
+  <svg class="c" style="top:760px;height:680px" viewBox="0 0 900 680" id="g2"></svg>
+</div>
+
+<!-- 3 boleh jual -->
+<div class="scene" id="s3">
+  <div class="c t a" data-d="0.05" data-k="up" style="top:300px;font-size:70px;text-transform:none;letter-spacing:-1px;color:var(--cream)">Bila tiba masanya,</div>
+  <div class="c t g a" data-d="0.3" data-k="pop" style="top:420px;font-size:240px;letter-spacing:-7px;text-shadow:0 0 80px rgba(245,196,81,.4)">BOLEH</div>
+  <div class="c t a" data-d="0.9" data-k="pop" style="top:680px;font-size:240px;letter-spacing:-7px">JUAL</div>
+  <svg class="c" style="top:1060px;height:300px" viewBox="0 0 900 300" id="g3"></svg>
+</div>
+
+<!-- 4 situasi 2 -->
+<div class="scene" id="s4">
+  <div class="c a" data-d="0.05" data-k="down" style="top:260px"><span class="badge">SITUASI 2</span></div>
+  <div class="c t a" data-d="0.15" data-k="up" style="top:390px;font-size:100px">Peluang lain</div>
+  <div class="c t g a" data-d="0.35" data-k="up" style="top:510px;font-size:112px;letter-spacing:-3px">LEBIH MENARIK</div>
+  <svg class="c" id="g4a" style="top:780px;height:640px" viewBox="0 0 900 640"></svg>
+  <svg class="c" id="g4b" style="top:780px;height:640px;opacity:0" viewBox="0 0 900 640"></svg>
+</div>
+
+<!-- 5 situasi 3 -->
+<div class="scene" id="s5">
+  <div class="c a" data-d="0.05" data-k="down" style="top:260px"><span class="badge">SITUASI 3</span></div>
+  <div class="c t g a" data-d="0.2" data-k="pop" style="top:400px;font-size:132px;letter-spacing:-4px;text-shadow:0 0 70px rgba(245,196,81,.35)">KECEMASAN</div>
+  <div class="c t a" data-d="0.9" data-k="up" style="top:600px;font-size:64px;text-transform:none;letter-spacing:-1px;color:var(--cream)">tunai sudah tak mencukupi</div>
+  <svg class="c" style="top:760px;height:660px" viewBox="0 0 900 660" id="g5"></svg>
+</div>
+
+<!-- 6 ingat -->
+<div class="scene" id="s6">
+  <div id="s6a" style="position:absolute;inset:0">
+    <div class="c a" data-d="0.05" data-k="down" style="top:270px"><span class="chip">INGAT</span></div>
+    <div class="c t g a" data-d="0.15" data-k="pop" style="top:380px;font-size:250px;letter-spacing:-7px;text-shadow:0 0 80px rgba(245,196,81,.4)">EMAS</div>
+    <div class="c t a" data-d="0.7" data-k="up" style="top:660px;font-size:76px;text-transform:none;letter-spacing:-1px;color:var(--cream)">bukan sekadar</div>
+    <div class="c t a" data-d="1.0" data-k="up" style="top:770px;font-size:130px"><span style="position:relative;display:inline-block">DIKUMPUL<i class="sl" data-strike="1.6"></i></span></div>
+    <svg class="c" style="top:990px;height:380px" viewBox="0 0 900 380" id="g6a"></svg>
+  </div>
+  <div id="s6b" style="position:absolute;inset:0;opacity:0">
+    <div class="c t a" data-d="2.7" data-k="up" style="top:330px;font-size:76px;text-transform:none;letter-spacing:-1px;color:var(--cream)">tetapi</div>
+    <div class="c t g a" data-d="2.85" data-k="pop" style="top:420px;font-size:280px;letter-spacing:-8px;text-shadow:0 0 80px rgba(245,196,81,.4)">ASET</div>
+    <div class="c t a" data-d="3.3" data-k="up" style="top:740px;font-size:66px;text-transform:none;letter-spacing:-1px;color:var(--cream)">bantu capai matlamat</div>
+    <div class="c t a" data-d="3.5" data-k="up" style="top:830px;font-size:120px"><span class="g">KEWANGAN</span></div>
+    <svg class="c" style="top:1010px;height:360px" viewBox="0 0 900 360" id="g6b"></svg>
+  </div>
+</div>
+
+<!-- 7 CTA -->
+<div class="scene" id="s7">
+  <div id="s7a" style="position:absolute;inset:0">
+    <img class="c a" data-d="0.05" data-k="pop" src="../../assets/logo-dark.png" style="top:260px;left:410px;width:260px;height:260px;border-radius:50%;box-shadow:0 20px 60px rgba(0,0,0,.35)">
+    <div class="c t a" data-d="0.3" data-k="up" style="top:570px;font-size:70px;text-transform:none;letter-spacing:-1px;color:var(--gold)">@theazminapg</div>
+    <div class="c a" data-d="0.6" data-k="pop" style="top:710px"><span class="btn" id="fbtn" style="padding:36px 130px;font-size:112px">FOLLOW</span></div>
+    <div class="c t a" data-d="1.4" data-k="up" style="top:970px;font-size:58px;text-transform:none;letter-spacing:-1px;color:var(--cream)">untuk ilmu <span class="g">emas</span> dan <span class="g">kewangan</span></div>
+  </div>
+  <div id="s7b" style="position:absolute;inset:0;opacity:0">
+    <div class="c t a" data-d="3.6" data-k="up" style="top:330px;font-size:96px;text-transform:none;color:var(--cream)">Klik</div>
+    <div class="c a" data-d="3.75" data-k="pop" style="top:470px"><span class="btn" id="sbtn" style="padding:36px 110px;font-size:124px;border-radius:34px">SIGN UP</span></div>
+    <div class="c t a" data-d="4.1" data-k="up" style="top:730px;font-size:84px;text-transform:none;letter-spacing:-2px;color:var(--cream)">untuk bermula</div>
+    <svg class="c" style="top:560px;height:200px;pointer-events:none" viewBox="0 0 900 200" id="hand"></svg>
+  </div>
+  <div id="s7c" style="position:absolute;inset:0;opacity:0">
+    <div class="c t g a" data-d="5.2" data-k="pop" style="top:880px;font-size:112px;letter-spacing:-3px;text-shadow:0 0 70px rgba(245,196,81,.4)">SAYA BANTU<br>SEBAIKNYA</div>
+  </div>
+</div>
+
+<div id="capbg" style="opacity:0"></div>
+<div id="cap"></div>
+</div>
+
+<script>
+const DUR=40.64, CTA=33.98;
+const SEGS=[
+[0.25,3.02,"Bila sebenarnya waktu terbaik untuk jual emas?"],
+[3.35,5.89,"Ini 3 situasi yang tuan puan perlu tahu."],
+[6.36,9.74,"Pertama, apabila sudah mencapai matlamat simpanan."],
+[9.74,13.32,"Contohnya, simpan emas untuk menunaikan umrah atau haji."],
+[13.53,14.43,"Bila tiba masanya,"],
+[14.65,15.33,"bolehlah jual."],
+[15.87,19.68,"Kedua, apabila ada peluang pelaburan lain yang lebih menarik,"],
+[19.68,22.69,"seperti membeli hartanah di bawah harga pasaran."],
+[22.99,27.24,"Ketiga, apabila berlaku kecemasan dan simpanan tunai sudah tidak mencukupi."],
+[27.77,30.09,"Ingat, emas bukan sekadar untuk dikumpul,"],
+[30.34,33.33,"tetapi aset yang boleh membantu mencapai matlamat kewangan."],
+[33.98,37.33,"Follow @theazminapg untuk ilmu emas dan kewangan."],
+[37.57,38.86,"Klik sign up untuk bermula."],
+[39.19,40.29,"Saya bantu sebaiknya."]
+];
+const SC=[[0,3.35],[3.35,6.36],[6.36,13.53],[13.53,15.87],[15.87,22.99],[22.99,27.77],[27.77,33.98],[33.98,40.64]];
+const HLW=new Set(['emas','matlamat','simpanan','umrah','haji','jual','bolehlah','peluang','pelaburan','menarik','hartanah','harga','pasaran','kecemasan','tunai','aset','kewangan','follow','@theazminapg','sign','up','3','situasi','dikumpul']);
+const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const eo=p=>1-Math.pow(1-p,3);
+const eb=p=>{const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(p-1,3)+c1*Math.pow(p-1,2)};
+const $=s=>document.querySelector(s);
+const A=(d,k,inner)=>`<g class="a" data-d="${d}" data-k="${k}">${inner}</g>`;
+const T=(x,y,s,txt,fill='#fff',w=800,anchor='middle',extra='')=>`<text x="${x}" y="${y}" text-anchor="${anchor}" font-family="Inter" font-weight="${w}" font-size="${s}" fill="${fill}" ${extra}>${txt}</text>`;
+
+function bar(x,y,w,h){const rr=h*.2,fs=h*.2;const tx=(yy,t)=>`<text x="${x+w*.56}" y="${y+h*yy}" text-anchor="middle" font-family="Inter" font-weight="900" font-size="${fs}" fill="#FFF3C4" opacity=".8" transform="translate(-1.5,-1.5)">${t}</text><text x="${x+w*.56}" y="${y+h*yy}" text-anchor="middle" font-family="Inter" font-weight="900" font-size="${fs}" fill="#8a5d0b" opacity=".85">${t}</text>`;return `<g><rect x="${x}" y="${y+h*.04}" width="${w}" height="${h}" rx="${rr}" fill="#000" opacity=".35"/><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${rr}" fill="url(#bgd)" stroke="#B98417" stroke-width="${h*.025}"/><rect x="${x+w*.04}" y="${y+h*.08}" width="${w*.92}" height="${h*.84}" rx="${rr*.7}" fill="none" stroke="#FFF3C4" stroke-width="${h*.02}" opacity=".7"/><polygon points="${x+w*.18},${y+h*.02} ${x+w*.38},${y+h*.02} ${x+w*.22},${y+h*.98} ${x+w*.02},${y+h*.98}" fill="url(#shn)" opacity=".7"/>${tx(.37,'250g')}${tx(.61,'GOLD')}${tx(.85,'999.9')}</g>`}
+const note=(x,y,w,h)=>`<g><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="22" fill="#1F8F63"/><rect x="${x+12}" y="${y+12}" width="${w-24}" height="${h-24}" rx="14" fill="none" stroke="#8FE3BE" stroke-width="4" opacity=".8"/><circle cx="${x+w/2}" cy="${y+h/2}" r="${h*.28}" fill="#8FE3BE"/>${T(x+w/2,y+h/2+h*.1,h*.26,'RM','#0B5A3C',900)}</g>`;
+const sellGfx=(d)=>A(d,'up',bar(60,70,280,130))+A(d+0.5,'left',`<path d="M375 135 L485 135" stroke="#F5C451" stroke-width="16" stroke-linecap="round"/><polygon points="480,95 550,135 480,175" fill="#F5C451"/>`)+A(d+1.0,'pop',note(580,60,280,150));
+const kaabah=(x,y,s)=>`<g transform="translate(${x},${y}) scale(${s})"><polygon points="0,50 30,20 170,20 140,50" fill="#2a2a2e"/><rect x="0" y="50" width="140" height="130" fill="#161618" stroke="#3a3a40" stroke-width="3"/><polygon points="140,50 170,20 170,150 140,180" fill="#0c0c0e"/><rect x="0" y="82" width="140" height="22" fill="#F5C451"/><polygon points="140,82 170,52 170,74 140,104" fill="#C8901A"/><rect x="92" y="118" width="30" height="62" rx="4" fill="#F5C451" opacity=".85"/></g>`;
+const flag=(x,y)=>`<g transform="translate(${x},${y})"><circle cx="0" cy="0" r="115" fill="none" stroke="#F5C451" stroke-width="12"/><circle cx="0" cy="0" r="72" fill="none" stroke="#F5C451" stroke-width="8" opacity=".6"/><line x1="-10" y1="55" x2="-10" y2="-70" stroke="#fff" stroke-width="10" stroke-linecap="round"/><polygon points="-10,-70 70,-45 -10,-20" fill="#FF5A4F"/></g>`;
+const check=(cx,cy,r)=>`<circle cx="${cx}" cy="${cy}" r="${r}" fill="#2FBF7F"/><path d="M${cx-r*.45} ${cy+r*.02} L${cx-r*.1} ${cy+r*.38} L${cx+r*.5} ${cy-r*.36}" fill="none" stroke="#fff" stroke-width="${r*.2}" stroke-linecap="round" stroke-linejoin="round"/>`;
+
+// g0 hook
+$('#g0').innerHTML=sellGfx(1.3);
+// g1 three rows
+$('#g1').innerHTML=[['1','Capai matlamat',1.1],['2','Peluang lebih menarik',1.6],['3','Kecemasan',2.1]].map((r,i)=>A(r[2],'left',`<circle cx="90" cy="${70+i*130}" r="48" fill="#F5C451"/>`+T(90,88+i*130,56,r[0],'#1a1200',900)+T(170,88+i*130,56,r[1],'#fff',800,'start'))).join('');
+// g2 matlamat simpanan
+$('#g2').innerHTML=
+ `<rect x="40" y="50" width="820" height="64" rx="32" fill="rgba(255,255,255,.12)"/><rect id="pf" x="40" y="50" width="0" height="64" rx="32" fill="#F5C451"/>`+
+ T(40,170,34,'Mula','#8d8a80',700,'start')+T(860,170,34,'Matlamat','#8d8a80',700,'end')+
+ `<text id="pct" x="450" y="320" text-anchor="middle" font-family="Inter" font-weight="900" font-size="150" fill="#F5C451">0%</text>`+
+ A(3.3,'pop',check(860,82,46))+
+ A(3.8,'up',`<rect x="40" y="400" width="820" height="240" rx="40" fill="rgba(245,196,81,.08)" stroke="#F5C451" stroke-width="4"/>${kaabah(100,430,1.15)}${T(380,520,84,'UMRAH','#F5C451',900,'start')}${T(380,610,84,'HAJI','#fff',900,'start')}`);
+// g3 sell again
+$('#g3').innerHTML=sellGfx(1.2);
+// g4a compare
+$('#g4a').innerHTML=
+ `<g stroke="rgba(255,255,255,.1)" stroke-width="3">${[120,260,400,540].map(y=>`<line x1="40" x2="860" y1="${y}" y2="${y}"/>`).join('')}</g>`+
+ `<rect id="b1" x="130" y="540" width="220" height="0" rx="18" fill="#F5C451"/><rect id="b2" x="550" y="540" width="220" height="0" rx="18" fill="#FFF4D6"/>`+
+ T(240,605,40,'Emas','#8d8a80',800)+T(660,605,40,'Peluang lain','#FFF4D6',800)+
+ A(3.0,'pop',`<polygon points="660,70 682,128 744,128 694,164 712,224 660,188 608,224 626,164 576,128 638,128" fill="#F5C451"/>`);
+// g4b house
+$('#g4b').innerHTML=
+ `<g transform="translate(-10,0)"><polygon points="120,300 300,150 480,300" fill="#F5C451"/><rect x="150" y="300" width="300" height="250" fill="#FFF4D6"/><rect x="270" y="400" width="64" height="150" rx="6" fill="#0A0A0F"/><rect x="180" y="330" width="60" height="60" rx="6" fill="#0A0A0F" opacity=".75"/><rect x="360" y="330" width="60" height="60" rx="6" fill="#0A0A0F" opacity=".75"/></g>`+
+ A(4.4,'pop',`<g transform="translate(540,120)"><rect width="320" height="260" rx="34" fill="#F5C451"/><circle cx="160" cy="0" r="14" fill="#0A0A0F"/>${T(160,92,46,'DI BAWAH','#1a1200',900)}${T(160,150,46,'HARGA','#1a1200',900)}${T(160,208,46,'PASARAN','#1a1200',900)}</g>`)+
+ A(5.0,'pop',`<g transform="translate(700,470)"><circle r="68" fill="#2FBF7F"/><path d="M-26 -22 L-26 4 L-44 4 L0 40 L44 4 L26 4 L26 -22 Z" fill="#fff"/></g>`);
+// g5 emergency
+$('#g5').innerHTML=
+ `<g id="rings"></g>`+A(0.9,'pop',`<circle cx="450" cy="130" r="90" fill="#FF5A4F"/><rect x="438" y="72" width="24" height="70" rx="12" fill="#fff"/><circle cx="450" cy="168" r="13" fill="#fff"/>`)+
+ `<rect x="100" y="320" width="700" height="72" rx="36" fill="rgba(255,255,255,.12)"/><rect id="cashf" x="100" y="320" width="0" height="72" rx="36" fill="#FF5A4F"/>`+
+ A(1.3,'up',T(100,445,38,'Simpanan tunai','#8d8a80',700,'start')+T(800,445,38,'hampir habis','#FF5A4F',800,'end'))+
+ A(3.0,'pop',`<rect x="150" y="500" width="600" height="120" rx="60" fill="#F5C451"/>${T(450,580,58,'Jual emas','#1a1200',900)}`);
+// g6a stack of bars
+$('#g6a').innerHTML=A(1.0,'up',bar(300,30,300,130))+A(1.3,'up',bar(140,170,300,130))+A(1.5,'up',bar(460,170,300,130));
+// g6b bar -> flag
+$('#g6b').innerHTML=A(3.6,'up',bar(40,110,300,140))+A(4.1,'left',`<path d="M370 180 L480 180" stroke="#F5C451" stroke-width="16" stroke-linecap="round"/><polygon points="475,140 545,180 475,220" fill="#F5C451"/>`)+A(4.6,'pop',flag(710,180));
+// hand
+$('#hand').innerHTML=`<g id="tap"><circle cx="640" cy="40" r="30" fill="none" stroke="#fff" stroke-width="8" opacity=".9"/><path d="M640 40 l0 100 l30 -22 l24 52 l22 -10 l-24 -52 l36 -4 z" fill="#fff" transform="translate(-20,-10)" stroke="#0A0A0F" stroke-width="6"/></g>`;
+
+SEGS.forEach(s=>{const words=s[2].split(' ');const tot=words.reduce((a,w)=>a+w.length+1,0);let acc=0;
+  s.words=words.map(w=>{const a=s[0]+(s[1]-s[0])*acc/tot;acc+=w.length+1;const b=s[0]+(s[1]-s[0])*acc/tot;return{w,a,b}})});
+
+const gc=$('#glow').getContext('2d');
+function drawBG(t){
+  gc.clearRect(0,0,1080,1920);
+  const g=gc.createRadialGradient(540+Math.sin(t*.5)*80,700+Math.cos(t*.4)*60,50,540,800,1100);
+  g.addColorStop(0,'rgba(245,196,81,.20)');g.addColorStop(.5,'rgba(200,144,26,.07)');g.addColorStop(1,'rgba(10,10,15,0)');
+  gc.fillStyle=g;gc.fillRect(0,0,1080,1920);gc.fillStyle='rgba(245,196,81,.5)';
+  for(let i=0;i<34;i++){const sx=(i*173)%1080,sp=18+(i*37)%40,y=((1920+(i*271)%1920)-t*sp*2)%1920,r=1.5+(i%4);gc.globalAlpha=.15+((i*13)%10)/40;gc.beginPath();gc.arc(sx+Math.sin(t+i)*20,y,r,0,7);gc.fill()}
+  gc.globalAlpha=1;
+}
+const ANIMS=[...document.querySelectorAll('.a')];
+ANIMS.forEach(el=>{const sc=el.closest('.scene');el._si=sc?parseInt(sc.id.slice(1)):-1});
+function anim(el,l){
+  const d=parseFloat(el.dataset.d||0),k=el.dataset.k||'fade';const p=clamp((l-d)/0.5),e=eo(p);
+  let tf='';const op=p>0?Math.min(1,p*2.5):0;
+  if(k==='up')tf=`translateY(${(1-e)*60}px)`;else if(k==='down')tf=`translateY(${-(1-e)*50}px)`;
+  else if(k==='left')tf=`translateX(${-(1-e)*100}px)`;else if(k==='pop')tf=`scale(${0.4+0.6*eb(p)})`;
+  el.style.opacity=op;el.style.transform=tf;
+}
+const sceneAlpha=(t,[a,b],f,l)=>Math.min(f?1:clamp((t-a)/0.25),l?1:clamp((b-t)/0.2));
+
+function render(t){
+  drawBG(t);
+  $('#barf').style.width=(t/DUR*100)+'%';
+  {const w=$('#wm');w.style.opacity=(t<0.4||t>=CTA)?0:Math.min(1,(t-0.4)/0.4)*clamp((CTA-t)/0.3)}
+  SC.forEach((w,i)=>{const el=document.getElementById('s'+i);const on=t>=w[0]&&t<w[1];el.style.display=on?'block':'none';el.style.opacity=on?sceneAlpha(t,w,i===0,i===SC.length-1):0});
+  let idx=SC.findIndex(w=>t>=w[0]&&t<w[1]);if(idx<0)idx=SC.length-1;const l=t-SC[idx][0];
+  ANIMS.filter(e=>e._si===idx).forEach(e=>anim(e,l));
+  document.querySelectorAll('#s'+idx+' [data-strike]').forEach(s=>{s.style.width=(clamp((l-parseFloat(s.dataset.strike))/0.35)*108)+'%'});
+  if(idx===2){const p=clamp((l-0.8)/2.4);const e=eo(p);$('#pf').setAttribute('width',820*e);$('#pct').textContent=Math.round(e*100)+'%';$('#pct').style.opacity=l>3.7?Math.max(0,1-(l-3.7)/0.3):1}
+  if(idx===4){const a=clamp((l-3.7)/0.4);$('#g4a').style.opacity=1-a;$('#g4b').style.opacity=a;
+    $('#b1').setAttribute('height',140*eo(clamp((l-0.8)/0.6)));$('#b1').setAttribute('y',540-140*eo(clamp((l-0.8)/0.6)));
+    $('#b2').setAttribute('height',400*eo(clamp((l-1.6)/0.8)));$('#b2').setAttribute('y',540-400*eo(clamp((l-1.6)/0.8)))}
+  if(idx===5){$('#cashf').setAttribute('width',100+0*l+ (clamp((l-1.3)/0.6))*0);const q=clamp((l-1.3)/0.8);$('#cashf').setAttribute('width',700*0.14*eo(q));
+    let rg='';for(let i=0;i<3;i++){const ph=((l*0.9+i/3)%1);rg+=`<circle cx="450" cy="130" r="${90+ph*110}" fill="none" stroke="#FF5A4F" stroke-width="8" opacity="${(1-ph)*.7*(l>0.9?1:0)}"/>`}$('#rings').innerHTML=rg}
+  if(idx===6){const a=clamp((l-2.5)/0.4);$('#s6a').style.opacity=1-a;$('#s6b').style.opacity=a}
+  if(idx===7){const a=clamp((l-3.4)/0.3),c=clamp((l-5.0)/0.3);
+    $('#s7a').style.opacity=l<3.4?1:(l<5.0?1-a:0);$('#s7b').style.opacity=l<3.4?0:(l<5.0?a:1-c);$('#s7c').style.opacity=c;
+    $('#fbtn').style.transform=`scale(${1+0.04*Math.sin(l*8)})`;
+    $('#sbtn').style.transform=`scale(${l>4.6&&l<4.95?0.94:1+0.03*Math.sin(l*8)})`;$('#tap').style.transform=`scale(${l>4.6&&l<4.95?0.9:1})`}
+  const seg=SEGS.find(s=>t>=s[0]-0.05&&t<=s[1]+0.15);const cap=$('#cap'),cbg=$('#capbg');
+  if(!seg){cap.innerHTML='';cap._k=-1;cap.style.opacity=0;cbg.style.opacity=0}
+  else{cap.style.opacity=1;cbg.style.opacity=1;const key=SEGS.indexOf(seg);
+    if(cap._k!==key){cap._k=key;cap.innerHTML=seg.words.map(w=>`<span>${w.w}</span>`).join('');cbg.style.height=(cap.offsetHeight+40)+'px'}
+    cap.querySelectorAll('span').forEach((s,i)=>{const w=seg.words[i];const cur=t>=w.a&&t<w.b,past=t>=w.b;s.className=cur?'on':(past?'done':'');
+      const k=w.w.toLowerCase().replace(/[^\w@]/g,'');s.style.color=(HLW.has(k)&&(cur||past))?'#F5C451':'';});}
+}
+window.render=render;render(0);
+</script></body></html>
