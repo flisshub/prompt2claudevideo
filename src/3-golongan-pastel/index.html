@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="ms"><head><meta charset="utf-8"><title>3 Golongan Simpanan Emas</title>
+<style>
+:root{--bg:#FFF7F0;--ink:#2B2D55;--mid:#6E6A8F;--pink:#FF8FA3;--coral:#FF5C7C;--lav:#8E7CFF;--mint:#3FB68B;--peach:#FF9F6B;--gold:#F2B544;--butter:#FFF1B8;--sky:#CDE8FF}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;background:var(--bg);overflow:hidden;font-family:Inter,'Inter Display',sans-serif;color:var(--ink)}
+#stage{position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:hidden;background:var(--bg)}
+#bgc{position:absolute;inset:0}
+.scene{position:absolute;inset:0;opacity:0}
+.c{position:absolute;left:90px;width:900px;text-align:center}
+.t{white-space:nowrap;font-weight:900;letter-spacing:-2px;line-height:1.02;text-transform:uppercase;color:var(--ink)}
+.hl{background:linear-gradient(transparent 58%,#FFD6E0 58%);padding:0 8px;margin:0 -8px}
+.hl2{background:linear-gradient(transparent 58%,#E0D8FF 58%);padding:0 8px;margin:0 -8px}
+.hl3{background:linear-gradient(transparent 58%,var(--butter) 58%);padding:0 8px;margin:0 -8px}
+.badge{display:inline-block;padding:14px 44px;border-radius:999px;color:#fff;font-weight:900;font-size:46px;letter-spacing:3px;box-shadow:0 12px 30px rgba(43,45,85,.18)}
+.chip{display:inline-block;padding:14px 34px;border-radius:999px;background:#fff;border:3px solid var(--lav);color:var(--lav);font-weight:800;font-size:38px;letter-spacing:3px}
+.a{opacity:0;transform-box:fill-box;transform-origin:center}
+#bar{position:absolute;left:90px;top:176px;width:900px;height:12px;border-radius:6px;background:rgba(43,45,85,.1)}
+#barf{height:100%;width:0;border-radius:6px;background:linear-gradient(90deg,var(--pink),var(--lav),var(--mint))}
+#cap{position:absolute;left:100px;width:880px;top:1500px;text-align:center;font-weight:800;font-size:54px;line-height:1.3}
+#cap span{display:inline-block;margin:0 11px;color:#B7B2D0}
+#cap span.done{color:var(--ink)}
+#cap span.on{color:var(--coral);transform:scale(1.06)}
+#capbg{position:absolute;left:70px;width:940px;top:1480px;height:210px;border-radius:40px;background:rgba(255,255,255,.94);border:3px solid #fff;box-shadow:0 20px 50px rgba(43,45,85,.16)}
+.sl{position:absolute;left:-8px;top:52%;height:14px;width:0;background:var(--coral);border-radius:7px;transform:rotate(-2.5deg)}
+.btn{display:inline-block;border-radius:999px;color:#fff;font-weight:900;letter-spacing:-1px;box-shadow:0 20px 50px rgba(255,92,124,.35)}
+</style></head><body>
+<div id="stage">
+<canvas id="bgc" width="1080" height="1920"></canvas>
+<svg width="0" height="0" style="position:absolute"><defs>
+<linearGradient id="bgd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFEFB0"/><stop offset=".4" stop-color="#F7CF6A"/><stop offset="1" stop-color="#E2A52F"/></linearGradient>
+<linearGradient id="shn" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".7"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<radialGradient id="cn" cx=".35" cy=".3" r=".9"><stop offset="0" stop-color="#FFF3C4"/><stop offset=".6" stop-color="#F7CF6A"/><stop offset="1" stop-color="#E2A52F"/></radialGradient>
+</defs></svg>
+<img id="wm" src="../../assets/logo-light.png" style="position:absolute;left:880px;top:238px;width:110px;height:110px;border-radius:50%;opacity:0;box-shadow:0 10px 26px rgba(43,45,85,.22)">
+<div id="bar"><div id="barf"></div></div>
+
+<!-- 0 hook -->
+<div class="scene" id="s0">
+  <div class="c a" data-d="0.05" data-k="down" style="top:270px"><span class="chip">TAHUKAH ANDA?</span></div>
+  <div class="t" style="display:none"></div>
+  <div class="t a" data-d="0.9" data-k="pop" style="position:absolute;left:90px;top:400px;width:300px;text-align:center;font-size:440px;letter-spacing:-14px;line-height:1;color:var(--coral)">3</div>
+  <div class="t a" data-d="1.8" data-k="left" style="position:absolute;left:400px;top:490px;font-size:92px;text-align:left;letter-spacing:-1px">GOLONGAN</div>
+  <div class="t a" data-d="2.2" data-k="left" style="position:absolute;left:400px;top:600px;font-size:70px;text-align:left;color:var(--lav)">YANG KAYA</div>
+  <div class="c t a" data-d="3.4" data-k="up" style="top:900px;font-size:66px;text-transform:none;letter-spacing:-1px;color:var(--mid)">bila ada simpanan <span style="color:var(--gold)">emas</span></div>
+  <svg class="c" style="top:1030px;height:330px" viewBox="0 0 900 330" id="g0"></svg>
+</div>
+
+<!-- 1 golongan 1 -->
+<div class="scene" id="s1">
+  <div class="c a" data-d="0.05" data-k="down" style="top:270px"><span class="badge" style="background:var(--pink)">GOLONGAN 1</span></div>
+  <div class="c t a" data-d="0.4" data-k="up" style="top:385px;font-size:96px">Tidak mampu</div>
+  <div class="c t a" data-d="1.0" data-k="up" style="top:495px;font-size:120px;letter-spacing:-3px"><span class="hl">MENYIMPAN</span></div>
+  <svg class="c" style="top:720px;height:700px" viewBox="0 0 900 700" id="g1"></svg>
+</div>
+
+<!-- 2 golongan 2 -->
+<div class="scene" id="s2">
+  <div class="c a" data-d="0.05" data-k="down" style="top:270px"><span class="badge" style="background:var(--lav)">GOLONGAN 2</span></div>
+  <div class="c t a" data-d="0.4" data-k="up" style="top:385px;font-size:84px">Hanya dalam</div>
+  <div class="c t a" data-d="1.0" data-k="up" style="top:485px;font-size:86px;letter-spacing:-2px"><span class="hl2">ASB &amp; TABUNG HAJI</span></div>
+  <svg class="c" style="top:700px;height:720px" viewBox="0 0 900 720" id="g2"></svg>
+</div>
+
+<!-- 3 golongan 3 -->
+<div class="scene" id="s3">
+  <div class="c a" data-d="0.05" data-k="down" style="top:270px"><span class="badge" style="background:var(--peach)">GOLONGAN 3</span></div>
+  <div class="c t a" data-d="0.4" data-k="up" style="top:385px;font-size:112px">Nampak <span style="color:var(--lav)">kaya</span></div>
+  <div class="c t a" data-d="2.5" data-k="up" style="top:510px;font-size:84px;letter-spacing:-2px">tapi tiada <span class="hl">aset</span></div>
+  <svg class="c" style="top:700px;height:720px" viewBox="0 0 900 720" id="g3"></svg>
+</div>
+
+<!-- 4 dalam golongan mana / terlambat -->
+<div class="scene" id="s4">
+  <div id="s4a" style="position:absolute;inset:0">
+    <div class="c t a" data-d="0.05" data-k="up" style="top:390px;font-size:76px;text-transform:none;letter-spacing:-1px;color:var(--mid)">Tuan puan, dalam</div>
+    <div class="c t a" data-d="0.4" data-k="pop" style="top:480px;font-size:150px;letter-spacing:-4px;color:var(--coral)">GOLONGAN</div>
+    <div class="c t a" data-d="0.7" data-k="pop" style="top:650px;font-size:150px;letter-spacing:-4px">MANA?</div>
+    <svg class="c" style="top:900px;height:320px" viewBox="0 0 900 320" id="g4a"></svg>
+  </div>
+  <div id="s4b" style="position:absolute;inset:0;opacity:0">
+    <div class="c t a" data-d="1.6" data-k="up" style="top:390px;font-size:100px">Jangan tunggu</div>
+    <div class="c t a" data-d="2.2" data-k="up" style="top:510px;font-size:92px;letter-spacing:-3px"><span class="hl">SAMPAI TERLAMBAT</span></div>
+    <svg class="c" style="top:760px;height:600px" viewBox="0 0 900 600" id="g4b"></svg>
+  </div>
+</div>
+
+<!-- 5 mulakan -->
+<div class="scene" id="s5">
+  <div class="c t a" data-d="0.05" data-k="up" style="top:300px;font-size:68px;text-transform:none;letter-spacing:-1px;color:var(--mid)">Mulakan simpanan</div>
+  <div class="c t a" data-d="0.25" data-k="pop" style="top:390px;font-size:170px;letter-spacing:-5px;color:var(--gold)">EMAS</div>
+  <div class="c t a" data-d="0.9" data-k="up" style="top:590px;font-size:82px;letter-spacing:-2px"><span class="hl3">SEDIKIT DEMI SEDIKIT</span></div>
+  <svg class="c" style="top:800px;height:600px" viewBox="0 0 900 600" id="stack"></svg>
+</div>
+
+<!-- 6 CTA -->
+<div class="scene" id="s6">
+  <div id="c6a" style="position:absolute;inset:0">
+    <img class="c a" data-d="0.05" data-k="pop" src="../../assets/logo-light.png" style="top:260px;left:410px;width:260px;height:260px;border-radius:50%;box-shadow:0 20px 60px rgba(43,45,85,.25)">
+    <div class="c a" data-d="0.4" data-k="pop" style="top:710px"><span class="btn" id="fbtn" style="padding:36px 130px;font-size:112px;background:var(--coral)">FOLLOW</span></div>
+    <div class="c t a" data-d="1.1" data-k="up" style="top:570px;font-size:70px;text-transform:none;letter-spacing:-1px;color:var(--lav)">@theazminapg</div>
+    <div class="c t a" data-d="2.2" data-k="up" style="top:970px;font-size:58px;text-transform:none;letter-spacing:-1px;color:var(--mid)">untuk ilmu <span style="color:var(--gold)">emas</span> dan <span style="color:var(--lav)">kewangan</span></div>
+  </div>
+  <div id="c6b" style="position:absolute;inset:0;opacity:0">
+    <div class="c t a" data-d="4.15" data-k="up" style="top:330px;font-size:96px;text-transform:none;color:var(--mid)">Klik</div>
+    <div class="c a" data-d="4.25" data-k="pop" style="top:470px"><span class="btn" id="sbtn" style="padding:36px 110px;font-size:124px;border-radius:34px;background:var(--lav);box-shadow:0 20px 50px rgba(142,124,255,.4)">SIGN UP</span></div>
+    <div class="c t a" data-d="4.55" data-k="up" style="top:730px;font-size:84px;text-transform:none;letter-spacing:-2px">untuk bermula</div>
+    <svg class="c" style="top:560px;height:200px;pointer-events:none" viewBox="0 0 900 200" id="hand"></svg>
+  </div>
+  <div id="c6c" style="position:absolute;inset:0;opacity:0">
+    <div class="c t a" data-d="5.9" data-k="pop" style="top:880px;font-size:112px;letter-spacing:-3px;color:var(--coral)">SAYA BANTU<br><span style="color:var(--lav)">SEBAIKNYA</span></div>
+  </div>
+</div>
+
+<div id="capbg" style="opacity:0"></div>
+<div id="cap"></div>
+</div>
+
+<script>
+const DUR=41.64, CTA=34.4;
+const SEGS=[{"a": 0.0, "b": 2.92, "words": [{"w": "Tuan", "a": 0.0, "b": 0.36}, {"w": "puan,", "a": 0.36, "b": 0.78}, {"w": "tahukah", "a": 0.78, "b": 1.1}, {"w": "anda", "a": 1.1, "b": 1.4}, {"w": "ada", "a": 1.4, "b": 1.78}, {"w": "3", "a": 1.78, "b": 2.14}, {"w": "golongan", "a": 2.14, "b": 2.7}, {"w": "yang", "a": 2.7, "b": 2.92}]}, {"a": 2.92, "b": 5.58, "words": [{"w": "sebenarnya", "a": 2.92, "b": 3.48}, {"w": "kaya", "a": 3.48, "b": 3.96}, {"w": "bila", "a": 3.96, "b": 4.36}, {"w": "ada", "a": 4.36, "b": 4.56}, {"w": "simpanan", "a": 4.56, "b": 4.98}, {"w": "emas?", "a": 4.98, "b": 5.58}]}, {"a": 5.94, "b": 8.24, "words": [{"w": "Golongan", "a": 5.94, "b": 6.3}, {"w": "pertama,", "a": 6.3, "b": 6.9}, {"w": "mereka", "a": 6.9, "b": 7.04}, {"w": "yang", "a": 7.04, "b": 7.48}, {"w": "langsung", "a": 7.48, "b": 8.0}, {"w": "tidak", "a": 8.0, "b": 8.24}]}, {"a": 8.24, "b": 9.2, "words": [{"w": "mampu", "a": 8.24, "b": 8.6}, {"w": "menyimpan.", "a": 8.6, "b": 9.2}]}, {"a": 9.6, "b": 11.56, "words": [{"w": "Duit", "a": 9.6, "b": 9.82}, {"w": "masuk,", "a": 9.82, "b": 10.58}, {"w": "duit", "a": 10.58, "b": 10.76}, {"w": "keluar,", "a": 10.76, "b": 11.56}]}, {"a": 11.56, "b": 13.1, "words": [{"w": "hujung", "a": 11.56, "b": 11.78}, {"w": "bulan", "a": 11.78, "b": 12.2}, {"w": "tiada", "a": 12.2, "b": 12.5}, {"w": "baki.", "a": 12.5, "b": 13.1}]}, {"a": 13.48, "b": 16.06, "words": [{"w": "Golongan", "a": 13.48, "b": 13.92}, {"w": "kedua,", "a": 13.92, "b": 14.44}, {"w": "mereka", "a": 14.44, "b": 14.6}, {"w": "yang", "a": 14.6, "b": 14.82}, {"w": "boleh", "a": 14.82, "b": 15.08}, {"w": "menyimpan", "a": 15.08, "b": 15.64}, {"w": "tetapi", "a": 15.64, "b": 16.06}]}, {"a": 16.06, "b": 18.42, "words": [{"w": "hanya", "a": 16.06, "b": 16.34}, {"w": "dalam", "a": 16.34, "b": 16.62}, {"w": "ASB", "a": 16.62, "b": 17.3}, {"w": "dan", "a": 17.3, "b": 17.52}, {"w": "Tabung", "a": 17.52, "b": 17.82}, {"w": "Haji.", "a": 17.82, "b": 18.42}]}, {"a": 18.62, "b": 21.200000000000003, "words": [{"w": "Apa", "a": 18.62, "b": 18.84}, {"w": "kata", "a": 18.84, "b": 19.14}, {"w": "pelbagaikan", "a": 19.14, "b": 19.94}, {"w": "simpanan", "a": 19.94, "b": 20.44}, {"w": "dengan", "a": 20.44, "b": 20.6}, {"w": "emas?", "a": 20.6, "b": 21.200000000000003}]}, {"a": 21.52, "b": 24.44, "words": [{"w": "Golongan", "a": 21.52, "b": 22.0}, {"w": "ketiga,", "a": 22.0, "b": 22.64}, {"w": "mereka", "a": 22.64, "b": 22.84}, {"w": "yang", "a": 22.84, "b": 23.18}, {"w": "nampak", "a": 23.18, "b": 23.56}, {"w": "kaya", "a": 23.56, "b": 23.94}, {"w": "tetapi", "a": 23.94, "b": 24.44}]}, {"a": 24.44, "b": 27.360000000000003, "words": [{"w": "sebenarnya", "a": 24.44, "b": 24.9}, {"w": "tiada", "a": 24.9, "b": 25.34}, {"w": "simpanan", "a": 25.34, "b": 25.88}, {"w": "aset", "a": 25.88, "b": 26.32}, {"w": "untuk", "a": 26.32, "b": 26.58}, {"w": "masa", "a": 26.58, "b": 26.76}, {"w": "depan.", "a": 26.76, "b": 27.360000000000003}]}, {"a": 27.66, "b": 29.6, "words": [{"w": "Tuan", "a": 27.66, "b": 27.96}, {"w": "puan,", "a": 27.96, "b": 28.38}, {"w": "dalam", "a": 28.38, "b": 28.5}, {"w": "golongan", "a": 28.5, "b": 29.0}, {"w": "mana?", "a": 29.0, "b": 29.6}]}, {"a": 29.18, "b": 31.44, "words": [{"w": "Jangan", "a": 29.18, "b": 30.08}, {"w": "tunggu", "a": 30.26, "b": 30.64}, {"w": "sampai", "a": 30.64, "b": 30.84}, {"w": "terlambat.", "a": 30.84, "b": 31.44}]}, {"a": 31.66, "b": 34.22, "words": [{"w": "Mulakan", "a": 31.66, "b": 32.12}, {"w": "simpanan", "a": 32.12, "b": 32.6}, {"w": "emas", "a": 32.6, "b": 32.92}, {"w": "sedikit", "a": 32.92, "b": 33.42}, {"w": "demi", "a": 33.42, "b": 33.62}, {"w": "sedikit.", "a": 33.62, "b": 34.22}]}, {"a": 34.4, "b": 38.28, "words": [{"w": "Follow", "a": 34.4, "b": 34.94}, {"w": "@theazminapg", "a": 34.94, "b": 35.839999999999996}, {"w": "untuk", "a": 36.26, "b": 36.72}, {"w": "ilmu", "a": 36.72, "b": 37.1}, {"w": "emas", "a": 37.1, "b": 37.46}, {"w": "dan", "a": 37.46, "b": 37.68}, {"w": "kewangan.", "a": 37.68, "b": 38.28}]}, {"a": 38.5, "b": 40.28, "words": [{"w": "Klik", "a": 38.5, "b": 38.86}, {"w": "sign", "a": 38.86, "b": 39.1}, {"w": "up", "a": 39.1, "b": 39.26}, {"w": "untuk", "a": 39.26, "b": 39.54}, {"w": "bermula.", "a": 39.54, "b": 40.28}]}, {"a": 40.28, "b": 41.46, "words": [{"w": "Saya", "a": 40.28, "b": 40.56}, {"w": "bantu", "a": 40.56, "b": 40.86}, {"w": "sebaiknya.", "a": 40.86, "b": 41.46}]}];
+const SC=[[0,5.94],[5.94,13.48],[13.48,21.52],[21.52,27.66],[27.66,31.66],[31.66,34.4],[34.4,41.64]];
+const HLW=new Set(['golongan','kaya','simpanan','emas','asb','tabung','haji','aset','tiada','tidak','terlambat','sedikit','follow','@theazminapg','sign','up','kewangan','ilmu','3','pelbagaikan','duit']);
+const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const eo=p=>1-Math.pow(1-p,3);
+const eb=p=>{const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(p-1,3)+c1*Math.pow(p-1,2)};
+const $=s=>document.querySelector(s);
+const A=(d,k,inner)=>`<g class="a" data-d="${d}" data-k="${k}">${inner}</g>`;
+const T=(x,y,s,txt,fill='#2B2D55',w=800,anchor='middle')=>`<text x="${x}" y="${y}" text-anchor="${anchor}" font-family="Inter" font-weight="${w}" font-size="${s}" fill="${fill}">${txt}</text>`;
+const person=(cx,cy,s,col)=>`<g transform="translate(${cx},${cy}) scale(${s})"><circle cx="0" cy="-30" r="30" fill="${col}"/><path d="M-52 52 Q-52 6 0 6 Q52 6 52 52 Z" fill="${col}"/></g>`;
+const bar=(x,y,w,h)=>{const rr=h*.22,fs=h*.2;const tx=(yy,t)=>`<text x="${x+w*.56}" y="${y+h*yy}" text-anchor="middle" font-family="Inter" font-weight="900" font-size="${fs}" fill="#9A6A12" opacity=".85">${t}</text>`;return `<g><rect x="${x}" y="${y+h*.05}" width="${w}" height="${h}" rx="${rr}" fill="#2B2D55" opacity=".12"/><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${rr}" fill="url(#bgd)" stroke="#D69A22" stroke-width="${h*.025}"/><rect x="${x+w*.04}" y="${y+h*.08}" width="${w*.92}" height="${h*.84}" rx="${rr*.7}" fill="none" stroke="#FFF8DA" stroke-width="${h*.02}" opacity=".9"/><polygon points="${x+w*.18},${y+h*.02} ${x+w*.38},${y+h*.02} ${x+w*.22},${y+h*.98} ${x+w*.02},${y+h*.98}" fill="url(#shn)" opacity=".8"/>${tx(.37,'250g')}${tx(.61,'GOLD')}${tx(.85,'999.9')}</g>`};
+function flower(R){let f='';for(let i=0;i<=360;i++){const a=i/360*Math.PI*2-Math.PI/2;const rr=R*(0.74+0.26*Math.abs(Math.cos(4*a)));f+=(i?'L':'M')+(rr*Math.cos(a)).toFixed(1)+' '+(rr*Math.sin(a)).toFixed(1)}return f}
+const FL=flower(105);
+// g0 three people
+$('#g0').innerHTML=[[170,'#FF8FA3',2.2],[450,'#8E7CFF',2.6],[730,'#FF9F6B',3.0]].map((p,i)=>A(p[2],'pop',`<circle cx="${p[0]}" cy="150" r="120" fill="${p[1]}" opacity=".2"/>${person(p[0],165,1.3,p[1])}${T(p[0],310,44,i+1,p[1],900)}`)).join('')+A(4.6,'pop',`<g transform="translate(450,28)"><polygon points="-50,20 -50,-14 -26,4 0,-26 26,4 50,-14 50,20" fill="#F7CF6A" stroke="#D69A22" stroke-width="4"/></g>`);
+// g1 wallet & flows
+$('#g1').innerHTML=
+ A(0.9,'pop',`<rect x="250" y="260" width="400" height="260" rx="44" fill="#BFB1FF"/><rect x="250" y="260" width="400" height="96" rx="44" fill="#9F8CFF"/><circle cx="600" cy="420" r="34" fill="#FFE08A" stroke="#fff" stroke-width="6"/>`)+
+ A(3.5,'left',`<path d="M60 70 Q200 80 270 270" fill="none" stroke="#3FB68B" stroke-width="18" stroke-linecap="round"/><polygon points="236,250 290,300 300,232" fill="#3FB68B"/>${T(160,40,46,'Duit masuk','#3FB68B',900)}`)+
+ A(4.6,'pop',`<path d="M640 330 Q790 300 830 120" fill="none" stroke="#FF5C7C" stroke-width="18" stroke-linecap="round"/><polygon points="800,130 836,70 880,140" fill="#FF5C7C"/>${T(740,40,46,'Duit keluar','#FF5C7C',900)}`)+
+ A(5.6,'pop',`<rect x="150" y="570" width="600" height="120" rx="60" fill="#FFE1E7"/>${T(300,646,40,'hujung bulan','#6E6A8F',800)}${T(560,654,84,'RM 0','#FF5C7C',900)}`);
+// g2 cards
+$('#g2').innerHTML=
+ A(3.1,'left',`<rect x="20" y="10" width="860" height="170" rx="48" fill="#CDE8FF"/>${T(450,125,100,'ASB','#2B2D55',900)}`)+
+ A(4.0,'left',`<rect x="20" y="210" width="860" height="170" rx="48" fill="#D3F5E4"/>${T(450,325,90,'Tabung Haji','#2B2D55',900)}`)+
+ A(5.1,'pop',`<rect x="20" y="430" width="860" height="250" rx="56" fill="#FFF1B8" stroke="#F2B544" stroke-width="8"/>${bar(70,495,300,130)}${T(520,585,86,'+ EMAS','#D69A22',900,'start')}`)+
+ A(5.5,'pop',`<g transform="translate(700,418)"><rect x="-120" y="-30" width="240" height="56" rx="28" fill="#3FB68B"/>${T(0,10,32,'PELBAGAIKAN','#fff',900)}</g>`);
+// g3 appearances
+const house=(x,y,c)=>`<g transform="translate(${x},${y})"><polygon points="-90,0 0,-80 90,0" fill="${c}"/><rect x="-70" y="0" width="140" height="100" fill="${c}" opacity=".7"/><rect x="-18" y="40" width="36" height="60" fill="#fff"/></g>`;
+const car=(x,y,c)=>`<g transform="translate(${x},${y})"><path d="M-100 70 L-100 30 Q-90 10 -60 8 L-30 -30 L40 -30 L76 8 Q100 12 100 40 L100 70 Z" fill="${c}"/><circle cx="-56" cy="72" r="24" fill="#2B2D55"/><circle cx="56" cy="72" r="24" fill="#2B2D55"/><circle cx="-56" cy="72" r="10" fill="#fff"/><circle cx="56" cy="72" r="10" fill="#fff"/><polygon points="-26,-20 -10,8 30,8 30,-20" fill="#fff" opacity=".85"/></g>`;
+const gem=(x,y,c)=>`<g transform="translate(${x},${y})"><polygon points="-70,-30 -40,-70 40,-70 70,-30 0,70" fill="${c}"/><polygon points="-70,-30 70,-30 0,70" fill="#fff" opacity=".28"/></g>`;
+$('#g3').innerHTML=
+ A(1.7,'pop',house(150,120,'#8E7CFF'))+A(2.0,'pop',car(450,120,'#FF8FA3'))+A(2.3,'pop',gem(750,120,'#3FB68B'))+
+ A(3.4,'pop',`<rect x="40" y="330" width="820" height="330" rx="56" fill="#FFE1C7"/>${T(450,430,56,'Simpanan aset','#6E6A8F',800)}${T(450,590,170,'RM 0','#FF5C7C',900)}`)+
+ A(4.4,'pop',`<g transform="translate(450,360)"><circle r="70" fill="#FF5C7C"/><text y="38" text-anchor="middle" font-family="Inter" font-weight="900" font-size="100" fill="#fff">!</text></g>`);
+$('#g3').insertAdjacentHTML('beforeend','<line id="x3" x1="60" y1="60" x2="60" y2="60" stroke="#FF5C7C" stroke-width="16" stroke-linecap="round" opacity="0"/>');
+// g4a three circles pulsing with ?
+$('#g4a').innerHTML=[[170,'#FF8FA3'],[450,'#8E7CFF'],[730,'#FF9F6B']].map((p,i)=>A(1.0+i*0.15,'pop',`<g id="pc${i}"><circle cx="${p[0]}" cy="150" r="110" fill="${p[1]}"/>${T(p[0],190,130,i+1,'#fff',900)}</g>`)).join('');
+// g4b clock
+$('#g4b').innerHTML=A(2.4,'pop',`<circle cx="450" cy="290" r="230" fill="#fff" stroke="#FF5C7C" stroke-width="22"/><circle cx="450" cy="290" r="14" fill="#2B2D55"/><line id="hh" x1="450" y1="290" x2="450" y2="150" stroke="#2B2D55" stroke-width="16" stroke-linecap="round"/><line id="mh" x1="450" y1="290" x2="450" y2="110" stroke="#FF5C7C" stroke-width="10" stroke-linecap="round"/>${[0,1,2,3,4,5,6,7,8,9,10,11].map(i=>`<line x1="${450+205*Math.sin(i*Math.PI/6)}" y1="${290-205*Math.cos(i*Math.PI/6)}" x2="${450+185*Math.sin(i*Math.PI/6)}" y2="${290-185*Math.cos(i*Math.PI/6)}" stroke="#6E6A8F" stroke-width="8" stroke-linecap="round"/>`).join('')}`);
+// stack of gold dinar
+let st='';for(let i=0;i<7;i++){const y=520-i*58;st+=`<g class="a" data-d="${1.0+i*0.2}" data-k="pop"><ellipse cx="450" cy="${y+20}" rx="170" ry="44" fill="#C98E1E"/><rect x="280" y="${y-18}" width="340" height="38" fill="#E2A52F"/><ellipse cx="450" cy="${y-18}" rx="170" ry="44" fill="url(#cn)"/><ellipse cx="450" cy="${y-18}" rx="146" ry="35" fill="none" stroke="#B9801A" stroke-width="4" stroke-dasharray="2 12" stroke-linecap="round" opacity=".6"/><g transform="translate(450,${y-18}) scale(1,.22)"><path d="${FL}Z" fill="#FFE49A" stroke="#B9801A" stroke-width="7"/></g></g>`}
+$('#stack').innerHTML=st;
+$('#hand').innerHTML=`<g id="tap"><circle cx="640" cy="40" r="30" fill="none" stroke="#2B2D55" stroke-width="8" opacity=".8"/><path d="M640 40 l0 100 l30 -22 l24 52 l22 -10 l-24 -52 l36 -4 z" fill="#fff" transform="translate(-20,-10)" stroke="#2B2D55" stroke-width="6"/></g>`;
+
+const bc=$('#bgc').getContext('2d');
+const BL=[['#FFD6E0',160,300,200],['#E0D8FF',900,520,240],['#D3F5E4',200,1000,210],['#CDE8FF',860,1300,230],['#FFE1C7',300,1600,240],['#FFF1B8',900,1750,180]];
+function drawBG(t){bc.fillStyle='#FFF7F0';bc.fillRect(0,0,1080,1920);
+ BL.forEach((b,i)=>{bc.globalAlpha=.75;bc.fillStyle=b[0];bc.beginPath();bc.arc(b[1]+Math.sin(t*.35+i*1.7)*40,b[2]+Math.cos(t*.3+i)*40,b[3],0,7);bc.fill()});
+ bc.globalAlpha=1;bc.fillStyle='rgba(43,45,85,.08)';for(let x=60;x<1080;x+=60)for(let y=1780;y<1900;y+=60){bc.beginPath();bc.arc(x,y,2.4,0,7);bc.fill()}}
+const ANIMS=[...document.querySelectorAll('.a')];
+ANIMS.forEach(el=>{const sc=el.closest('.scene');el._si=sc?parseInt(sc.id.slice(1)):-1});
+function anim(el,l){const d=parseFloat(el.dataset.d||0),k=el.dataset.k||'fade';const p=clamp((l-d)/0.5),e=eo(p);let tf='';const op=p>0?Math.min(1,p*2.5):0;
+ if(k==='up')tf=`translateY(${(1-e)*60}px)`;else if(k==='down')tf=`translateY(${-(1-e)*50}px)`;else if(k==='left')tf=`translateX(${-(1-e)*100}px)`;else if(k==='pop')tf=`scale(${0.4+0.6*eb(p)})`;
+ el.style.opacity=op;el.style.transform=tf}
+const sceneAlpha=(t,[a,b],f,l)=>Math.min(f?1:clamp((t-a)/0.25),l?1:clamp((b-t)/0.2));
+function render(t){
+ drawBG(t);$('#barf').style.width=(t/DUR*100)+'%';
+ {const w=$('#wm');w.style.opacity=(t<0.4||t>=CTA)?0:Math.min(1,(t-0.4)/0.4)*clamp((CTA-t)/0.3)}
+ SC.forEach((w,i)=>{const el=document.getElementById('s'+i);const on=t>=w[0]&&t<w[1];el.style.display=on?'block':'none';el.style.opacity=on?sceneAlpha(t,w,i===0,i===SC.length-1):0});
+ let idx=SC.findIndex(w=>t>=w[0]&&t<w[1]);if(idx<0)idx=SC.length-1;const l=t-SC[idx][0];
+ ANIMS.filter(e=>e._si===idx).forEach(e=>anim(e,l));
+ document.querySelectorAll('#s'+idx+' [data-strike]').forEach(s=>{s.style.width=(clamp((l-parseFloat(s.dataset.strike))/0.35)*108)+'%'});
+ if(idx===4){const a=clamp((l-1.45)/0.3);$('#s4a').style.opacity=1-a;$('#s4b').style.opacity=a;
+  [0,1,2].forEach(i=>{const e=document.getElementById('pc'+i);if(e)e.style.transform=`scale(${1+0.05*Math.sin(l*7+i)})`});
+  const h=$('#hh'),m=$('#mh');if(h){h.setAttribute('transform',`rotate(${l*20} 450 290)`);m.setAttribute('transform',`rotate(${l*240} 450 290)`)}}
+ if(idx===6){const a=clamp((l-3.9)/0.3),c=clamp((l-5.7)/0.3);
+  $('#c6a').style.opacity=l<3.9?1:(l<5.7?1-a:0);$('#c6b').style.opacity=l<3.9?0:(l<5.7?a:1-c);$('#c6c').style.opacity=c;
+  $('#fbtn').style.transform=`scale(${1+0.04*Math.sin(l*8)})`;$('#sbtn').style.transform=`scale(${l>5.2&&l<5.5?0.94:1+0.03*Math.sin(l*8)})`;$('#tap').style.transform=`scale(${l>5.2&&l<5.5?0.9:1})`}
+ const seg=SEGS.find(s=>t>=s.a-0.05&&t<=s.b+0.15);const cap=$('#cap'),cbg=$('#capbg');
+ if(!seg){cap.innerHTML='';cap._k=-1;cap.style.opacity=0;cbg.style.opacity=0}
+ else{cap.style.opacity=1;cbg.style.opacity=1;const key=SEGS.indexOf(seg);
+  if(cap._k!==key){cap._k=key;cap.innerHTML=seg.words.map(w=>`<span>${w.w}</span>`).join('');cbg.style.height=(cap.offsetHeight+44)+'px'}
+  cap.querySelectorAll('span').forEach((s,i)=>{const w=seg.words[i];const cur=t>=w.a&&t<w.b,past=t>=w.b;s.className=cur?'on':(past?'done':'');
+   const k=w.w.toLowerCase().replace(/[^\w@]/g,'');if(HLW.has(k)&&(cur||past))s.style.color='#7B5CFF';else s.style.color=''})}
+}
+window.render=render;render(0);
+</script></body></html>
