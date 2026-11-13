@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="ms"><head><meta charset="utf-8"><title>Infografik 10 Dinar Emas</title>
+<style>
+:root{--bg:#FFF7F0;--ink:#2B2D55;--mid:#6E6A8F;--pink:#FF8FA3;--coral:#FF5C7C;--lav:#8E7CFF;--mint:#3FB68B;--peach:#FF9F6B;--gold:#E0A92B;--butter:#FFF1B8;--sky:#5BA8F5}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;background:var(--bg);overflow:hidden;font-family:Inter,'Inter Display',sans-serif;color:var(--ink)}
+#stage{position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:hidden;background:var(--bg)}
+#bgc{position:absolute;inset:0}
+.scene{position:absolute;inset:0;opacity:0}
+.c{position:absolute;left:90px;width:900px;text-align:center}
+.t{white-space:nowrap;font-weight:900;letter-spacing:-2px;line-height:1.02;text-transform:uppercase;color:var(--ink)}
+.hl{background:linear-gradient(transparent 58%,#FFD6E0 58%);padding:0 8px;margin:0 -8px}
+.hl2{background:linear-gradient(transparent 58%,#E0D8FF 58%);padding:0 8px;margin:0 -8px}
+.hl3{background:linear-gradient(transparent 58%,var(--butter) 58%);padding:0 8px;margin:0 -8px}
+.badge{display:inline-block;padding:12px 40px;border-radius:999px;color:#fff;font-weight:900;font-size:42px;letter-spacing:3px;box-shadow:0 12px 30px rgba(43,45,85,.18)}
+.chip{display:inline-block;padding:14px 34px;border-radius:999px;background:#fff;border:3px solid var(--lav);color:var(--lav);font-weight:800;font-size:38px;letter-spacing:3px}
+.card{position:absolute;left:90px;width:900px;top:690px;height:740px;border-radius:52px;background:rgba(255,255,255,.9);box-shadow:0 30px 70px rgba(43,45,85,.14);border:3px solid #fff}
+.card svg{position:absolute;left:0;top:10px;width:900px;height:720px}
+.a{opacity:0;transform-box:fill-box;transform-origin:center}
+#bar{position:absolute;left:90px;top:176px;width:900px;height:12px;border-radius:6px;background:rgba(43,45,85,.1)}
+#barf{height:100%;width:0;border-radius:6px;background:linear-gradient(90deg,var(--pink),var(--lav),var(--mint))}
+#trk{position:absolute;left:90px;top:204px;width:900px;height:40px;display:flex;gap:12px}
+#trk i{flex:1;border-radius:20px;background:rgba(43,45,85,.1);color:#9C98B8;font-style:normal;font-weight:900;font-size:24px;display:flex;align-items:center;justify-content:center}
+#trk i.done{background:var(--ink);color:#fff}
+#trk i.act{background:var(--coral);color:#fff;transform:scale(1.1)}
+#cap{position:absolute;left:100px;width:880px;top:1500px;text-align:center;font-weight:800;font-size:54px;line-height:1.3}
+#cap span{display:inline-block;margin:0 11px;color:#B7B2D0}
+#cap span.done{color:var(--ink)}
+#cap span.on{color:var(--coral);transform:scale(1.06)}
+#capbg{position:absolute;left:70px;width:940px;top:1480px;height:210px;border-radius:40px;background:rgba(255,255,255,.94);border:3px solid #fff;box-shadow:0 20px 50px rgba(43,45,85,.16)}
+.sl{position:absolute;left:-8px;top:52%;height:14px;width:0;background:var(--coral);border-radius:7px;transform:rotate(-2.5deg)}
+.btn{display:inline-block;border-radius:999px;color:#fff;font-weight:900;letter-spacing:-1px;box-shadow:0 20px 50px rgba(255,92,124,.35)}
+</style></head><body>
+<div id="stage">
+<canvas id="bgc" width="1080" height="1920"></canvas>
+<svg width="0" height="0" style="position:absolute"><defs id="gdefs"></defs></svg>
+<img id="wm" src="../../assets/logo-light.png" style="position:absolute;left:880px;top:238px;width:110px;height:110px;border-radius:50%;opacity:0;box-shadow:0 10px 26px rgba(43,45,85,.22)">
+<div id="bar"><div id="barf"></div></div>
+<div id="trk"></div>
+
+<!-- 0 hook -->
+<div class="scene" id="s0">
+  <div class="c a" data-d="0.05" data-k="down" style="top:270px"><span class="chip">INFOGRAFIK EMAS</span></div>
+  <div class="c t a" data-d="0.6" data-k="up" style="top:395px;font-size:78px;letter-spacing:-1px">Kenapa perlu ada</div>
+  <div class="c t a" data-d="1.05" data-k="pop" style="top:500px;font-size:160px;letter-spacing:-5px;color:var(--gold)">10 DINAR</div>
+  <div class="c t a" data-d="1.7" data-k="pop" style="top:670px;font-size:130px;letter-spacing:-4px">EMAS?</div>
+  <svg class="c" style="top:860px;height:540px" viewBox="0 0 900 540" id="g0"></svg>
+</div>
+
+<!-- 1 hub -->
+<div class="scene" id="s1">
+  <div class="c t a" data-d="0.1" data-k="down" style="top:300px;font-size:104px"><span style="color:var(--coral)">5</span> KELEBIHAN</div>
+  <div class="c t a" data-d="1.4" data-k="up" style="top:430px;font-size:60px;text-transform:none;letter-spacing:-1px;color:var(--lav)">yang ramai tak tahu</div>
+  <svg class="c" style="top:540px;height:880px" viewBox="0 0 900 880" id="g1"></svg>
+</div>
+
+<!-- 2..6 kelebihan -->
+<div class="scene" id="s2">
+  <div class="c a" data-d="0.05" data-k="down" style="top:280px"><span class="badge" style="background:var(--pink)">KELEBIHAN 1</span></div>
+  <div class="c t a" data-d="0.3" data-k="up" style="top:400px;font-size:104px">Aset <span class="hl">fizikal</span></div>
+  <div class="c t a" data-d="0.8" data-k="up" style="top:520px;font-size:62px;text-transform:none;letter-spacing:-1px;color:var(--mid)">yang boleh dipegang</div>
+  <div class="card a" data-d="0.4" data-k="up"><svg viewBox="0 0 900 720" id="g2"></svg></div>
+</div>
+<div class="scene" id="s3">
+  <div class="c a" data-d="0.05" data-k="down" style="top:280px"><span class="badge" style="background:var(--lav)">KELEBIHAN 2</span></div>
+  <div class="c t a" data-d="0.3" data-k="up" style="top:400px;font-size:96px">Lindungi <span class="hl2">nilai</span></div>
+  <div class="c t a" data-d="0.8" data-k="up" style="top:520px;font-size:62px;text-transform:none;letter-spacing:-1px;color:var(--mid)">dalam jangka panjang</div>
+  <div class="card a" data-d="0.4" data-k="up"><svg viewBox="0 0 900 720" id="g3"></svg></div>
+</div>
+<div class="scene" id="s4">
+  <div class="c a" data-d="0.05" data-k="down" style="top:280px"><span class="badge" style="background:var(--mint)">KELEBIHAN 3</span></div>
+  <div class="c t a" data-d="0.3" data-k="up" style="top:400px;font-size:104px">Mudah <span class="hl3">disimpan</span></div>
+  <div class="c t a" data-d="0.8" data-k="up" style="top:520px;font-size:62px;text-transform:none;letter-spacing:-1px;color:var(--mid)">tanpa ruang yang besar</div>
+  <div class="card a" data-d="0.4" data-k="up"><svg viewBox="0 0 900 720" id="g4"></svg></div>
+</div>
+<div class="scene" id="s5">
+  <div class="c a" data-d="0.05" data-k="down" style="top:280px"><span class="badge" style="background:var(--peach)">KELEBIHAN 4</span></div>
+  <div class="c t a" data-d="0.3" data-k="up" style="top:400px;font-size:104px">Boleh <span class="hl">dijual</span></div>
+  <div class="c t a" data-d="0.8" data-k="up" style="top:520px;font-size:62px;text-transform:none;letter-spacing:-1px;color:var(--mid)">ikut keperluan kewangan</div>
+  <div class="card a" data-d="0.4" data-k="up"><svg viewBox="0 0 900 720" id="g5"></svg></div>
+</div>
+<div class="scene" id="s6">
+  <div class="c a" data-d="0.05" data-k="down" style="top:280px"><span class="badge" style="background:var(--sky)">KELEBIHAN 5</span></div>
+  <div class="c t a" data-d="0.3" data-k="up" style="top:400px;font-size:100px"><span class="hl2">Diwariskan</span></div>
+  <div class="c t a" data-d="0.8" data-k="up" style="top:520px;font-size:62px;text-transform:none;letter-spacing:-1px;color:var(--mid)">legasi untuk keluarga</div>
+  <div class="card a" data-d="0.4" data-k="up"><svg viewBox="0 0 900 720" id="g6"></svg></div>
+</div>
+
+<!-- 7 persamaan -->
+<div class="scene" id="s7">
+  <div class="c t a" data-d="0.0" data-k="down" style="top:290px;font-size:96px"><span style="color:var(--gold)">10 DINAR</span> =</div>
+  <div class="card a" data-d="0.0" data-k="up" style="top:430px;height:1000px"><svg viewBox="0 0 900 980" style="height:980px" id="g7"></svg></div>
+</div>
+
+<!-- 8 bukan sekadar -->
+<div class="scene" id="s8">
+  <div class="c t a" data-d="0.05" data-k="up" style="top:310px;font-size:58px;letter-spacing:-1px">Bukan sekadar <span style="position:relative;display:inline-block;color:var(--mid)">SIMPANAN<i class="sl" data-strike="1.1" style="height:14px"></i></span></div>
+  <div class="c t a" data-d="1.6" data-k="up" style="top:400px;font-size:50px;letter-spacing:-1px">tetapi <span style="color:var(--gold)">ASET</span> untuk <span style="color:var(--lav)">masa depan</span></div>
+  <svg class="c" style="top:620px;height:800px" viewBox="0 0 900 800" id="g8"></svg>
+</div>
+
+<!-- 9 CTA -->
+<div class="scene" id="s9">
+  <div id="c9a" style="position:absolute;inset:0">
+    <div class="c t a" data-d="0.05" data-k="up" style="top:390px;font-size:84px;text-transform:none;letter-spacing:-2px;color:var(--mid)">Nak mula kumpul</div>
+    <div class="c t a" data-d="0.4" data-k="pop" style="top:490px;font-size:170px;letter-spacing:-5px;color:var(--gold)">EMAS?</div>
+    <div class="c a" data-d="1.3" data-k="pop" style="top:760px"><span class="btn" id="sbtn" style="padding:36px 110px;font-size:124px;border-radius:34px;background:var(--lav);box-shadow:0 20px 50px rgba(142,124,255,.4)">SIGN UP</span></div>
+    <svg class="c" style="top:780px;height:200px;pointer-events:none;opacity:0" viewBox="0 0 900 200" id="hand"></svg>
+  </div>
+  <div id="c9b" style="position:absolute;inset:0;opacity:0">
+    <div class="c t a" data-d="2.9" data-k="pop" style="top:760px;font-size:120px;letter-spacing:-4px;color:var(--coral)">SAYA BANTU<br><span style="color:var(--lav)">SEBAIKNYA</span></div>
+  </div>
+  <div id="c9c" style="position:absolute;inset:0;opacity:0">
+    <img class="c a" data-d="4.3" data-k="pop" src="../../assets/logo-light.png" style="top:260px;left:410px;width:260px;height:260px;border-radius:50%;box-shadow:0 20px 60px rgba(43,45,85,.25)">
+    <div class="c t a" data-d="5.6" data-k="up" style="top:560px;font-size:70px;text-transform:none;letter-spacing:-1px;color:var(--lav)">@theazminapg</div>
+    <div class="a" data-d="4.4" data-k="pop" style="position:absolute;left:80px;top:700px;width:520px;text-align:center"><span class="btn" id="fbtn" style="padding:34px 64px;font-size:84px;background:var(--coral)">FOLLOW</span></div>
+    <div class="a" data-d="4.6" data-k="pop" style="position:absolute;left:650px;top:700px;width:350px;text-align:center"><span class="btn" id="lbtn" style="padding:34px 56px;font-size:84px;background:var(--pink);box-shadow:0 20px 50px rgba(255,143,163,.4)">LIKE</span></div>
+    <div class="c t a" data-d="6.8" data-k="up" style="top:960px;font-size:58px;text-transform:none;letter-spacing:-1px;color:var(--mid)">untuk ilmu <span style="color:var(--gold)">emas</span> dan <span style="color:var(--lav)">kewangan</span></div>
+  </div>
+</div>
+
+<div id="capbg" style="opacity:0"></div>
+<div id="cap"></div>
+</div>
+
+<script>
+// Dinar emas 10 realistik. Digunakan semula dalam video akan datang.
+//
+// Rujukan: gambar 10 Dinar 42.5g Au999.9 (tepi berfacet 12 sisi, cincin titik-titik,
+// bunga teratai 8 kelopak timbul, "10 Dinar" di tengah, teks melengkung di tepi,
+// medan licin lebih gelap dan unsur timbul lebih cerah). Tiada logo atau nama jenama.
+//
+// Guna:
+//   1. Letak GOLDDINAR_DEFS sekali dalam <svg width="0" height="0" style="position:absolute"><defs>...</defs></svg>
+//   2. goldDinar(cx, cy, jejari, {denom:'10', weight:'42.5g', purity:'999.9', top:'DINAR EMAS'})
+
+const GOLDDINAR_DEFS = `
+<radialGradient id="gdRim" cx=".35" cy=".3" r="1">
+  <stop offset="0" stop-color="#FFF1B0"/><stop offset=".5" stop-color="#E8B83F"/><stop offset="1" stop-color="#93640F"/>
+</radialGradient>
+<radialGradient id="gdField" cx=".4" cy=".32" r=".95">
+  <stop offset="0" stop-color="#E6B33C"/><stop offset=".55" stop-color="#C99428"/><stop offset="1" stop-color="#8A5C0C"/>
+</radialGradient>
+<radialGradient id="gdRelief" cx=".35" cy=".3" r=".95">
+  <stop offset="0" stop-color="#FFF4C0"/><stop offset=".55" stop-color="#F3C95A"/><stop offset="1" stop-color="#D9A02A"/>
+</radialGradient>
+<linearGradient id="gdSheen" x1="0" y1="0" x2="1" y2="1">
+  <stop offset="0" stop-color="#fff" stop-opacity=".0"/><stop offset=".45" stop-color="#fff" stop-opacity=".45"/><stop offset=".6" stop-color="#fff" stop-opacity="0"/>
+</linearGradient>
+<filter id="gdBlur" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="12"/></filter>`;
+
+let _gdN = 0;
+
+function gdFacet(r, sides, round) {
+  const sec = (Math.PI * 2) / sides;
+  let d = '';
+  for (let i = 0; i <= 360; i++) {
+    const a = (i / 360) * Math.PI * 2 - Math.PI / 2;
+    const m = ((a % sec) + sec) % sec;
+    const poly = Math.cos(Math.PI / sides) / Math.cos(m - sec / 2);
+    const rr = r * (1 - round + round * poly);
+    d += (i ? 'L' : 'M') + (rr * Math.cos(a)).toFixed(1) + ' ' + (rr * Math.sin(a)).toFixed(1);
+  }
+  return d + 'Z';
+}
+
+// Bunga teratai 8 kelopak bulat, bertakuk di antara kelopak.
+function gdLotus(R) {
+  let d = '';
+  for (let i = 0; i <= 360; i++) {
+    const a = (i / 360) * Math.PI * 2 - Math.PI / 2;
+    const rr = R * (0.72 + 0.28 * Math.pow(Math.abs(Math.cos(4 * a)), 0.7));
+    d += (i ? 'L' : 'M') + (rr * Math.cos(a)).toFixed(1) + ' ' + (rr * Math.sin(a)).toFixed(1);
+  }
+  return d + 'Z';
+}
+
+function goldDinar(cx, cy, r, opts = {}) {
+  const { denom = '10', weight = '42.5g', purity = '999.9', top = 'DINAR EMAS' } = opts;
+  const id = 'gdp' + _gdN++;
+  const lotus = gdLotus(r * 0.52);
+  const ring = r * 0.8, topR = r * 0.7, botR = r * 0.74;
+  const emb = (x, y, size, txt, style) => {
+    const f = `font-family="DejaVu Serif, Georgia, serif" font-weight="700" font-size="${size}" text-anchor="middle" ${style || ''}`;
+    return `<text x="${x - r * 0.012}" y="${y - r * 0.012}" ${f} fill="#FFF6D0" opacity=".9">${txt}</text>` +
+           `<text x="${x + r * 0.014}" y="${y + r * 0.016}" ${f} fill="#5E3C05" opacity=".6">${txt}</text>` +
+           `<text x="${x}" y="${y}" ${f} fill="#F7D26A">${txt}</text>`;
+  };
+  return `<g transform="translate(${cx},${cy})">
+    <ellipse cx="0" cy="${r * 0.12}" rx="${r}" ry="${r * 0.94}" fill="#000" opacity=".3" filter="url(#gdBlur)"/>
+    <path d="${gdFacet(r, 12, 0.55)}" fill="url(#gdRim)" stroke="#8A5C0C" stroke-width="${r * 0.025}"/>
+    <path d="${gdFacet(r * 0.93, 12, 0.55)}" fill="url(#gdField)" stroke="#F3D27A" stroke-width="${r * 0.02}" opacity=".98"/>
+    <path d="${gdFacet(r * 0.93, 12, 0.55)}" fill="url(#gdSheen)" opacity=".7"/>
+    <circle r="${ring}" fill="none" stroke="#FFE9A0" stroke-width="${r * 0.03}" stroke-dasharray="${r * 0.004} ${r * 0.058}" stroke-linecap="round" opacity=".9"/>
+    <path id="${id}t" d="M ${-topR} 0 A ${topR} ${topR} 0 0 1 ${topR} 0" fill="none"/>
+    <path id="${id}b" d="M ${-botR} 0 A ${botR} ${botR} 0 0 0 ${botR} 0" fill="none"/>
+    <text font-family="DejaVu Serif, Georgia, serif" font-weight="700" font-size="${r * 0.12}" letter-spacing="${r * 0.02}" fill="#FFF0B0" opacity=".95">
+      <textPath href="#${id}t" startOffset="50%" text-anchor="middle">${top}</textPath></text>
+    <text font-family="DejaVu Serif, Georgia, serif" font-weight="700" font-size="${r * 0.1}" letter-spacing="${r * 0.012}" fill="#FFF0B0" opacity=".95" dy="${r * 0.08}">
+      <textPath href="#${id}b" startOffset="50%" text-anchor="middle">${weight}  Au ${purity}</textPath></text>
+    <path d="${lotus}" fill="url(#gdRelief)" stroke="#7A4F08" stroke-width="${r * 0.025}" transform="translate(${r * 0.012},${r * 0.016})" opacity=".5"/>
+    <path d="${lotus}" fill="url(#gdRelief)" stroke="#8A5C0C" stroke-width="${r * 0.02}"/>
+    <path d="${lotus}" fill="none" stroke="#FFF6D0" stroke-width="${r * 0.012}" transform="scale(.9)" opacity=".75"/>
+    ${emb(0, -r * 0.02, r * 0.3, denom)}
+    ${emb(0, r * 0.2, r * 0.17, 'Dinar', 'font-style="italic"')}
+  </g>`;
+}
+
+
+const DUR=42.36, CTA=32.92;
+const SEGS=[{"a": 0.0, "b": 2.38, "words": [{"w": "Kenapa", "a": 0.0, "b": 0.6}, {"w": "perlu", "a": 0.6, "b": 0.84}, {"w": "ada", "a": 0.84, "b": 1.06}, {"w": "10", "a": 1.06, "b": 1.4}, {"w": "dinar", "a": 1.4, "b": 1.78}, {"w": "emas?", "a": 1.78, "b": 2.38}]}, {"a": 2.66, "b": 5.3999999999999995, "words": [{"w": "Ini", "a": 2.66, "b": 2.86}, {"w": "5", "a": 2.86, "b": 3.24}, {"w": "kelebihan", "a": 3.24, "b": 3.7}, {"w": "yang", "a": 3.7, "b": 3.88}, {"w": "ramai", "a": 3.88, "b": 4.34}, {"w": "mungkin", "a": 4.34, "b": 4.58}, {"w": "tak", "a": 4.58, "b": 4.8}, {"w": "tahu.", "a": 4.8, "b": 5.3999999999999995}]}, {"a": 5.78, "b": 8.94, "words": [{"w": "Pertama,", "a": 5.78, "b": 6.680000000000001}, {"w": "memiliki", "a": 6.8, "b": 7.12}, {"w": "aset", "a": 7.12, "b": 7.54}, {"w": "fizikal", "a": 7.54, "b": 7.96}, {"w": "yang", "a": 7.96, "b": 8.16}, {"w": "boleh", "a": 8.16, "b": 8.34}, {"w": "dipegang.", "a": 8.34, "b": 8.94}]}, {"a": 9.38, "b": 12.64, "words": [{"w": "Kedua,", "a": 9.38, "b": 10.2}, {"w": "membantu", "a": 10.2, "b": 10.7}, {"w": "melindungi", "a": 10.7, "b": 11.32}, {"w": "nilai", "a": 11.32, "b": 11.74}, {"w": "kekayaan", "a": 11.74, "b": 12.3}, {"w": "dalam", "a": 12.3, "b": 12.64}]}, {"a": 12.64, "b": 13.54, "words": [{"w": "jangka", "a": 12.64, "b": 12.94}, {"w": "panjang.", "a": 12.94, "b": 13.54}]}, {"a": 13.96, "b": 16.96, "words": [{"w": "Ketiga,", "a": 13.96, "b": 14.82}, {"w": "mudah", "a": 14.82, "b": 15.12}, {"w": "disimpan", "a": 15.12, "b": 15.64}, {"w": "dan", "a": 15.64, "b": 15.86}, {"w": "tidak", "a": 15.86, "b": 16.06}, {"w": "memerlukan", "a": 16.06, "b": 16.56}, {"w": "ruang", "a": 16.56, "b": 16.96}]}, {"a": 16.96, "b": 17.66, "words": [{"w": "yang", "a": 16.96, "b": 17.06}, {"w": "besar.", "a": 17.06, "b": 17.66}]}, {"a": 18.02, "b": 20.94, "words": [{"w": "Keempat,", "a": 18.02, "b": 18.919999999999998}, {"w": "boleh", "a": 19.02, "b": 19.04}, {"w": "dijual", "a": 19.04, "b": 19.44}, {"w": "mengikut", "a": 19.44, "b": 19.86}, {"w": "keperluan", "a": 19.86, "b": 20.34}, {"w": "kewangan.", "a": 20.34, "b": 20.94}]}, {"a": 21.4, "b": 24.08, "words": [{"w": "Kelima,", "a": 21.4, "b": 22.16}, {"w": "boleh", "a": 22.16, "b": 22.36}, {"w": "diwariskan", "a": 22.36, "b": 22.96}, {"w": "kepada", "a": 22.96, "b": 23.18}, {"w": "anak-anak", "a": 23.18, "b": 23.8}, {"w": "sebagai", "a": 23.8, "b": 24.08}]}, {"a": 24.08, "b": 25.28, "words": [{"w": "legasi", "a": 24.08, "b": 24.68}, {"w": "keluarga.", "a": 24.68, "b": 25.28}]}, {"a": 25.82, "b": 29.18, "words": [{"w": "10", "a": 25.82, "b": 26.16}, {"w": "dinar", "a": 26.16, "b": 26.62}, {"w": "bersamaan", "a": 26.62, "b": 26.94}, {"w": "42.5", "a": 26.94, "b": 27.84}, {"w": "gram", "a": 28.38, "b": 28.58}, {"w": "emas.", "a": 28.58, "b": 29.18}]}, {"a": 28.98, "b": 32.02, "words": [{"w": "Bukan", "a": 28.98, "b": 29.86}, {"w": "sekadar", "a": 29.86, "b": 30.16}, {"w": "simpanan", "a": 30.16, "b": 30.64}, {"w": "tetapi", "a": 30.64, "b": 31.1}, {"w": "aset", "a": 31.1, "b": 31.6}, {"w": "untuk", "a": 31.6, "b": 31.82}, {"w": "masa", "a": 31.82, "b": 32.02}]}, {"a": 32.02, "b": 32.620000000000005, "words": [{"w": "depan.", "a": 32.02, "b": 32.620000000000005}]}, {"a": 32.92, "b": 34.54, "words": [{"w": "Nak", "a": 32.92, "b": 33.36}, {"w": "mula", "a": 33.36, "b": 33.56}, {"w": "kumpul", "a": 33.56, "b": 33.88}, {"w": "emas,", "a": 33.88, "b": 34.54}]}, {"a": 34.54, "b": 35.74, "words": [{"w": "klik", "a": 34.54, "b": 34.9}, {"w": "sign", "a": 34.9, "b": 35.14}, {"w": "up.", "a": 35.14, "b": 35.74}]}, {"a": 35.78, "b": 36.82, "words": [{"w": "Saya", "a": 35.78, "b": 35.94}, {"w": "bantu", "a": 35.94, "b": 36.22}, {"w": "sebaiknya.", "a": 36.22, "b": 36.82}]}, {"a": 37.18, "b": 40.92, "words": [{"w": "Follow", "a": 37.18, "b": 37.46}, {"w": "dan", "a": 37.46, "b": 37.74}, {"w": "like", "a": 37.74, "b": 38.08}, {"w": "@theazminapg", "a": 38.08, "b": 38.98}, {"w": "untuk", "a": 39.6, "b": 40.22}, {"w": "ilmu", "a": 40.22, "b": 40.58}, {"w": "emas", "a": 40.58, "b": 40.92}]}, {"a": 40.92, "b": 42.06, "words": [{"w": "dan", "a": 40.92, "b": 41.1}, {"w": "kewangan", "a": 41.1, "b": 41.46}, {"w": "seterusnya.", "a": 41.46, "b": 42.06}]}];
+const SC=[[0,2.66],[2.66,5.78],[5.78,9.38],[9.38,13.96],[13.96,18.02],[18.02,21.4],[21.4,25.82],[25.82,28.98],[28.98,32.92],[32.92,42.36]];
+const HLW=new Set(['dinar','emas','aset','fizikal','nilai','jangka','panjang','disimpan','dijual','diwariskan','legasi','keluarga','10','5','42.5','gram','simpanan','masa','depan','follow','like','sign','up','kewangan','ilmu','kelebihan','dipegang']);
+const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const eo=p=>1-Math.pow(1-p,3);
+const eb=p=>{const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(p-1,3)+c1*Math.pow(p-1,2)};
+const $=s=>document.querySelector(s);
+$('#gdefs').insertAdjacentHTML('beforeend',GOLDDINAR_DEFS);
+const A=(d,k,inner)=>`<g class="a" data-d="${d}" data-k="${k}">${inner}</g>`;
+const T=(x,y,s,txt,fill='#2B2D55',w=800,anchor='middle')=>`<text x="${x}" y="${y}" text-anchor="${anchor}" font-family="Inter" font-weight="${w}" font-size="${s}" fill="${fill}">${txt}</text>`;
+const person=(cx,cy,s,col)=>`<g transform="translate(${cx},${cy}) scale(${s})"><circle cx="0" cy="-30" r="30" fill="${col}"/><path d="M-52 52 Q-52 6 0 6 Q52 6 52 52 Z" fill="${col}"/></g>`;
+const sparkle=(x,y,s,c)=>`<g transform="translate(${x},${y}) scale(${s})"><path d="M0 -40 Q6 -6 40 0 Q6 6 0 40 Q-6 6 -40 0 Q-6 -6 0 -40Z" fill="${c}"/></g>`;
+const pill=(x,y,w,h,col,txt,s)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${h/2}" fill="${col}"/>${T(x+w/2,y+h/2+s*.35,s,txt,'#fff',900)}`;
+const note=(x,y,w,h)=>`<g><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="26" fill="#BFEBD6"/><rect x="${x+14}" y="${y+14}" width="${w-28}" height="${h-28}" rx="16" fill="none" stroke="#3FB68B" stroke-width="5"/><circle cx="${x+w/2}" cy="${y+h/2}" r="${h*.28}" fill="#3FB68B"/>${T(x+w/2,y+h/2+h*.1,h*.26,'RM','#fff',900)}</g>`;
+function flower(R){let f='';for(let i=0;i<=360;i++){const a=i/360*Math.PI*2-Math.PI/2;const rr=R*(0.74+0.26*Math.abs(Math.cos(4*a)));f+=(i?'L':'M')+(rr*Math.cos(a)).toFixed(1)+' '+(rr*Math.sin(a)).toFixed(1)}return f}
+const FL=flower(105);
+// small icons in 100x100
+const IC={
+ cube:c=>`<polygon points="50,10 90,30 50,50 10,30" fill="${c}"/><polygon points="10,30 50,50 50,92 10,72" fill="${c}" opacity=".7"/><polygon points="90,30 50,50 50,92 90,72" fill="${c}" opacity=".5"/>`,
+ shield:c=>`<path d="M50 8 L88 22 V52 Q88 78 50 94 Q12 78 12 52 V22 Z" fill="${c}"/><path d="M32 50 L46 64 L70 36" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>`,
+ box:c=>`<rect x="10" y="34" width="80" height="56" rx="10" fill="${c}"/><rect x="10" y="34" width="80" height="22" rx="10" fill="${c}" opacity=".75"/><rect x="42" y="50" width="16" height="12" rx="4" fill="#fff"/>`,
+ cash:c=>`<rect x="6" y="26" width="88" height="52" rx="10" fill="${c}"/><circle cx="50" cy="52" r="16" fill="#fff" opacity=".9"/><text x="50" y="60" text-anchor="middle" font-family="Inter" font-weight="900" font-size="22" fill="${c}">RM</text>`,
+ family:c=>`<circle cx="30" cy="30" r="14" fill="${c}"/><path d="M8 80 Q8 48 30 48 Q52 48 52 80Z" fill="${c}"/><circle cx="68" cy="46" r="11" fill="${c}" opacity=".8"/><path d="M50 84 Q50 62 68 62 Q86 62 86 84Z" fill="${c}" opacity=".8"/>`
+};
+const ico=(k,x,y,s,c)=>`<g transform="translate(${x},${y}) scale(${s})">${IC[k](c)}</g>`;
+
+// g0 hook: dinar with halo + sparkles
+$('#g0').innerHTML=A(0.2,'pop',`<circle cx="450" cy="270" r="260" fill="#FFE1E7"/><circle cx="450" cy="270" r="215" fill="#FFF1B8" opacity=".9"/>`)+A(0.6,'pop',goldDinar(450,270,190))+A(1.8,'pop',sparkle(160,110,1.1,'#FF8FA3'))+A(2.0,'pop',sparkle(760,430,1.3,'#8E7CFF'))+A(2.2,'pop',sparkle(740,90,.8,'#3FB68B'));
+// g1 hub and spoke
+{const cx=450,cy=470,R=300;const N=[['cube','#FF8FA3','Fizikal'],['shield','#8E7CFF','Lindung nilai'],['box','#3FB68B','Mudah simpan'],['cash','#FF9F6B','Boleh dijual'],['family','#5BA8F5','Legasi']];
+ let h=`<circle cx="${cx}" cy="${cy}" r="${R}" fill="none" stroke="#E4DEF7" stroke-width="6" stroke-dasharray="4 16" stroke-linecap="round"/>`;
+ h+=A(0.4,'pop',goldDinar(cx,cy,110));
+ N.forEach((n,i)=>{const ang=-Math.PI/2+i*2*Math.PI/5;const x=cx+R*Math.cos(ang),y=cy+R*Math.sin(ang);const d=(3.5+i*0.3-2.66).toFixed(2);
+  h+=A(d,'pop',`<line x1="${cx+120*Math.cos(ang)}" y1="${cy+120*Math.sin(ang)}" x2="${x-62*Math.cos(ang)}" y2="${y-62*Math.sin(ang)}" stroke="${n[1]}" stroke-width="8" stroke-dasharray="2 14" stroke-linecap="round"/><circle cx="${x}" cy="${y}" r="70" fill="#fff" stroke="${n[1]}" stroke-width="8"/>${ico(n[0],x-36,y-36,.72,n[1])}<circle cx="${x+52}" cy="${y-52}" r="26" fill="${n[1]}"/>${T(x+52,y-42,30,i+1,'#fff',900)}${T(x,y+116,34,n[2],'#2B2D55',900)}`)});
+ $('#g1').innerHTML=h}
+// g2 annotated dinar
+$('#g2').innerHTML=A(0.2,'pop',`<circle cx="450" cy="350" r="250" fill="#FFE9EE"/>`)+A(0.7,'pop',goldDinar(450,350,200))+
+ A(1.5,'pop',`<path d="M300 250 L190 150" stroke="#FF8FA3" stroke-width="6" stroke-dasharray="2 12" stroke-linecap="round"/>${pill(30,70,280,80,'#FF8FA3','10 DINAR',44)}`)+
+ A(2.0,'pop',`<path d="M610 250 L720 150" stroke="#8E7CFF" stroke-width="6" stroke-dasharray="2 12" stroke-linecap="round"/>${pill(590,70,280,80,'#8E7CFF','42.5 g',44)}`)+
+ A(2.5,'pop',`<path d="M450 550 L450 610" stroke="#3FB68B" stroke-width="6" stroke-dasharray="2 12" stroke-linecap="round"/>${pill(290,615,320,80,'#3FB68B','Au 999.9',44)}`);
+// g3 shield + rising chart
+$('#g3').innerHTML=A(0.3,'pop',`<path d="M200 70 L360 126 V310 Q360 470 200 540 Q40 470 40 310 V126 Z" fill="#E4D9FF" stroke="#8E7CFF" stroke-width="12" stroke-linejoin="round"/>`)+A(0.8,'pop',goldDinar(200,300,110))+
+ A(1.6,'pop',`<line x1="450" y1="140" x2="450" y2="560" stroke="#C7C2E0" stroke-width="6" stroke-linecap="round"/><line x1="450" y1="560" x2="870" y2="560" stroke="#C7C2E0" stroke-width="6" stroke-linecap="round"/>${T(450,110,30,'NILAI','#8E7CFF',900,'start')}${T(870,610,30,'MASA','#8E7CFF',900,'end')}`)+
+ `<polyline id="ln3" points="470,520 560,470 640,490 730,360 800,300 860,200" fill="none" stroke="#3FB68B" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>`+A(3.0,'pop',pill(480,630,360,70,'#3FB68B','jangka panjang',36))+T(40,700,24,'Ilustrasi sahaja','#B7B2D0',700,'start');
+// g4 big vault vs small box
+$('#g4').innerHTML=A(0.8,'pop',`<g opacity=".7"><rect x="30" y="170" width="400" height="330" rx="40" fill="#E2DDF6"/><circle cx="230" cy="335" r="86" fill="#CFC8EE"/><circle cx="230" cy="335" r="46" fill="#E2DDF6"/><rect x="300" y="500" width="80" height="22" rx="8" fill="#CFC8EE"/><rect x="80" y="500" width="80" height="22" rx="8" fill="#CFC8EE"/></g>${T(230,590,38,'ruang besar','#8D88AE',800)}`)+
+ A(2.0,'pop',`<g transform="translate(230,335)"><circle r="82" fill="#FF5C7C"/><line x1="-30" y1="-30" x2="30" y2="30" stroke="#fff" stroke-width="16" stroke-linecap="round"/><line x1="30" y1="-30" x2="-30" y2="30" stroke="#fff" stroke-width="16" stroke-linecap="round"/></g>`)+
+ A(2.8,'pop',`<rect x="520" y="300" width="340" height="230" rx="46" fill="#D3F5E4"/><rect x="520" y="300" width="340" height="82" rx="46" fill="#3FB68B"/>${goldDinar(620,440,56)}${goldDinar(700,452,56)}${goldDinar(780,440,56)}${T(690,590,38,'ruang kecil','#2E9A74',900)}`);
+// g5 flow
+$('#g5').innerHTML=A(0.7,'pop',goldDinar(150,300,120))+A(1.3,'left',`<path d="M290 300 L400 300" stroke="#FF9F6B" stroke-width="18" stroke-linecap="round"/><polygon points="395,258 470,300 395,342" fill="#FF9F6B"/>${pill(285,170,190,70,'#FF9F6B','JUAL',40)}`)+A(1.9,'pop',note(520,205,320,190))+A(2.4,'pop',pill(170,520,560,90,'#fff','IKUT KEPERLUAN',46).replace('fill="#fff"','fill="#fff" stroke="#FF9F6B" stroke-width="6"').replace(/fill="#fff">IKUT/,'fill="#FF7A3D">IKUT'));
+// g6 family tree
+$('#g6').innerHTML=A(0.8,'pop',person(260,190,1.5,'#8E7CFF')+person(640,190,1.5,'#FF8FA3'))+A(1.2,'pop',`<circle cx="450" cy="150" r="82" fill="#FFF1B8"/>${goldDinar(450,150,64)}`)+
+ A(1.6,'left',`<path d="M450 240 L450 330" stroke="#F2B544" stroke-width="10" stroke-dasharray="2 18" stroke-linecap="round"/><polygon points="420,322 450,372 480,322" fill="#F2B544"/>`)+
+ A(1.9,'pop',person(330,520,1.2,'#FF9F6B'))+A(2.3,'pop',person(570,520,1.2,'#3FB68B'))+
+ A(2.8,'pop',`<rect x="190" y="640" width="520" height="80" rx="40" fill="#5BA8F5"/>${T(450,696,42,'LEGASI KELUARGA','#fff',900)}`)+A(3.2,'pop',sparkle(120,330,1,'#F7CF6A'))+A(3.4,'pop',sparkle(790,350,.9,'#FF8FA3'));
+// g7 10 dinar grid
+{let h='';for(let i=0;i<10;i++){const col=i%5,row=Math.floor(i/5);const x=110+col*168,y=170+row*250;h+=A((0.12+i*0.13).toFixed(2),'pop',goldDinar(x+25,y,74)+T(x+25,y+112,34,'4.25g','#8D88AE',800))}
+ h+=A(1.9,'pop',`<rect x="60" y="640" width="780" height="270" rx="56" fill="#FFF1B8" stroke="#F2B544" stroke-width="8"/>`)+`<text id="cnt" x="450" y="800" text-anchor="middle" font-family="Inter" font-weight="900" font-size="150" fill="#E0A92B">0 g</text>`+A(2.5,'pop',T(450,892,56,'gram emas','#2B2D55',900));
+ $('#g7').innerHTML=h}
+// g8 simpanan vs aset
+$('#g8').innerHTML=A(0.3,'pop',`<rect x="0" y="40" width="420" height="560" rx="52" fill="#EDEAF6"/><rect x="120" y="190" width="180" height="230" rx="40" fill="#CFC8EE"/><rect x="150" y="150" width="120" height="50" rx="16" fill="#B7AFE0"/><ellipse cx="210" cy="255" rx="40" ry="14" fill="#F7CF6A"/>${T(210,520,60,'SIMPANAN','#8D88AE',900)}`)+
+ A(1.1,'pop',`<g transform="translate(210,290)"><circle r="100" fill="#fff" opacity=".0"/></g>`)+
+ A(1.7,'pop',`<rect x="480" y="40" width="420" height="560" rx="52" fill="#FFF1B8" stroke="#F2B544" stroke-width="8"/>${goldDinar(690,260,130)}${T(690,520,76,'ASET','#E0A92B',900)}`)+
+ A(2.4,'pop',`<g transform="translate(790,100)"><circle r="56" fill="#3FB68B"/><polygon points="0,-30 30,6 12,6 12,32 -12,32 -12,6 -30,6" fill="#fff"/></g>`)+
+ A(2.9,'pop',pill(200,660,500,90,'#8E7CFF','UNTUK MASA DEPAN',42));
+$('#hand').innerHTML=`<g id="tap"><circle cx="640" cy="40" r="30" fill="none" stroke="#2B2D55" stroke-width="8" opacity=".8"/><path d="M640 40 l0 100 l30 -22 l24 52 l22 -10 l-24 -52 l36 -4 z" fill="#fff" transform="translate(-20,-10)" stroke="#2B2D55" stroke-width="6"/></g>`;
+$('#trk').innerHTML=[1,2,3,4,5].map(n=>`<i data-n="${n}">${n}</i>`).join('');
+
+const bc=$('#bgc').getContext('2d');
+const BL=[['#FFD6E0',160,300,200],['#E0D8FF',900,520,240],['#D3F5E4',200,1000,210],['#CDE8FF',860,1300,230],['#FFE1C7',300,1600,240],['#FFF1B8',900,1750,180]];
+function drawBG(t){bc.fillStyle='#FFF7F0';bc.fillRect(0,0,1080,1920);
+ BL.forEach((b,i)=>{bc.globalAlpha=.75;bc.fillStyle=b[0];bc.beginPath();bc.arc(b[1]+Math.sin(t*.35+i*1.7)*40,b[2]+Math.cos(t*.3+i)*40,b[3],0,7);bc.fill()});
+ bc.globalAlpha=1;bc.fillStyle='rgba(43,45,85,.08)';for(let x=60;x<1080;x+=60)for(let y=1780;y<1900;y+=60){bc.beginPath();bc.arc(x,y,2.4,0,7);bc.fill()}}
+const ANIMS=[...document.querySelectorAll('.a')];
+ANIMS.forEach(el=>{const sc=el.closest('.scene');el._si=sc?parseInt(sc.id.slice(1)):-1});
+function anim(el,l){const d=parseFloat(el.dataset.d||0),k=el.dataset.k||'fade';const p=clamp((l-d)/0.5),e=eo(p);let tf='';const op=p>0?Math.min(1,p*2.5):0;
+ if(k==='up')tf=`translateY(${(1-e)*60}px)`;else if(k==='down')tf=`translateY(${-(1-e)*50}px)`;else if(k==='left')tf=`translateX(${-(1-e)*100}px)`;else if(k==='pop')tf=`scale(${0.4+0.6*eb(p)})`;
+ el.style.opacity=op;el.style.transform=tf}
+const sceneAlpha=(t,[a,b],f,l)=>Math.min(f?1:clamp((t-a)/0.25),l?1:clamp((b-t)/0.2));
+function render(t){
+ drawBG(t);$('#barf').style.width=(t/DUR*100)+'%';
+ {const w=$('#wm');w.style.opacity=(t<0.4||t>=CTA)?0:Math.min(1,(t-0.4)/0.4)*clamp((CTA-t)/0.3)}
+ SC.forEach((w,i)=>{const el=document.getElementById('s'+i);const on=t>=w[0]&&t<w[1];el.style.display=on?'block':'none';el.style.opacity=on?sceneAlpha(t,w,i===0,i===SC.length-1):0});
+ let idx=SC.findIndex(w=>t>=w[0]&&t<w[1]);if(idx<0)idx=SC.length-1;const l=t-SC[idx][0];
+ ANIMS.filter(e=>e._si===idx).forEach(e=>anim(e,l));
+ document.querySelectorAll('#s'+idx+' [data-strike]').forEach(s=>{s.style.width=(clamp((l-parseFloat(s.dataset.strike))/0.35)*108)+'%'});
+ const trk=$('#trk');trk.style.opacity=(idx>=2&&idx<=6)?1:0;
+ trk.querySelectorAll('i').forEach(i=>{const n=+i.dataset.n;const cur=idx-1;i.className=n<cur?'done':(n===cur?'act':'')});
+ if(idx===3){const ln=$('#ln3');const L=ln.getTotalLength();ln.style.strokeDasharray=L;ln.style.strokeDashoffset=L*(1-eo(clamp((l-2.7)/1.1)))}
+ if(idx===7){let n=0;for(let i=0;i<10;i++)if(l>=0.12+i*0.13+0.2)n++;$('#cnt').textContent=(Math.round(n*4.25*100)/100).toString().replace(/\.0+$/,'')+' g'}
+ if(idx===9){const a=clamp((l-2.8)/0.3),c=clamp((l-4.2)/0.3);
+  $('#c9a').style.opacity=l<2.8?1:(l<4.2?1-a:0);$('#c9b').style.opacity=l<2.8?0:(l<4.2?a:1-c);$('#c9c').style.opacity=c;
+  $('#hand').style.opacity=(l>1.4&&l<2.8)?1:0;
+  $('#fbtn').style.transform=`scale(${1+0.04*Math.sin(l*8)})`;$('#lbtn').style.transform=`scale(${1+0.05*Math.sin(l*8+1.5)})`;
+  $('#sbtn').style.transform=`scale(${l>1.9&&l<2.2?0.94:1+0.03*Math.sin(l*8)})`;$('#tap').style.transform=`scale(${l>1.9&&l<2.2?0.9:1})`}
+ const seg=SEGS.find(s=>t>=s.a-0.05&&t<=s.b+0.15);const cap=$('#cap'),cbg=$('#capbg');
+ if(!seg){cap.innerHTML='';cap._k=-1;cap.style.opacity=0;cbg.style.opacity=0}
+ else{cap.style.opacity=1;cbg.style.opacity=1;const key=SEGS.indexOf(seg);
+  if(cap._k!==key){cap._k=key;cap.innerHTML=seg.words.map(w=>`<span>${w.w}</span>`).join('');cbg.style.height=(cap.offsetHeight+44)+'px'}
+  cap.querySelectorAll('span').forEach((s,i)=>{const w=seg.words[i];const cur=t>=w.a&&t<w.b,past=t>=w.b;s.className=cur?'on':(past?'done':'');
+   const k=w.w.toLowerCase().replace(/[^\w@.]/g,'').replace(/\.$/,'');if(HLW.has(k)&&(cur||past))s.style.color='#7B5CFF';else s.style.color=''})}
+}
+window.render=render;render(0);
+</script></body></html>
