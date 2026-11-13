@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="ms"><head><meta charset="utf-8"><title>Kenapa Pilih Gold Bar Public Gold</title>
+<style>
+:root{--navy:#1E2A55;--orange:#FF8A1F;--gold:#FFD54A;--teal:#25C2A0;--purple:#8B6CFF;--coral:#FF6B6B}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;background:#8fdcf8;overflow:hidden;font-family:Inter,'Inter Display',sans-serif;color:var(--navy)}
+#stage{position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:hidden}
+#bgc{position:absolute;inset:0}
+#cam{position:absolute;inset:0;transform-origin:540px 900px}
+.scene{position:absolute;inset:0;opacity:0}
+.w{position:absolute;inset:0}
+.c{position:absolute;left:90px;width:900px;text-align:center}
+.x{position:absolute;left:40px;width:1000px;text-align:center;white-space:nowrap;font-weight:900;letter-spacing:-2px;line-height:1;text-transform:uppercase}
+.xw{color:#fff;text-shadow:0 2px 0 #3F6BD8,0 4px 0 #375FC6,0 6px 0 #2F53B3,0 8px 0 #2748A0,0 10px 0 #1F3C8C,0 12px 0 #1A3379,0 26px 30px rgba(15,35,110,.4)}
+.xg{color:#FFE45C;text-shadow:0 2px 0 #F0A000,0 4px 0 #E39400,0 6px 0 #D48800,0 8px 0 #C27B00,0 10px 0 #AE6C00,0 12px 0 #985D00,0 26px 30px rgba(110,50,0,.45)}
+.xo{color:#FF9A4D;text-shadow:0 2px 0 #E0561A,0 4px 0 #CC4A12,0 6px 0 #B83F0C,0 8px 0 #A33507,0 10px 0 #8E2C04,0 26px 30px rgba(110,30,0,.4)}
+.xt{color:#6BF0D0;text-shadow:0 2px 0 #12A887,0 4px 0 #0E9577,0 6px 0 #0B8368,0 8px 0 #08705A,0 10px 0 #055D4A,0 26px 30px rgba(0,70,55,.4)}
+.xs{font-size:60px;text-transform:none;letter-spacing:-1px}
+.rib{position:absolute;left:0;right:0;margin:auto;width:max-content;padding:14px 48px;border-radius:28px;color:#fff;font-weight:900;font-size:44px;letter-spacing:4px;text-shadow:0 3px 0 rgba(0,0,0,.2)}
+.a{opacity:0;transform-box:fill-box;transform-origin:center}
+#bar{position:absolute;left:90px;top:176px;width:900px;height:20px;border-radius:10px;background:rgba(255,255,255,.55);box-shadow:inset 0 3px 6px rgba(20,60,140,.25),0 5px 0 rgba(255,255,255,.4)}
+#barf{height:100%;width:0;border-radius:10px;background:linear-gradient(180deg,#FFE680,#FFB020);box-shadow:0 3px 0 #C77A00}
+#cap{position:absolute;left:100px;width:880px;top:1500px;text-align:center;font-weight:800;font-size:54px;line-height:1.3}
+#cap span{display:inline-block;margin:0 11px;color:#9AA9C9}
+#cap span.done{color:var(--navy)}
+#cap span.on{color:var(--orange);transform:scale(1.07)}
+#capbg{position:absolute;left:70px;width:940px;top:1480px;height:210px;border-radius:46px;background:linear-gradient(#fff,#EAF4FF);border:3px solid #fff;box-shadow:0 10px 0 #B7D2F0,0 26px 34px rgba(20,60,130,.3)}
+.sl{position:absolute;left:-8px;top:52%;height:16px;width:0;background:#FF4D4D;border-radius:8px;transform:rotate(-2.5deg);box-shadow:0 4px 0 #B52B2B}
+.btn3{display:inline-block;border-radius:999px;color:#fff;font-weight:900;letter-spacing:-1px;text-shadow:0 4px 0 rgba(0,0,0,.2)}
+</style></head><body>
+<div id="stage">
+<canvas id="bgc" width="1080" height="1920"></canvas>
+<svg width="0" height="0" style="position:absolute"><defs id="gdefs">
+<linearGradient id="gF" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFEB8A"/><stop offset=".5" stop-color="#FFC93C"/><stop offset="1" stop-color="#E59B10"/></linearGradient>
+<linearGradient id="gT" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF9D0"/><stop offset="1" stop-color="#FFE27A"/></linearGradient>
+<linearGradient id="gS" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#E0A020"/><stop offset="1" stop-color="#A86A0A"/></linearGradient>
+<linearGradient id="grF" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7CF0B4"/><stop offset="1" stop-color="#1DAF73"/></linearGradient>
+<linearGradient id="grT" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C6FFE0"/><stop offset="1" stop-color="#8FF0BE"/></linearGradient>
+<linearGradient id="grS" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#18A068"/><stop offset="1" stop-color="#0E6E48"/></linearGradient>
+<linearGradient id="gSh" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".75"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<radialGradient id="sT" cx=".35" cy=".3" r=".9"><stop offset="0" stop-color="#B8FFEA"/><stop offset=".5" stop-color="#25C2A0"/><stop offset="1" stop-color="#0B7F68"/></radialGradient>
+<radialGradient id="sO" cx=".35" cy=".3" r=".9"><stop offset="0" stop-color="#FFE0B0"/><stop offset=".5" stop-color="#FF8A1F"/><stop offset="1" stop-color="#B85200"/></radialGradient>
+<radialGradient id="sP" cx=".35" cy=".3" r=".9"><stop offset="0" stop-color="#E3D8FF"/><stop offset=".5" stop-color="#8B6CFF"/><stop offset="1" stop-color="#4527B8"/></radialGradient>
+<linearGradient id="cardG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A28BFF"/><stop offset="1" stop-color="#4F7BFF"/></linearGradient>
+<linearGradient id="stepG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#CFE3FA"/></linearGradient>
+<filter id="blur" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="12"/></filter>
+</defs></svg>
+<div id="cam">
+<img id="wm" src="../../assets/logo-light.png" style="position:absolute;left:880px;top:238px;width:110px;height:110px;border-radius:50%;opacity:0;box-shadow:0 10px 0 rgba(0,0,0,.12),0 16px 26px rgba(20,60,130,.3)">
+<div id="bar"><div id="barf"></div></div>
+
+<!-- 0 hook -->
+<div class="scene" id="s0">
+  <div class="x xw a" data-d="0.1" data-k="up" style="top:330px;font-size:74px">Kenapa ramai pilih</div>
+  <div class="x xg a" data-d="0.9" data-k="pop" style="top:430px;font-size:200px;letter-spacing:-6px">GOLD BAR</div>
+  <div class="x xo a" data-d="1.4" data-k="pop" style="top:670px;font-size:112px;letter-spacing:-3px">PUBLIC GOLD?</div>
+  <svg class="c" style="top:810px;height:640px" viewBox="0 0 900 640" id="g0"></svg>
+</div>
+
+<!-- 1 beberapa sebab -->
+<div class="scene" id="s1">
+  <div class="x xw a" data-d="0.1" data-k="up" style="top:340px;font-size:100px">BEBERAPA</div>
+  <div class="x xg a" data-d="0.4" data-k="pop" style="top:470px;font-size:150px">SEBAB</div>
+  <svg class="c" style="top:700px;height:700px" viewBox="0 0 900 700" id="g1"></svg>
+</div>
+
+<!-- 2 sebab 1 spread -->
+<div class="scene" id="s2">
+  <div class="rib a" data-d="0.05" data-k="down" style="top:270px;background:linear-gradient(#4FE0C0,#1FB89A);box-shadow:0 8px 0 #12806C,0 18px 24px rgba(0,60,50,.3)">SEBAB 1</div>
+  <div class="x xw a" data-d="0.3" data-k="up" style="top:380px;font-size:150px;letter-spacing:-4px">SPREAD</div>
+  <div class="x xg a" data-d="1.0" data-k="up" style="top:540px;font-size:96px;letter-spacing:-2px">LEBIH RENDAH</div>
+  <svg class="c" style="top:700px;height:740px" viewBox="0 0 900 740" id="g2"></svg>
+</div>
+
+<!-- 3 sebab 2 jual semula -->
+<div class="scene" id="s3">
+  <div class="rib a" data-d="0.05" data-k="down" style="top:270px;background:linear-gradient(#FFB066,#FF7A1A);box-shadow:0 8px 0 #B24F00,0 18px 24px rgba(110,40,0,.3)">SEBAB 2</div>
+  <div class="x xw a" data-d="0.3" data-k="up" style="top:380px;font-size:150px;letter-spacing:-4px">MUDAH</div>
+  <div class="x xg a" data-d="1.0" data-k="up" style="top:540px;font-size:100px;letter-spacing:-2px">JUAL SEMULA</div>
+  <svg class="c" style="top:700px;height:740px" viewBox="0 0 900 740" id="g3"></svg>
+</div>
+
+<!-- 4 sebab 3 ketulenan -->
+<div class="scene" id="s4">
+  <div class="rib a" data-d="0.05" data-k="down" style="top:270px;background:linear-gradient(#B79BFF,#7550F0);box-shadow:0 8px 0 #4A2FB0,0 18px 24px rgba(40,10,110,.3)">SEBAB 3</div>
+  <div class="x xw a" data-d="0.3" data-k="up" style="top:380px;font-size:112px;letter-spacing:-3px">KETULENAN</div>
+  <div class="x xg a" data-d="1.0" data-k="pop" style="top:510px;font-size:180px;letter-spacing:-5px">999.9</div>
+  <svg class="c" style="top:760px;height:680px" viewBox="0 0 900 680" id="g4"></svg>
+</div>
+
+<!-- 5 tak perlu banyak duit -->
+<div class="scene" id="s5">
+  <div class="w" data-w="0,7.0">
+    <div class="x xw a" data-d="1.0" data-k="up" style="top:300px;font-size:120px">TAK PERLU</div>
+    <div class="x xg a" data-d="1.8" data-k="pop" style="top:440px;font-size:124px;letter-spacing:-4px">DUIT BANYAK</div>
+    <div class="x xs xw a" data-d="2.6" data-k="up" style="top:600px">sekaligus</div>
+  </div>
+  <div class="w" data-w="7.0,15.0">
+    <div class="x xw a" data-d="7.1" data-k="up" style="top:300px;font-size:112px">KUMPUL</div>
+    <div class="x xg a" data-d="7.5" data-k="pop" style="top:430px;font-size:98px;letter-spacing:-3px">SEDIKIT DEMI</div>
+    <div class="x xg a" data-d="7.9" data-k="pop" style="top:540px;font-size:98px;letter-spacing:-3px">SEDIKIT</div>
+  </div>
+  <svg class="c" style="top:700px;height:740px" viewBox="0 0 900 740" id="g5"></svg>
+</div>
+
+<!-- 6 bukan soal beli banyak -->
+<div class="scene" id="s6">
+  <div class="w" data-w="0,3.3">
+    <div class="x xw a" data-d="0.1" data-k="up" style="top:340px;font-size:100px">BUKAN SOAL</div>
+    <div class="x xw a" data-d="0.5" data-k="up" style="top:470px;font-size:104px"><span style="position:relative;display:inline-block">BELI BANYAK<i class="sl" data-strike="1.9"></i></span></div>
+  </div>
+  <div class="w" data-w="3.3,7">
+    <div class="x xw a" data-d="3.4" data-k="up" style="top:340px;font-size:100px">MULA IKUT</div>
+    <div class="x xg a" data-d="3.8" data-k="pop" style="top:470px;font-size:112px;letter-spacing:-3px">KEMAMPUAN</div>
+  </div>
+  <svg class="c" style="top:660px;height:780px" viewBox="0 0 900 780" id="g6"></svg>
+</div>
+
+<!-- 7 CTA -->
+<div class="scene" id="s7">
+  <div class="w" data-w="0,3.3">
+    <div class="x xw a" data-d="0.2" data-k="up" style="top:330px;font-size:96px">BOLEH MULA</div>
+    <div class="x xg a" data-d="0.7" data-k="pop" style="top:450px;font-size:112px;letter-spacing:-3px">SIMPAN EMAS</div>
+    <div class="x xs xw a" data-d="1.8" data-k="up" style="top:600px">dengan langkah mudah</div>
+    <svg class="c" style="top:700px;height:720px" viewBox="0 0 900 720" id="g7a"></svg>
+  </div>
+  <div class="w" data-w="3.3,4.5">
+    <div class="x xw a" data-d="3.4" data-k="up" style="top:380px;font-size:110px">KLIK</div>
+    <div class="c a" data-d="3.6" data-k="pop" style="top:520px"><span class="btn3" id="sbtn" style="padding:40px 110px;font-size:128px;border-radius:40px;background:linear-gradient(#B79BFF,#7550F0);box-shadow:0 14px 0 #4A2FB0,0 30px 36px rgba(40,10,110,.4)">SIGN UP</span></div>
+    <svg class="c" style="top:590px;height:200px;pointer-events:none" viewBox="0 0 900 200" id="hand"></svg>
+  </div>
+  <div class="w" data-w="4.5,6.0">
+    <div class="x xg a" data-d="4.6" data-k="pop" style="top:420px;font-size:120px;letter-spacing:-3px">SAYA BANTU</div>
+    <div class="x xw a" data-d="4.9" data-k="pop" style="top:560px;font-size:120px;letter-spacing:-3px">SEBAIKNYA</div>
+    <svg class="c" style="top:760px;height:640px" viewBox="0 0 900 640" id="g7c"></svg>
+  </div>
+  <div class="w" data-w="6.0,11">
+    <img class="c a" data-d="6.1" data-k="pop" src="../../assets/logo-light.png" style="top:260px;left:410px;width:260px;height:260px;border-radius:50%;box-shadow:0 14px 0 rgba(0,0,0,.14),0 30px 40px rgba(20,60,130,.35)">
+    <div class="x xg a" data-d="6.9" data-k="up" style="top:560px;font-size:76px;text-transform:none;letter-spacing:-1px">@theazminapg</div>
+    <div class="c a" data-d="6.4" data-k="pop" style="top:700px"><span class="btn3" id="fbtn" style="padding:36px 120px;font-size:108px;background:linear-gradient(#FF9A8A,#FF4D6A);box-shadow:0 14px 0 #B8213F,0 30px 36px rgba(110,10,40,.4)">FOLLOW</span></div>
+    <div class="x xs xw a" data-d="8.4" data-k="up" style="top:930px">untuk ilmu emas dan kewangan</div>
+  </div>
+</div>
+
+<div id="capbg" style="opacity:0"></div>
+<div id="cap"></div>
+</div>
+</div>
+
+<script>
+const DUR=70.08, CTA=59.84;
+const SEGS=[{"a": 0.0, "b": 2.42, "words": [{"w": "Kenapa", "a": 0.0, "b": 0.56}, {"w": "ramai", "a": 0.56, "b": 0.78}, {"w": "pilih", "a": 0.78, "b": 1.06}, {"w": "Gold", "a": 1.06, "b": 1.26}, {"w": "Bar", "a": 1.26, "b": 1.48}, {"w": "Public", "a": 1.48, "b": 1.82}, {"w": "Gold?", "a": 1.82, "b": 2.42}]}, {"a": 2.6, "b": 4.58, "words": [{"w": "Sebenarnya", "a": 2.6, "b": 3.18}, {"w": "ada", "a": 3.18, "b": 3.54}, {"w": "beberapa", "a": 3.54, "b": 3.98}, {"w": "sebab.", "a": 3.98, "b": 4.58}]}, {"a": 5.02, "b": 7.14, "words": [{"w": "Pertama,", "a": 5.02, "b": 5.92}, {"w": "spread", "a": 6.02, "b": 6.28}, {"w": "lebih", "a": 6.28, "b": 6.54}, {"w": "rendah.", "a": 6.54, "b": 7.14}]}, {"a": 7.5, "b": 9.54, "words": [{"w": "Untuk", "a": 7.5, "b": 7.98}, {"w": "Gold", "a": 7.98, "b": 8.22}, {"w": "Bar", "a": 8.22, "b": 8.42}, {"w": "100", "a": 8.42, "b": 8.84}, {"w": "gram,", "a": 8.84, "b": 9.54}]}, {"a": 9.54, "b": 10.92, "words": [{"w": "spread", "a": 9.54, "b": 9.9}, {"w": "sekitar", "a": 9.9, "b": 10.32}, {"w": "7%", "a": 10.32, "b": 10.92}]}, {"a": 11.52, "b": 14.2, "words": [{"w": "jadi", "a": 11.52, "b": 11.88}, {"w": "kos", "a": 11.88, "b": 12.2}, {"w": "nak", "a": 12.2, "b": 12.42}, {"w": "memiliki", "a": 12.42, "b": 12.92}, {"w": "emas", "a": 12.92, "b": 13.28}, {"w": "lebih", "a": 13.28, "b": 13.6}, {"w": "rendah", "a": 13.6, "b": 14.2}]}, {"a": 14.06, "b": 16.6, "words": [{"w": "berbanding", "a": 14.06, "b": 14.74}, {"w": "sesetengah", "a": 14.74, "b": 15.32}, {"w": "tempat", "a": 15.32, "b": 15.72}, {"w": "yang", "a": 15.72, "b": 15.94}, {"w": "spreadnya", "a": 15.94, "b": 16.44}, {"w": "lebih", "a": 16.44, "b": 16.6}]}, {"a": 16.6, "b": 17.200000000000003, "words": [{"w": "tinggi.", "a": 16.6, "b": 17.200000000000003}]}, {"a": 17.58, "b": 19.860000000000003, "words": [{"w": "Kedua,", "a": 17.58, "b": 18.479999999999997}, {"w": "mudah", "a": 18.68, "b": 18.92}, {"w": "nak", "a": 18.92, "b": 19.06}, {"w": "jual", "a": 19.06, "b": 19.26}, {"w": "semula.", "a": 19.26, "b": 19.860000000000003}]}, {"a": 20.36, "b": 22.8, "words": [{"w": "Bila", "a": 20.36, "b": 20.7}, {"w": "kita", "a": 20.7, "b": 20.96}, {"w": "nak", "a": 20.96, "b": 21.14}, {"w": "tukarkan", "a": 21.14, "b": 21.46}, {"w": "emas", "a": 21.46, "b": 21.98}, {"w": "kepada", "a": 21.98, "b": 22.2}, {"w": "tunai", "a": 22.2, "b": 22.8}]}, {"a": 22.8, "b": 25.78, "words": [{"w": "ada", "a": 22.8, "b": 23.48}, {"w": "kemudahan", "a": 23.48, "b": 23.92}, {"w": "buyback", "a": 23.92, "b": 24.52}, {"w": "daripada", "a": 24.52, "b": 24.88}, {"w": "Public", "a": 24.88, "b": 25.18}, {"w": "Gold", "a": 25.18, "b": 25.78}]}, {"a": 25.6, "b": 28.540000000000003, "words": [{"w": "jadi", "a": 25.6, "b": 26.12}, {"w": "tak", "a": 26.12, "b": 26.32}, {"w": "perlu", "a": 26.32, "b": 26.56}, {"w": "pening-pening", "a": 26.56, "b": 27.28}, {"w": "cari", "a": 27.28, "b": 27.6}, {"w": "pembeli", "a": 27.6, "b": 27.94}, {"w": "sendiri.", "a": 27.94, "b": 28.540000000000003}]}, {"a": 29.16, "b": 31.26, "words": [{"w": "Ketiga,", "a": 29.16, "b": 30.06}, {"w": "ketulenan", "a": 30.18, "b": 30.66}, {"w": "999.9.", "a": 30.66, "b": 31.26}]}, {"a": 32.54, "b": 34.68, "words": [{"w": "Gold", "a": 32.54, "b": 32.9}, {"w": "Bar", "a": 32.9, "b": 33.1}, {"w": "datang", "a": 33.1, "b": 33.42}, {"w": "bersama", "a": 33.42, "b": 33.72}, {"w": "sigil", "a": 33.72, "b": 34.08}, {"w": "ketulenan.", "a": 34.08, "b": 34.68}]}, {"a": 35.04, "b": 37.4, "words": [{"w": "Ini", "a": 35.04, "b": 35.34}, {"w": "memberikan", "a": 35.34, "b": 35.82}, {"w": "lebih", "a": 35.82, "b": 36.04}, {"w": "keyakinan", "a": 36.04, "b": 36.64}, {"w": "kepada", "a": 36.64, "b": 36.9}, {"w": "penyimpan", "a": 36.9, "b": 37.4}]}, {"a": 37.4, "b": 38.0, "words": [{"w": "emas.", "a": 37.4, "b": 38.0}]}, {"a": 38.32, "b": 39.96, "words": [{"w": "Dan", "a": 38.32, "b": 39.04}, {"w": "yang", "a": 39.04, "b": 39.14}, {"w": "menarik,", "a": 39.14, "b": 39.96}]}, {"a": 39.96, "b": 42.2, "words": [{"w": "tak", "a": 39.96, "b": 40.12}, {"w": "semestinya", "a": 40.12, "b": 40.54}, {"w": "kena", "a": 40.54, "b": 40.82}, {"w": "ada", "a": 40.82, "b": 41.06}, {"w": "duit", "a": 41.06, "b": 41.28}, {"w": "banyak", "a": 41.28, "b": 41.6}, {"w": "terus.", "a": 41.6, "b": 42.2}]}, {"a": 42.72, "b": 45.36, "words": [{"w": "Kalau", "a": 42.72, "b": 43.08}, {"w": "belum", "a": 43.08, "b": 43.4}, {"w": "mampu", "a": 43.4, "b": 43.82}, {"w": "beli", "a": 43.82, "b": 44.14}, {"w": "100", "a": 44.14, "b": 44.48}, {"w": "gram", "a": 44.48, "b": 44.76}, {"w": "sekaligus,", "a": 44.76, "b": 45.36}]}, {"a": 45.8, "b": 48.34, "words": [{"w": "kita", "a": 45.8, "b": 46.0}, {"w": "boleh", "a": 46.0, "b": 46.18}, {"w": "kumpul", "a": 46.18, "b": 46.7}, {"w": "sedikit", "a": 46.7, "b": 47.18}, {"w": "demi", "a": 47.18, "b": 47.36}, {"w": "sedikit", "a": 47.36, "b": 47.8}, {"w": "melalui", "a": 47.8, "b": 48.34}]}, {"a": 48.34, "b": 49.300000000000004, "words": [{"w": "akaun", "a": 48.34, "b": 48.7}, {"w": "GAP.", "a": 48.7, "b": 49.300000000000004}]}, {"a": 49.8, "b": 51.26, "words": [{"w": "Bila", "a": 49.8, "b": 50.18}, {"w": "gram", "a": 50.18, "b": 50.4}, {"w": "dah", "a": 50.4, "b": 50.56}, {"w": "cukup,", "a": 50.56, "b": 51.26}]}, {"a": 51.26, "b": 52.82, "words": [{"w": "barulah", "a": 51.26, "b": 51.68}, {"w": "fizikalkan", "a": 51.68, "b": 52.22}, {"w": "emas.", "a": 52.22, "b": 52.82}]}, {"a": 53.32, "b": 56.36, "words": [{"w": "Jadi,", "a": 53.32, "b": 54.22}, {"w": "bukan", "a": 54.42, "b": 54.74}, {"w": "soal", "a": 54.74, "b": 55.22}, {"w": "nak", "a": 55.22, "b": 55.32}, {"w": "beli", "a": 55.32, "b": 55.56}, {"w": "emas", "a": 55.56, "b": 55.76}, {"w": "banyak.", "a": 55.76, "b": 56.36}]}, {"a": 56.1, "b": 59.28, "words": [{"w": "Yang", "a": 56.1, "b": 56.68}, {"w": "penting,", "a": 56.68, "b": 57.58}, {"w": "mula", "a": 57.66, "b": 57.84}, {"w": "menyimpan", "a": 57.84, "b": 58.34}, {"w": "ikut", "a": 58.34, "b": 58.68}, {"w": "kemampuan.", "a": 58.68, "b": 59.28}]}, {"a": 59.84, "b": 62.36, "words": [{"w": "Tuan puan,", "a": 59.84, "b": 60.6}, {"w": "boleh", "a": 60.6, "b": 60.84}, {"w": "mula", "a": 60.84, "b": 61.16}, {"w": "simpan", "a": 61.16, "b": 61.52}, {"w": "emas", "a": 61.52, "b": 61.82}, {"w": "dengan", "a": 61.82, "b": 62.04}, {"w": "langkah", "a": 62.04, "b": 62.36}]}, {"a": 62.36, "b": 62.96, "words": [{"w": "mudah.", "a": 62.36, "b": 62.96}]}, {"a": 63.04, "b": 64.28, "words": [{"w": "Klik", "a": 63.04, "b": 63.32}, {"w": "sign", "a": 63.32, "b": 63.6}, {"w": "up.", "a": 63.6, "b": 64.28}]}, {"a": 64.28, "b": 65.28, "words": [{"w": "Saya", "a": 64.28, "b": 64.42}, {"w": "bantu", "a": 64.42, "b": 64.68}, {"w": "sebaiknya.", "a": 64.68, "b": 65.28}]}, {"a": 65.8, "b": 69.12, "words": [{"w": "Follow", "a": 65.8, "b": 66.24}, {"w": "@theazminapg", "a": 66.24, "b": 67.14}, {"w": "untuk", "a": 67.56, "b": 67.96}, {"w": "ilmu", "a": 67.96, "b": 68.32}, {"w": "emas", "a": 68.32, "b": 68.6}, {"w": "dan", "a": 68.6, "b": 68.76}, {"w": "kewangan", "a": 68.76, "b": 69.12}]}, {"a": 69.12, "b": 69.72, "words": [{"w": "seterusnya.", "a": 69.12, "b": 69.72}]}];
+const SC=[[0,2.6],[2.6,5.02],[5.02,17.58],[17.58,29.16],[29.16,38.32],[38.32,53.32],[53.32,59.84],[59.84,70.08]];
+const HLW=new Set(['gold','bar','public','spread','rendah','jual','semula','buyback','tunai','999.9','sigil','ketulinan','keyakinan','100','gram','7','sedikit','gap','fizikalkan','emas','kemampuan','follow','sign','up','kewangan','ilmu','7%','ketulenan','akaun']);
+const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const eo=p=>1-Math.pow(1-p,3);
+const eb=p=>{const c1=2.2,c3=c1+1;return 1+c3*Math.pow(p-1,3)+c1*Math.pow(p-1,2)};
+const $=s=>document.querySelector(s);
+const A=(d,k,inner,e)=>`<g class="a" data-d="${d}" data-k="${k}"${e!==undefined?` data-e="${e}"`:''}>${inner}</g>`;
+const T=(x,y,s,txt,fill='#1E2A55',w=900,anchor='middle',extra='')=>`<text x="${x}" y="${y}" text-anchor="${anchor}" font-family="Inter" font-weight="${w}" font-size="${s}" fill="${fill}" ${extra}>${txt}</text>`;
+const emb=(x,y,s,txt,light='#FFF3B8',dark='#8A5400',main='#E0A020')=>`<text x="${x-s*.03}" y="${y-s*.03}" text-anchor="middle" font-family="Inter" font-weight="900" font-size="${s}" fill="${light}">${txt}</text><text x="${x+s*.03}" y="${y+s*.04}" text-anchor="middle" font-family="Inter" font-weight="900" font-size="${s}" fill="${dark}" opacity=".7">${txt}</text><text x="${x}" y="${y}" text-anchor="middle" font-family="Inter" font-weight="900" font-size="${s}" fill="${main}">${txt}</text>`;
+const shadow=(x,y,rx,ry,o=.28)=>`<ellipse cx="${x}" cy="${y}" rx="${rx}" ry="${ry}" fill="#0A2A6A" opacity="${o}" filter="url(#blur)"/>`;
+const sparkle=(x,y,s,c='#FFF6B0')=>`<g class="spk" transform="translate(${x},${y}) scale(${s})"><path d="M0 -40 Q6 -6 40 0 Q6 6 0 40 Q-6 6 -40 0 Q-6 -6 0 -40Z" fill="${c}" stroke="#fff" stroke-width="3"/></g>`;
+// 3D gold bar (front-facing with top and right faces)
+function bar3d(x,y,w,h,opts={}){const dx=w*.14,dy=h*.2,rr=Math.min(w,h)*.1,txt=opts.g||'100g',big=opts.big||h*.3;
+ return `<g>${shadow(x+w/2+dx/2,y+h+16,w*.62,h*.1)}
+ <polygon points="${x+w},${y} ${x+w+dx},${y-dy} ${x+w+dx},${y+h-dy} ${x+w},${y+h}" fill="url(#gS)" stroke="#9A5E08" stroke-width="3" stroke-linejoin="round"/>
+ <polygon points="${x},${y} ${x+dx},${y-dy} ${x+w+dx},${y-dy} ${x+w},${y}" fill="url(#gT)" stroke="#E8B030" stroke-width="3" stroke-linejoin="round"/>
+ <rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${rr}" fill="url(#gF)" stroke="#C98100" stroke-width="4"/>
+ <rect x="${x+w*.05}" y="${y+h*.07}" width="${w*.9}" height="${h*.86}" rx="${rr*.7}" fill="none" stroke="#FFF6C0" stroke-width="3" opacity=".8"/>
+ <polygon points="${x+w*.14},${y+h*.02} ${x+w*.3},${y+h*.02} ${x+w*.18},${y+h*.98} ${x+w*.02},${y+h*.98}" fill="url(#gSh)" opacity=".85"/>
+ ${emb(x+w*.5,y+h*.24,h*.13,'PUBLIC GOLD')}
+ ${emb(x+w*.5,y+h*.6,big,txt)}
+ ${emb(x+w*.5,y+h*.86,h*.12,'GOLD 999.9')}</g>`}
+// Goldie: gold bar mascot with big eyes
+function goldie(x,y,s,mood='happy',look=0){
+ const brows={happy:'M-70 -92 Q-42 -112 -14 -94 M14 -94 Q42 -112 70 -92',wow:'M-70 -104 Q-42 -126 -14 -106 M14 -106 Q42 -126 70 -104',sad:'M-70 -84 Q-42 -96 -14 -108 M14 -108 Q42 -96 70 -84',think:'M-70 -92 Q-42 -110 -14 -96 M14 -106 Q42 -122 70 -102'}[mood];
+ const mouth={happy:`<path d="M-46 28 Q0 92 46 28 Z" fill="#7A2410" stroke="#5C1808" stroke-width="4" stroke-linejoin="round"/><path d="M-26 56 Q0 80 26 56 Q0 46 -26 56Z" fill="#FF8FA3"/>`,
+  wow:`<ellipse cx="0" cy="52" rx="26" ry="34" fill="#7A2410" stroke="#5C1808" stroke-width="4"/><ellipse cx="0" cy="66" rx="16" ry="12" fill="#FF8FA3"/>`,
+  sad:`<path d="M-40 66 Q0 24 40 66" fill="none" stroke="#5C1808" stroke-width="8" stroke-linecap="round"/>`,
+  think:`<path d="M-30 52 Q-5 62 34 40" fill="none" stroke="#5C1808" stroke-width="8" stroke-linecap="round"/>`}[mood];
+ const eye=(cx)=>`<g class="ge" data-cx="${cx}"><ellipse cx="${cx}" cy="-44" rx="36" ry="44" fill="#fff" stroke="#C98100" stroke-width="3"/><circle cx="${cx+look*10}" cy="-40" r="20" fill="#1E2A55"/><circle cx="${cx+look*10-6}" cy="-48" r="8" fill="#fff"/><circle cx="${cx+look*10+8}" cy="-30" r="4" fill="#fff" opacity=".8"/></g>`;
+ return `<g transform="translate(${x},${y}) scale(${s})"><g class="bob">
+  ${shadow(10,170,140,24)}
+  <rect x="-62" y="120" width="44" height="46" rx="20" fill="#E59B10" stroke="#B87400" stroke-width="4"/><rect x="18" y="120" width="44" height="46" rx="20" fill="#E59B10" stroke="#B87400" stroke-width="4"/>
+  <ellipse cx="-44" cy="164" rx="38" ry="16" fill="#FFB020" stroke="#B87400" stroke-width="4"/><ellipse cx="44" cy="164" rx="38" ry="16" fill="#FFB020" stroke="#B87400" stroke-width="4"/>
+  <polygon points="108,-116 142,-146 142,98 108,128" fill="url(#gS)" stroke="#9A5E08" stroke-width="4" stroke-linejoin="round"/>
+  <polygon points="-108,-116 -74,-148 142,-148 108,-116" fill="url(#gT)" stroke="#E8B030" stroke-width="4" stroke-linejoin="round"/>
+  <rect x="-108" y="-118" width="216" height="248" rx="62" fill="url(#gF)" stroke="#C98100" stroke-width="5"/>
+  <polygon points="-70,-114 -30,-114 -62,124 -102,124" fill="url(#gSh)" opacity=".8"/>
+  <g class="ga" data-sx="-104" data-sy="10"><path d="M-104 10 Q-170 30 -176 -30" fill="none" stroke="#E59B10" stroke-width="26" stroke-linecap="round"/><circle cx="-176" cy="-34" r="22" fill="#FFC93C" stroke="#B87400" stroke-width="4"/></g>
+  <g class="gb" data-sx="104" data-sy="10"><path d="M104 10 Q170 40 168 100" fill="none" stroke="#E59B10" stroke-width="26" stroke-linecap="round"/><circle cx="168" cy="104" r="22" fill="#FFC93C" stroke="#B87400" stroke-width="4"/></g>
+  ${eye(-44)}${eye(44)}
+  <path d="${brows}" fill="none" stroke="#7A4A00" stroke-width="9" stroke-linecap="round"/>
+  <circle cx="-78" cy="20" r="18" fill="#FF8FA3" opacity=".55"/><circle cx="78" cy="20" r="18" fill="#FF8FA3" opacity=".55"/>
+  ${mouth}
+ </g></g>`}
+const cash3d=(x,y,w,h)=>`<g>${shadow(x+w/2,y+h+14,w*.55,h*.12)}<rect x="${x+8}" y="${y+12}" width="${w}" height="${h}" rx="22" fill="url(#grS)"/><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="22" fill="url(#grF)" stroke="#0E8A58" stroke-width="4"/><rect x="${x+14}" y="${y+14}" width="${w-28}" height="${h-28}" rx="14" fill="none" stroke="#D8FFEA" stroke-width="4" opacity=".9"/><circle cx="${x+w/2}" cy="${y+h/2}" r="${h*.28}" fill="#D8FFEA"/>${T(x+w/2,y+h/2+h*.1,h*.27,'RM','#0E8A58')}</g>`;
+const seal=(x,y,r)=>{let st='';for(let i=0;i<24;i++){const a=i*Math.PI/12,rr=i%2?r*.84:r;st+=(i?'L':'M')+(x+rr*Math.cos(a)).toFixed(1)+' '+(y+rr*Math.sin(a)).toFixed(1)}return `<g>${shadow(x,y+r+10,r*.8,r*.14)}<polygon points="${x-r*.5},${y+r*.5} ${x-r*.8},${y+r*1.3} ${x-r*.4},${y+r*1.1} ${x-r*.15},${y+r*1.4} ${x-r*.05},${y+r*.7}" fill="#FF5C7C" stroke="#B82A48" stroke-width="3"/><polygon points="${x+r*.5},${y+r*.5} ${x+r*.8},${y+r*1.3} ${x+r*.4},${y+r*1.1} ${x+r*.15},${y+r*1.4} ${x+r*.05},${y+r*.7}" fill="#FF5C7C" stroke="#B82A48" stroke-width="3"/><path d="${st}Z" fill="url(#gF)" stroke="#C98100" stroke-width="5"/><circle cx="${x}" cy="${y}" r="${r*.66}" fill="#FFF3B8" stroke="#C98100" stroke-width="4"/>${T(x,y-r*.02,r*.34,'999.9','#B87400')}${T(x,y+r*.3,r*.2,'KETULENAN','#B87400')}</g>`};
+const sphere=(x,y,r,g,n,lab,col)=>`<g>${shadow(x,y+r+16,r*.9,r*.16)}<circle cx="${x}" cy="${y}" r="${r}" fill="url(#${g})"/><ellipse cx="${x-r*.3}" cy="${y-r*.45}" rx="${r*.38}" ry="${r*.2}" fill="#fff" opacity=".55" transform="rotate(-25 ${x-r*.3} ${y-r*.45})"/>${T(x,y+r*.3,r*.9,n,'#fff')}${T(x,y+r+80,40,lab,'#1E2A55')}</g>`;
+const magn=(x,y,r)=>`<g><circle cx="${x}" cy="${y}" r="${r}" fill="#EAF6FF" opacity=".85" stroke="#4F7BFF" stroke-width="14"/><line x1="${x+r*.7}" y1="${y+r*.7}" x2="${x+r*1.6}" y2="${y+r*1.6}" stroke="#4F7BFF" stroke-width="22" stroke-linecap="round"/></g>`;
+const xmark=(x,y,r)=>`<g transform="translate(${x},${y})"><circle r="${r}" fill="#FF4D4D" stroke="#B52B2B" stroke-width="5"/><line x1="${-r*.4}" y1="${-r*.4}" x2="${r*.4}" y2="${r*.4}" stroke="#fff" stroke-width="${r*.22}" stroke-linecap="round"/><line x1="${r*.4}" y1="${-r*.4}" x2="${-r*.4}" y2="${r*.4}" stroke="#fff" stroke-width="${r*.22}" stroke-linecap="round"/></g>`;
+const arrowR=(x1,x2,y,c='#FFB020',d='#B87400')=>`<g><path d="M${x1} ${y} L${x2-30} ${y}" stroke="${d}" stroke-width="26" stroke-linecap="round" transform="translate(0,6)"/><path d="M${x1} ${y} L${x2-30} ${y}" stroke="${c}" stroke-width="26" stroke-linecap="round"/><polygon points="${x2-44},${y-40} ${x2+10},${y} ${x2-44},${y+40}" fill="${c}" stroke="${d}" stroke-width="5" stroke-linejoin="round"/></g>`;
+const coin1=(x,y,r,lab)=>`<g><circle cx="${x}" cy="${y+5}" r="${r}" fill="#B87400"/><circle cx="${x}" cy="${y}" r="${r}" fill="url(#gF)" stroke="#C98100" stroke-width="4"/>${T(x,y+r*.3,r*.78,lab,'#B87400')}</g>`;
+const pillTag=(x,y,w,h,fill,dark,txt,s,tc='#fff')=>`<g><rect x="${x}" y="${y+8}" width="${w}" height="${h}" rx="${h/2}" fill="${dark}"/><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${h/2}" fill="${fill}"/>${T(x+w/2,y+h/2+s*.35,s,txt,tc)}</g>`;
+
+// g0 hook goldie
+$('#g0').innerHTML=A(0.6,'pop',`<g class="bobwrap">${goldie(450,330,1.55,'happy',0)}</g>`)+A(2.0,'pop',sparkle(120,130,1.3))+A(2.2,'pop',sparkle(790,100,1.1,'#BFF3FF'))+A(2.4,'pop',sparkle(800,470,1.4))+A(2.5,'pop',sparkle(100,500,.9,'#FFD1E8'));
+// g1 spheres
+$('#g1').innerHTML=A(1.2,'pop',sphere(160,260,110,'sT',1,'Spread rendah','#25C2A0'))+A(1.7,'pop',sphere(450,260,110,'sO',2,'Jual semula','#FF8A1F'))+A(2.2,'pop',sphere(740,260,110,'sP',3,'Ketulenan','#8B6CFF'))+A(2.4,'pop',`<g>${goldie(450,560,.55,'wow',0)}</g>`);
+// g2 spread
+$('#g2').innerHTML=
+ A(1.8,'pop',bar3d(250,160,340,230,{g:'100g'}),4.4)+A(2.6,'pop',pillTag(310,430,260,84,'#FF8A1F','#B24F00','100 GRAM',40),4.4)+
+ A(4.4,'pop',`<g>${pillTag(230,60,440,96,'#FFFFFF','#B7D2F0','HARGA BELI',48,'#1E2A55')}${T(450,330,170,'7%','#FF8A1F')}${T(450,396,46,'SPREAD','#1E2A55')}${pillTag(230,450,440,96,'#FFFFFF','#B7D2F0','JUAL SEMULA',48,'#1E2A55')}<path d="M150 190 L150 430" stroke="#25C2A0" stroke-width="14" stroke-linecap="round"/><polygon points="118,200 150,148 182,200" fill="#25C2A0"/><polygon points="118,420 150,472 182,420" fill="#25C2A0"/><path d="M750 190 L750 430" stroke="#25C2A0" stroke-width="14" stroke-linecap="round"/><polygon points="718,200 750,148 782,200" fill="#25C2A0"/><polygon points="718,420 750,472 782,420" fill="#25C2A0"/></g>`,6.4)+
+ A(6.7,'pop',`<g>${goldie(450,330,1.2,'happy',0)}</g>${pillTag(230,520,440,90,'#25C2A0','#12806C','KOS LEBIH RENDAH',40)}<g transform="translate(750,190)"><circle r="70" fill="#25C2A0" stroke="#12806C" stroke-width="6"/><polygon points="-30,-26 30,-26 30,2 52,2 0,52 -52,2 -30,2" fill="#fff"/></g>`,8.9)+
+ A(9.2,'pop',`<g>${shadow(250,590,150,20)}<rect x="160" y="450" width="180" height="140" rx="24" fill="url(#grF)" stroke="#0E8A58" stroke-width="5"/><rect x="160" y="450" width="180" height="40" rx="24" fill="#C6FFE0" opacity=".6"/>${T(250,545,64,'7%','#fff')}${T(250,640,32,'PUBLIC GOLD','#1E2A55')}${shadow(650,590,150,20)}<rect x="560" y="250" width="180" height="340" rx="24" fill="#FF8F8F" stroke="#B52B2B" stroke-width="5"/><rect x="560" y="250" width="180" height="40" rx="24" fill="#FFD1D1" opacity=".6"/>${T(650,440,40,'LEBIH','#fff')}${T(650,490,40,'TINGGI','#fff')}${T(650,640,32,'SESETENGAH','#1E2A55')}${T(650,676,32,'TEMPAT','#1E2A55')}</g>`);
+// g3 jual semula
+$('#g3').innerHTML=
+ A(1.3,'pop',bar3d(40,200,250,170,{g:'100g'}),5.4)+A(2.9,'left',arrowR(330,500,285),5.4)+A(3.5,'pop',cash3d(520,200,300,170),5.4)+A(4.0,'pop',pillTag(300,430,300,84,'#FF8A1F','#B24F00','TUNAI',46),5.4)+
+ A(5.9,'pop',`<g>${shadow(450,420,330,24)}<rect x="90" y="40" width="720" height="150" rx="34" fill="#FFF7D6" stroke="#E0A020" stroke-width="8"/><rect x="90" y="40" width="720" height="150" rx="34" fill="none" stroke="#fff" stroke-width="4" opacity=".7" transform="translate(6,6)"/>${T(450,120,74,'PUBLIC GOLD','#B87400')}${T(450,170,40,'BUYBACK','#25A06E')}</g>${goldie(450,400,.9,'happy',0)}${[0,1,2,3,4,5].map(i=>`<circle cx="${130+i*128}" cy="64" r="9" fill="#FFE45C" stroke="#B87400" stroke-width="3"/>`).join('')}`,8.0)+
+ A(8.3,'pop',`<g>${goldie(250,420,1.0,'sad',-1)}${magn(560,300,90)}${pillTag(520,520,360,84,'#FF8A1F','#B24F00','CARI PEMBELI',38)}${xmark(450,360,110)}</g>`)+A(9.4,'pop',pillTag(150,640,600,92,'#25C2A0','#12806C','TAK PERLU PENING',44));
+// g4 ketulenan
+$('#g4').innerHTML=A(1.4,'pop',bar3d(130,170,440,290,{g:'999.9',big:98}))+A(3.9,'pop',seal(700,330,112))+A(4.4,'pop',sparkle(740,160,1.3))+A(4.6,'pop',sparkle(100,120,1.0,'#BFF3FF'))+
+ A(5.2,'pop',pillTag(150,560,600,92,'#8B6CFF','#4A2FB0','SIGIL KETULENAN',44))+A(6.4,'pop',`<g>${goldie(770,500,.62,'happy',0)}<g transform="translate(640,380)"><circle r="46" fill="#FFF7D6" stroke="#E0A020" stroke-width="5"/>${T(0,14,44,'✓','#25A06E')}</g></g>`);
+// g5 GAP
+$('#g5').innerHTML=
+ A(1.0,'pop',`<g>${goldie(250,400,.95,'think',1)}<g transform="translate(560,160)"><circle cx="60" cy="140" r="20" fill="#fff" stroke="#B7D2F0" stroke-width="4"/><circle cx="20" cy="200" r="12" fill="#fff" stroke="#B7D2F0" stroke-width="4"/><rect x="20" y="-20" width="300" height="190" rx="70" fill="#fff" stroke="#B7D2F0" stroke-width="6"/>${T(170,92,82,'100g?','#FF6B6B')}</g></g>`,6.8)+
+ A(7.3,'pop',`<g>${shadow(450,650,330,26)}<rect x="40" y="318" width="820" height="360" rx="56" fill="#3B2FA8"/><rect x="40" y="300" width="820" height="360" rx="56" fill="url(#cardG)" stroke="#fff" stroke-width="5"/><rect x="40" y="300" width="820" height="360" rx="56" fill="none" stroke="#fff" stroke-width="3" opacity=".3" transform="translate(8,8)"/><rect x="90" y="350" width="110" height="80" rx="16" fill="url(#gF)" stroke="#C98100" stroke-width="4"/>${T(470,410,54,'AKAUN GAP','#fff',900,'start')}<text id="gcnt" x="450" y="560" text-anchor="middle" font-family="Inter" font-weight="900" font-size="150" fill="#FFE45C">0 g</text><rect x="90" y="600" width="720" height="28" rx="14" fill="rgba(255,255,255,.3)"/><rect id="gbar" x="90" y="600" width="0" height="28" rx="14" fill="#FFE45C"/></g>`)+
+ `<g id="tok"></g>`+
+ A(13.4,'pop',`<g>${bar3d(280,150,340,220,{g:'100g'})}${pillTag(250,20,400,84,'#FF6B6B','#B52B2B','FIZIKALKAN',46)}</g>`);
+// g6 stairs + goldie
+{let st='';for(let i=0;i<4;i++){const x=70+i*190,h=110+i*90,y=640-h;st+=A((0.4+i*0.25).toFixed(2),'up',`<g>${shadow(x+85,650,100,12,.2)}<polygon points="${x+170},${y} ${x+200},${y-26} ${x+200},${640-26} ${x+170},640" fill="#9FB8E0"/><polygon points="${x},${y} ${x+30},${y-26} ${x+200},${y-26} ${x+170},${y}" fill="#fff"/><rect x="${x}" y="${y}" width="170" height="${h}" rx="10" fill="url(#stepG)" stroke="#9FB8E0" stroke-width="4"/>${T(x+85,y+h*.55,56,i+1,'#8B6CFF')}</g>`)}
+ $('#g6').innerHTML=st+`<g id="climb" class="a" data-d="2.8" data-k="fade">${goldie(0,0,.55,'happy',1)}</g>`+A(5.6,'pop',sparkle(800,110,1.3))+A(5.8,'pop',sparkle(610,60,.9,'#BFF3FF'))}
+// g7a goldie wave
+$('#g7a').innerHTML=A(0.5,'pop',goldie(450,340,1.45,'happy',0))+A(2.0,'pop',sparkle(130,150,1.2))+A(2.3,'pop',sparkle(780,130,1.0,'#BFF3FF'));
+$('#g7c').innerHTML=A(4.7,'pop',goldie(450,330,1.35,'happy',0))+A(5.3,'pop',sparkle(150,150,1.1))+A(5.5,'pop',sparkle(770,500,1.2,'#FFD1E8'));
+$('#hand').innerHTML=`<g id="tap"><circle cx="640" cy="40" r="30" fill="none" stroke="#fff" stroke-width="10" opacity=".95"/><path d="M640 40 l0 100 l30 -22 l24 52 l22 -10 l-24 -52 l36 -4 z" fill="#fff" transform="translate(-20,-10)" stroke="#1E2A55" stroke-width="6"/></g>`;
+
+// background: bright 3D-ish sky
+const bc=$('#bgc').getContext('2d');
+function cloud(x,y,s,a){bc.globalAlpha=a;bc.fillStyle='#fff';[[0,0,60],[55,-14,76],[120,0,62],[60,20,70]].forEach(c=>{bc.beginPath();bc.arc(x+c[0]*s,y+c[1]*s,c[2]*s,0,7);bc.fill()});bc.globalAlpha=1}
+function drawBG(t){
+ const g=bc.createLinearGradient(0,0,0,1920);g.addColorStop(0,'#69CDF2');g.addColorStop(.45,'#B8EBFF');g.addColorStop(.8,'#FFF3D2');g.addColorStop(1,'#FFE3B0');bc.fillStyle=g;bc.fillRect(0,0,1080,1920);
+ const sun=bc.createRadialGradient(880,260,10,880,260,520);sun.addColorStop(0,'rgba(255,248,200,.95)');sun.addColorStop(.35,'rgba(255,240,170,.45)');sun.addColorStop(1,'rgba(255,240,170,0)');bc.fillStyle=sun;bc.fillRect(0,0,1080,1100);
+ bc.save();bc.globalAlpha=.16;bc.fillStyle='#fff';for(let i=0;i<7;i++){bc.beginPath();bc.moveTo(880,260);const a=Math.PI*(.55+i*.09)+Math.sin(t*.2)*.03;bc.lineTo(880+1700*Math.cos(a),260+1700*Math.sin(a));bc.lineTo(880+1700*Math.cos(a+.035),260+1700*Math.sin(a+.035));bc.fill()}bc.restore();
+ cloud(((t*14)%1500)-250,420,1.1,.85);cloud(((t*9+500)%1500)-250,760,1.5,.7);cloud(((t*11+900)%1500)-250,1180,1.0,.8);cloud(((t*7+200)%1500)-250,300,.7,.7);
+ // hills
+ bc.fillStyle='#9BE3A6';bc.beginPath();bc.moveTo(0,1760);bc.quadraticCurveTo(300,1640,620,1740);bc.quadraticCurveTo(880,1800,1080,1700);bc.lineTo(1080,1920);bc.lineTo(0,1920);bc.fill();
+ bc.fillStyle='#6FD08A';bc.beginPath();bc.moveTo(0,1830);bc.quadraticCurveTo(360,1750,700,1830);bc.quadraticCurveTo(900,1870,1080,1810);bc.lineTo(1080,1920);bc.lineTo(0,1920);bc.fill();
+ // bokeh
+ for(let i=0;i<14;i++){const x=(i*211)%1080+Math.sin(t*.4+i)*30,y=(i*397)%1700+Math.cos(t*.3+i*2)*30,r=26+(i%4)*14;bc.globalAlpha=.22;bc.fillStyle=i%3?'#fff':'#FFF2A8';bc.beginPath();bc.arc(x,y,r,0,7);bc.fill()}
+ bc.globalAlpha=1}
+const ANIMS=[...document.querySelectorAll('.a')];
+ANIMS.forEach(el=>{const sc=el.closest('.scene');el._si=sc?parseInt(sc.id.slice(1)):-1});
+function anim(el,l){const d=parseFloat(el.dataset.d||0),k=el.dataset.k||'fade';const p=clamp((l-d)/0.55),e=eo(p);let tf='';let op=p>0?Math.min(1,p*2.5):0;
+ if(el.dataset.e!==undefined)op*=clamp((parseFloat(el.dataset.e)-l)/0.3);
+ if(k==='up')tf=`translateY(${(1-e)*70}px)`;else if(k==='down')tf=`translateY(${-(1-e)*50}px)`;else if(k==='left')tf=`translateX(${-(1-e)*110}px)`;else if(k==='pop')tf=`scale(${0.3+0.7*eb(p)})`;
+ el.style.opacity=op;el.style.transform=tf}
+const sceneAlpha=(t,[a,b],f,l)=>Math.min(f?1:clamp((t-a)/0.25),l?1:clamp((b-t)/0.2));
+function render(t){
+ drawBG(t);$('#barf').style.width=(t/DUR*100)+'%';
+ {const w=$('#wm');w.style.opacity=(t<0.4||t>=CTA)?0:Math.min(1,(t-0.4)/0.4)*clamp((CTA-t)/0.3)}
+ SC.forEach((w,i)=>{const el=document.getElementById('s'+i);const on=t>=w[0]&&t<w[1];el.style.display=on?'block':'none';el.style.opacity=on?sceneAlpha(t,w,i===0,i===SC.length-1):0});
+ let idx=SC.findIndex(w=>t>=w[0]&&t<w[1]);if(idx<0)idx=SC.length-1;const l=t-SC[idx][0];
+ const scn=document.getElementById('s'+idx);
+ // camera drift (slow push-in)
+ $('#cam').style.transform=`scale(${1+0.025*clamp(l/6)})`;
+ ANIMS.filter(e=>e._si===idx).forEach(e=>anim(e,l));
+ scn.querySelectorAll('.w[data-w]').forEach(w=>{const [a,b]=w.dataset.w.split(',').map(Number);w.style.opacity=clamp((l-a)/0.25)*clamp((b-l)/0.25)});
+ scn.querySelectorAll('[data-strike]').forEach(s=>{s.style.width=(clamp((l-parseFloat(s.dataset.strike))/0.35)*108)+'%'});
+ // character idle animation
+ scn.querySelectorAll('.bob').forEach((b,i)=>b.setAttribute('transform',`translate(0,${Math.sin(t*3+i)*7}) rotate(${Math.sin(t*2+i)*1.6} 0 120)`));
+ const blink=(Math.sin(t*1.7)>0.985||(t%3.1)<0.12)?0.12:1;
+ scn.querySelectorAll('.ge').forEach(e=>{const cx=+e.dataset.cx;e.setAttribute('transform',`translate(${cx} -44) scale(1 ${blink}) translate(${-cx} 44)`)});
+ scn.querySelectorAll('.ga').forEach(a=>{a.setAttribute('transform',`rotate(${Math.sin(t*7)*22-10} ${a.dataset.sx} ${a.dataset.sy})`)});
+ scn.querySelectorAll('.spk').forEach((s,i)=>{const m=s.getAttribute('transform').replace(/ rotate\([^)]*\)/,'');s.setAttribute('transform',m+` rotate(${t*60+i*40})`)});
+ if(idx===5){
+  const g=clamp((l-7.5)/5.2);const grams=Math.round(100*eo(g));$('#gcnt').textContent=grams+' g';$('#gbar').setAttribute('width',720*eo(g));
+  let tk='';if(l>7.6&&l<13.2){for(let i=0;i<9;i++){const s=7.7+i*0.55,q=clamp((l-s)/0.6);if(q>0&&q<1){tk+=coin1(120+i*80,300-300*eo(q)*0-(1-eo(q))*160+0,26,'1g').replace('<g>',`<g opacity="${q<.9?1:0}">`)}}}
+  $('#tok').innerHTML=tk}
+ if(idx===6){const c=$('#climb');const q=clamp((l-2.9)/3.0);const si=Math.min(3,Math.floor(q*4+0.0));const x=165+si*190,y=640-(110+si*90)-96;c.setAttribute('transform',`translate(${x},${y})`)}
+ if(idx===7){$('#sbtn').style.transform=`scale(${l>4.1&&l<4.4?0.94:1+0.03*Math.sin(l*8)})`;$('#tap').style.transform=`scale(${l>4.1&&l<4.4?0.9:1})`;$('#fbtn').style.transform=`scale(${1+0.04*Math.sin(l*8)})`}
+ const seg=SEGS.find(s=>t>=s.a-0.05&&t<=s.b+0.15);const cap=$('#cap'),cbg=$('#capbg');
+ if(!seg){cap.innerHTML='';cap._k=-1;cap.style.opacity=0;cbg.style.opacity=0}
+ else{cap.style.opacity=1;cbg.style.opacity=1;const key=SEGS.indexOf(seg);
+  if(cap._k!==key){cap._k=key;cap.innerHTML=seg.words.map(w=>`<span>${w.w}</span>`).join('');cbg.style.height=(cap.offsetHeight+44)+'px'}
+  cap.querySelectorAll('span').forEach((s,i)=>{const w=seg.words[i];const cur=t>=w.a&&t<w.b,past=t>=w.b;s.className=cur?'on':(past?'done':'');
+   const k=w.w.toLowerCase().replace(/[^\w@.%]/g,'').replace(/\.$/,'');if(HLW.has(k)&&(cur||past))s.style.color='#5B3FD6';else s.style.color=''})}
+}
+window.render=render;render(0);
+</script></body></html>
