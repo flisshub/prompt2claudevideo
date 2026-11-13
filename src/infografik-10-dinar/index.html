@@ -88,7 +88,7 @@ html,body{width:1080px;height:1920px;background:var(--bg);overflow:hidden;font-f
 
 <!-- 7 persamaan -->
 <div class="scene" id="s7">
-  <div class="c t a" data-d="0.0" data-k="down" style="top:290px;font-size:96px"><span style="color:var(--gold)">10 DINAR</span> =</div>
+  <div class="c t a" data-d="0.0" data-k="down" style="top:295px;font-size:80px;letter-spacing:-2px"><span style="color:var(--gold)">1 DINAR</span> = 4.25 g</div>
   <div class="card a" data-d="0.0" data-k="up" style="top:430px;height:1000px"><svg viewBox="0 0 900 980" style="height:980px" id="g7"></svg></div>
 </div>
 
@@ -264,8 +264,8 @@ $('#g6').innerHTML=A(0.8,'pop',person(260,190,1.5,'#8E7CFF')+person(640,190,1.5,
  A(1.9,'pop',person(330,520,1.2,'#FF9F6B'))+A(2.3,'pop',person(570,520,1.2,'#3FB68B'))+
  A(2.8,'pop',`<rect x="190" y="640" width="520" height="80" rx="40" fill="#5BA8F5"/>${T(450,696,42,'LEGASI KELUARGA','#fff',900)}`)+A(3.2,'pop',sparkle(120,330,1,'#F7CF6A'))+A(3.4,'pop',sparkle(790,350,.9,'#FF8FA3'));
 // g7 10 dinar grid
-{let h='';for(let i=0;i<10;i++){const col=i%5,row=Math.floor(i/5);const x=110+col*168,y=170+row*250;h+=A((0.12+i*0.13).toFixed(2),'pop',goldDinar(x+25,y,74)+T(x+25,y+112,34,'4.25g','#8D88AE',800))}
- h+=A(1.9,'pop',`<rect x="60" y="640" width="780" height="270" rx="56" fill="#FFF1B8" stroke="#F2B544" stroke-width="8"/>`)+`<text id="cnt" x="450" y="800" text-anchor="middle" font-family="Inter" font-weight="900" font-size="150" fill="#E0A92B">0 g</text>`+A(2.5,'pop',T(450,892,56,'gram emas','#2B2D55',900));
+{let h='';for(let i=0;i<10;i++){const col=i%5,row=Math.floor(i/5);const x=110+col*168,y=170+row*250;h+=A((0.12+i*0.13).toFixed(2),'pop',goldDinar(x+25,y,74,{denom:'1',weight:'4.25g'})+T(x+25,y+112,34,'4.25g','#8D88AE',800))}
+ h+=A(1.9,'pop',`<rect x="60" y="640" width="780" height="270" rx="56" fill="#FFF1B8" stroke="#F2B544" stroke-width="8"/>`)+`<text id="cnt" x="450" y="838" text-anchor="middle" font-family="Inter" font-weight="900" font-size="124" fill="#E0A92B">0 g</text>`+A(1.5,'pop',T(450,698,40,'10 keping × 4.25 g','#6E6A8F',800))+A(2.5,'pop',T(450,898,50,'= 10 dinar, gram emas','#2B2D55',900));
  $('#g7').innerHTML=h}
 // g8 simpanan vs aset
 $('#g8').innerHTML=A(0.3,'pop',`<rect x="0" y="40" width="420" height="560" rx="52" fill="#EDEAF6"/><rect x="120" y="190" width="180" height="230" rx="40" fill="#CFC8EE"/><rect x="150" y="150" width="120" height="50" rx="16" fill="#B7AFE0"/><ellipse cx="210" cy="255" rx="40" ry="14" fill="#F7CF6A"/>${T(210,520,60,'SIMPANAN','#8D88AE',900)}`)+
