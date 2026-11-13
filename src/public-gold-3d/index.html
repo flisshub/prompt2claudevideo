@@ -149,6 +149,95 @@ html,body{width:1080px;height:1920px;background:#8fdcf8;overflow:hidden;font-fam
 
 <script>
 const DUR=70.08, CTA=59.84;
+// Jongkong emas 100g, bentuk dan reka bentuk sebenar (rujukan gambar yang diberi pengguna).
+//
+// INGAT: jongkong 100g = papak TEGAK yang nipis (nisbah lebar:tinggi kira-kira 0.62),
+// sudut bulat, bingkai timbul di tepi, permukaan cermin berkilat. Susunan tulisan dari atas:
+//   1. tulisan "Public Gold" (tulisan sahaja, tanpa logo)
+//   2. 100g
+//   3. 999.9
+//   4. FINE GOLD
+//   5. kotak cop pengesahan (lambang bunga raya + "PENANG ASSAYER")
+//   6. kotak nombor siri di bawah
+// Jangan guna ketulan tebal mendatar untuk 100g. (goldbar.js ialah jongkong 250g tuang.)
+//
+// Guna:
+//   1. Letak GOLDBAR100_DEFS sekali dalam <svg width="0" height="0" style="position:absolute"><defs>...</defs></svg>
+//   2. goldBar100(cx, cy, tinggi, {rot, serial}) memulangkan <g> SVG.
+
+const GOLDBAR100_DEFS = `
+<linearGradient id="g100F" x1="0" y1="0" x2="1" y2="1">
+  <stop offset="0" stop-color="#FFE98A"/><stop offset=".28" stop-color="#F6C743"/>
+  <stop offset=".6" stop-color="#E0A11A"/><stop offset="1" stop-color="#B8780B"/>
+</linearGradient>
+<linearGradient id="g100Rim" x1="0" y1="0" x2="1" y2="1">
+  <stop offset="0" stop-color="#FFF4B8"/><stop offset=".5" stop-color="#E9B52F"/><stop offset="1" stop-color="#9A6208"/>
+</linearGradient>
+<linearGradient id="g100Side" x1="0" y1="0" x2="1" y2="0">
+  <stop offset="0" stop-color="#D79A14"/><stop offset="1" stop-color="#8F5806"/>
+</linearGradient>
+<linearGradient id="g100Gloss" x1="0" y1="0" x2="1" y2="1">
+  <stop offset="0" stop-color="#fff" stop-opacity=".75"/><stop offset=".5" stop-color="#fff" stop-opacity=".12"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
+</linearGradient>
+<filter id="g100Blur" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="12"/></filter>`;
+
+function g100Text(x, y, size, txt, opts = {}) {
+  const { anchor = 'middle', style = '', weight = 800, family = 'Inter', spacing = 0 } = opts;
+  const f = `font-family="${family}" font-weight="${weight}" font-size="${size}" text-anchor="${anchor}" letter-spacing="${spacing}" ${style}`;
+  return `<text x="${x - size * 0.03}" y="${y - size * 0.03}" ${f} fill="#FFF3B0" opacity=".85">${txt}</text>` +
+         `<text x="${x + size * 0.03}" y="${y + size * 0.04}" ${f} fill="#6E4608" opacity=".6">${txt}</text>` +
+         `<text x="${x}" y="${y}" ${f} fill="#EDB52C">${txt}</text>`;
+}
+
+// Lambang bunga raya dalam pentagon (cop pengesahan generik berasaskan bentuk sebenar).
+function g100Hibiscus(cx, cy, r) {
+  let pent = '', pet = '';
+  for (let i = 0; i < 5; i++) {
+    const a = (i * 2 * Math.PI) / 5 - Math.PI / 2;
+    pent += (i ? 'L' : 'M') + (cx + r * Math.cos(a)).toFixed(1) + ' ' + (cy + r * Math.sin(a)).toFixed(1);
+    const px = cx + r * 0.42 * Math.cos(a), py = cy + r * 0.42 * Math.sin(a);
+    pet += `<circle cx="${px.toFixed(1)}" cy="${py.toFixed(1)}" r="${(r * 0.3).toFixed(1)}" fill="#EDB52C" stroke="#8A5400" stroke-width="${(r * 0.05).toFixed(1)}"/>`;
+  }
+  return `<path d="${pent}Z" fill="none" stroke="#8A5400" stroke-width="${(r * 0.1).toFixed(1)}" stroke-linejoin="round"/>` + pet +
+         `<circle cx="${cx}" cy="${cy}" r="${(r * 0.12).toFixed(1)}" fill="#8A5400"/>`;
+}
+
+function goldBar100(cx, cy, h, opts = {}) {
+  const { rot = 0, serial = 'B  26000000' } = opts;
+  const W = 620, H = 1000;           // nisbah 0.62
+  const s = h / H;
+  const rr = 52, dx = 26, dy = 22;   // ketebalan nipis
+  const hx = 0, hy = 600;            // pusat kotak cop
+  return `<g transform="translate(${cx},${cy}) rotate(${rot}) scale(${s})">
+    <rect x="${-W / 2 + 14}" y="${-H / 2 + 40}" width="${W}" height="${H}" rx="${rr}" fill="#0A2A6A" opacity=".32" filter="url(#g100Blur)"/>
+    <rect x="${-W / 2 + dx}" y="${-H / 2 + dy}" width="${W}" height="${H}" rx="${rr}" fill="url(#g100Side)" stroke="#7A4A04" stroke-width="5"/>
+    <rect x="${-W / 2}" y="${-H / 2}" width="${W}" height="${H}" rx="${rr}" fill="url(#g100F)" stroke="#B87400" stroke-width="6"/>
+    <rect x="${-W / 2 + 22}" y="${-H / 2 + 22}" width="${W - 44}" height="${H - 44}" rx="${rr - 16}" fill="none" stroke="url(#g100Rim)" stroke-width="12"/>
+    <rect x="${-W / 2 + 40}" y="${-H / 2 + 40}" width="${W - 80}" height="${H - 80}" rx="${rr - 28}" fill="none" stroke="#7A4A04" stroke-width="3" opacity=".5"/>
+    <polygon points="${-W / 2 + 70},${-H / 2 + 20} ${-W / 2 + 230},${-H / 2 + 20} ${-W / 2 + 60},${H / 2 - 20} ${-W / 2 + 20},${H / 2 - 20}" fill="url(#g100Gloss)"/>
+    <path d="M ${-W / 2 + 60} ${-H / 2 + 60} L ${W / 2 - 60} ${-H / 2 + 60}" stroke="#fff" stroke-width="8" stroke-linecap="round" opacity=".35"/>
+    ${g100Text(10, -H / 2 + 190, 92, 'Public', { family: 'DejaVu Serif, Georgia, serif', style: 'font-style="italic"', weight: 700 })}
+    ${g100Text(-20, -H / 2 + 280, 108, 'Gold', { family: 'DejaVu Serif, Georgia, serif', style: 'font-style="italic"', weight: 700 })}
+    <path d="M ${-W / 2 + 120} ${-H / 2 + 320} Q ${-W / 2 + 60} ${-H / 2 + 350} ${-W / 2 + 130} ${-H / 2 + 366} Q ${W / 2 - 160} ${-H / 2 + 392} ${W / 2 - 110} ${-H / 2 + 334}" fill="none" stroke="#EDB52C" stroke-width="9" stroke-linecap="round"/>
+    ${g100Text(0, -40, 84, '100g')}
+    ${g100Text(0, 62, 84, '999.9')}
+    ${g100Text(0, 170, 84, 'FINE GOLD', { spacing: 1 })}
+    <g transform="translate(${hx},280)">
+      <rect x="-190" y="-62" width="380" height="124" rx="6" fill="none" stroke="#8A5400" stroke-width="7"/>
+      <rect x="-186" y="-66" width="380" height="124" rx="6" fill="none" stroke="#FFF3B0" stroke-width="3" opacity=".85"/>
+      <line x1="-30" y1="-62" x2="-30" y2="62" stroke="#8A5400" stroke-width="6"/>
+      ${g100Hibiscus(-110, 0, 46)}
+      <text x="80" y="-6" text-anchor="middle" font-family="Inter" font-weight="900" font-size="30" fill="#8A5400">PENANG</text>
+      <text x="80" y="34" text-anchor="middle" font-family="Inter" font-weight="900" font-size="30" fill="#8A5400">ASSAYER</text>
+    </g>
+    <g transform="translate(0,${H / 2 - 96})">
+      <rect x="${-W / 2 + 56}" y="-36" width="${W - 112}" height="72" rx="6" fill="#F8D870" stroke="#8A5400" stroke-width="5" opacity=".95"/>
+      <text x="0" y="16" text-anchor="middle" font-family="Inter" font-weight="800" font-size="46" letter-spacing="3" fill="#7A4A04">${serial}</text>
+    </g>
+  </g>`;
+}
+
+
 const SEGS=[{"a": 0.0, "b": 2.42, "words": [{"w": "Kenapa", "a": 0.0, "b": 0.56}, {"w": "ramai", "a": 0.56, "b": 0.78}, {"w": "pilih", "a": 0.78, "b": 1.06}, {"w": "Gold", "a": 1.06, "b": 1.26}, {"w": "Bar", "a": 1.26, "b": 1.48}, {"w": "Public", "a": 1.48, "b": 1.82}, {"w": "Gold?", "a": 1.82, "b": 2.42}]}, {"a": 2.6, "b": 4.58, "words": [{"w": "Sebenarnya", "a": 2.6, "b": 3.18}, {"w": "ada", "a": 3.18, "b": 3.54}, {"w": "beberapa", "a": 3.54, "b": 3.98}, {"w": "sebab.", "a": 3.98, "b": 4.58}]}, {"a": 5.02, "b": 7.14, "words": [{"w": "Pertama,", "a": 5.02, "b": 5.92}, {"w": "spread", "a": 6.02, "b": 6.28}, {"w": "lebih", "a": 6.28, "b": 6.54}, {"w": "rendah.", "a": 6.54, "b": 7.14}]}, {"a": 7.5, "b": 9.54, "words": [{"w": "Untuk", "a": 7.5, "b": 7.98}, {"w": "Gold", "a": 7.98, "b": 8.22}, {"w": "Bar", "a": 8.22, "b": 8.42}, {"w": "100", "a": 8.42, "b": 8.84}, {"w": "gram,", "a": 8.84, "b": 9.54}]}, {"a": 9.54, "b": 10.92, "words": [{"w": "spread", "a": 9.54, "b": 9.9}, {"w": "sekitar", "a": 9.9, "b": 10.32}, {"w": "7%", "a": 10.32, "b": 10.92}]}, {"a": 11.52, "b": 14.2, "words": [{"w": "jadi", "a": 11.52, "b": 11.88}, {"w": "kos", "a": 11.88, "b": 12.2}, {"w": "nak", "a": 12.2, "b": 12.42}, {"w": "memiliki", "a": 12.42, "b": 12.92}, {"w": "emas", "a": 12.92, "b": 13.28}, {"w": "lebih", "a": 13.28, "b": 13.6}, {"w": "rendah", "a": 13.6, "b": 14.2}]}, {"a": 14.06, "b": 16.6, "words": [{"w": "berbanding", "a": 14.06, "b": 14.74}, {"w": "sesetengah", "a": 14.74, "b": 15.32}, {"w": "tempat", "a": 15.32, "b": 15.72}, {"w": "yang", "a": 15.72, "b": 15.94}, {"w": "spreadnya", "a": 15.94, "b": 16.44}, {"w": "lebih", "a": 16.44, "b": 16.6}]}, {"a": 16.6, "b": 17.200000000000003, "words": [{"w": "tinggi.", "a": 16.6, "b": 17.200000000000003}]}, {"a": 17.58, "b": 19.860000000000003, "words": [{"w": "Kedua,", "a": 17.58, "b": 18.479999999999997}, {"w": "mudah", "a": 18.68, "b": 18.92}, {"w": "nak", "a": 18.92, "b": 19.06}, {"w": "jual", "a": 19.06, "b": 19.26}, {"w": "semula.", "a": 19.26, "b": 19.860000000000003}]}, {"a": 20.36, "b": 22.8, "words": [{"w": "Bila", "a": 20.36, "b": 20.7}, {"w": "kita", "a": 20.7, "b": 20.96}, {"w": "nak", "a": 20.96, "b": 21.14}, {"w": "tukarkan", "a": 21.14, "b": 21.46}, {"w": "emas", "a": 21.46, "b": 21.98}, {"w": "kepada", "a": 21.98, "b": 22.2}, {"w": "tunai", "a": 22.2, "b": 22.8}]}, {"a": 22.8, "b": 25.78, "words": [{"w": "ada", "a": 22.8, "b": 23.48}, {"w": "kemudahan", "a": 23.48, "b": 23.92}, {"w": "buyback", "a": 23.92, "b": 24.52}, {"w": "daripada", "a": 24.52, "b": 24.88}, {"w": "Public", "a": 24.88, "b": 25.18}, {"w": "Gold", "a": 25.18, "b": 25.78}]}, {"a": 25.6, "b": 28.540000000000003, "words": [{"w": "jadi", "a": 25.6, "b": 26.12}, {"w": "tak", "a": 26.12, "b": 26.32}, {"w": "perlu", "a": 26.32, "b": 26.56}, {"w": "pening-pening", "a": 26.56, "b": 27.28}, {"w": "cari", "a": 27.28, "b": 27.6}, {"w": "pembeli", "a": 27.6, "b": 27.94}, {"w": "sendiri.", "a": 27.94, "b": 28.540000000000003}]}, {"a": 29.16, "b": 31.26, "words": [{"w": "Ketiga,", "a": 29.16, "b": 30.06}, {"w": "ketulenan", "a": 30.18, "b": 30.66}, {"w": "999.9.", "a": 30.66, "b": 31.26}]}, {"a": 32.54, "b": 34.68, "words": [{"w": "Gold", "a": 32.54, "b": 32.9}, {"w": "Bar", "a": 32.9, "b": 33.1}, {"w": "datang", "a": 33.1, "b": 33.42}, {"w": "bersama", "a": 33.42, "b": 33.72}, {"w": "sijil", "a": 33.72, "b": 34.08}, {"w": "ketulenan.", "a": 34.08, "b": 34.68}]}, {"a": 35.04, "b": 37.4, "words": [{"w": "Ini", "a": 35.04, "b": 35.34}, {"w": "memberikan", "a": 35.34, "b": 35.82}, {"w": "lebih", "a": 35.82, "b": 36.04}, {"w": "keyakinan", "a": 36.04, "b": 36.64}, {"w": "kepada", "a": 36.64, "b": 36.9}, {"w": "penyimpan", "a": 36.9, "b": 37.4}]}, {"a": 37.4, "b": 38.0, "words": [{"w": "emas.", "a": 37.4, "b": 38.0}]}, {"a": 38.32, "b": 39.96, "words": [{"w": "Dan", "a": 38.32, "b": 39.04}, {"w": "yang", "a": 39.04, "b": 39.14}, {"w": "menarik,", "a": 39.14, "b": 39.96}]}, {"a": 39.96, "b": 42.2, "words": [{"w": "tak", "a": 39.96, "b": 40.12}, {"w": "semestinya", "a": 40.12, "b": 40.54}, {"w": "kena", "a": 40.54, "b": 40.82}, {"w": "ada", "a": 40.82, "b": 41.06}, {"w": "duit", "a": 41.06, "b": 41.28}, {"w": "banyak", "a": 41.28, "b": 41.6}, {"w": "terus.", "a": 41.6, "b": 42.2}]}, {"a": 42.72, "b": 45.36, "words": [{"w": "Kalau", "a": 42.72, "b": 43.08}, {"w": "belum", "a": 43.08, "b": 43.4}, {"w": "mampu", "a": 43.4, "b": 43.82}, {"w": "beli", "a": 43.82, "b": 44.14}, {"w": "100", "a": 44.14, "b": 44.48}, {"w": "gram", "a": 44.48, "b": 44.76}, {"w": "sekaligus,", "a": 44.76, "b": 45.36}]}, {"a": 45.8, "b": 48.34, "words": [{"w": "kita", "a": 45.8, "b": 46.0}, {"w": "boleh", "a": 46.0, "b": 46.18}, {"w": "kumpul", "a": 46.18, "b": 46.7}, {"w": "sedikit", "a": 46.7, "b": 47.18}, {"w": "demi", "a": 47.18, "b": 47.36}, {"w": "sedikit", "a": 47.36, "b": 47.8}, {"w": "melalui", "a": 47.8, "b": 48.34}]}, {"a": 48.34, "b": 49.300000000000004, "words": [{"w": "akaun", "a": 48.34, "b": 48.7}, {"w": "GAP.", "a": 48.7, "b": 49.300000000000004}]}, {"a": 49.8, "b": 51.26, "words": [{"w": "Bila", "a": 49.8, "b": 50.18}, {"w": "gram", "a": 50.18, "b": 50.4}, {"w": "dah", "a": 50.4, "b": 50.56}, {"w": "cukup,", "a": 50.56, "b": 51.26}]}, {"a": 51.26, "b": 52.82, "words": [{"w": "barulah", "a": 51.26, "b": 51.68}, {"w": "fizikalkan", "a": 51.68, "b": 52.22}, {"w": "emas.", "a": 52.22, "b": 52.82}]}, {"a": 53.32, "b": 56.36, "words": [{"w": "Jadi,", "a": 53.32, "b": 54.22}, {"w": "bukan", "a": 54.42, "b": 54.74}, {"w": "soal", "a": 54.74, "b": 55.22}, {"w": "nak", "a": 55.22, "b": 55.32}, {"w": "beli", "a": 55.32, "b": 55.56}, {"w": "emas", "a": 55.56, "b": 55.76}, {"w": "banyak.", "a": 55.76, "b": 56.36}]}, {"a": 56.1, "b": 59.28, "words": [{"w": "Yang", "a": 56.1, "b": 56.68}, {"w": "penting,", "a": 56.68, "b": 57.58}, {"w": "mula", "a": 57.66, "b": 57.84}, {"w": "menyimpan", "a": 57.84, "b": 58.34}, {"w": "ikut", "a": 58.34, "b": 58.68}, {"w": "kemampuan.", "a": 58.68, "b": 59.28}]}, {"a": 59.84, "b": 62.36, "words": [{"w": "Tuan puan,", "a": 59.84, "b": 60.6}, {"w": "boleh", "a": 60.6, "b": 60.84}, {"w": "mula", "a": 60.84, "b": 61.16}, {"w": "simpan", "a": 61.16, "b": 61.52}, {"w": "emas", "a": 61.52, "b": 61.82}, {"w": "dengan", "a": 61.82, "b": 62.04}, {"w": "langkah", "a": 62.04, "b": 62.36}]}, {"a": 62.36, "b": 62.96, "words": [{"w": "mudah.", "a": 62.36, "b": 62.96}]}, {"a": 63.04, "b": 64.28, "words": [{"w": "Klik", "a": 63.04, "b": 63.32}, {"w": "sign", "a": 63.32, "b": 63.6}, {"w": "up.", "a": 63.6, "b": 64.28}]}, {"a": 64.28, "b": 65.28, "words": [{"w": "Saya", "a": 64.28, "b": 64.42}, {"w": "bantu", "a": 64.42, "b": 64.68}, {"w": "sebaiknya.", "a": 64.68, "b": 65.28}]}, {"a": 65.8, "b": 69.12, "words": [{"w": "Follow", "a": 65.8, "b": 66.24}, {"w": "@theazminapg", "a": 66.24, "b": 67.14}, {"w": "untuk", "a": 67.56, "b": 67.96}, {"w": "ilmu", "a": 67.96, "b": 68.32}, {"w": "emas", "a": 68.32, "b": 68.6}, {"w": "dan", "a": 68.6, "b": 68.76}, {"w": "kewangan", "a": 68.76, "b": 69.12}]}, {"a": 69.12, "b": 69.72, "words": [{"w": "seterusnya.", "a": 69.12, "b": 69.72}]}];
 const SC=[[0,2.6],[2.6,5.02],[5.02,17.58],[17.58,29.16],[29.16,38.32],[38.32,53.32],[53.32,59.84],[59.84,70.08]];
 const HLW=new Set(['gold','bar','public','spread','rendah','jual','semula','buyback','tunai','999.9','sijil','ketulinan','keyakinan','100','gram','7','sedikit','gap','fizikalkan','emas','kemampuan','follow','sign','up','kewangan','ilmu','7%','ketulenan','akaun']);
@@ -156,6 +245,7 @@ const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
 const eo=p=>1-Math.pow(1-p,3);
 const eb=p=>{const c1=2.2,c3=c1+1;return 1+c3*Math.pow(p-1,3)+c1*Math.pow(p-1,2)};
 const $=s=>document.querySelector(s);
+$('#gdefs').insertAdjacentHTML('beforeend',GOLDBAR100_DEFS);
 const A=(d,k,inner,e)=>`<g class="a" data-d="${d}" data-k="${k}"${e!==undefined?` data-e="${e}"`:''}>${inner}</g>`;
 const T=(x,y,s,txt,fill='#1E2A55',w=900,anchor='middle',extra='')=>`<text x="${x}" y="${y}" text-anchor="${anchor}" font-family="Inter" font-weight="${w}" font-size="${s}" fill="${fill}" ${extra}>${txt}</text>`;
 const emb=(x,y,s,txt,light='#FFF3B8',dark='#8A5400',main='#E0A020')=>`<text x="${x-s*.03}" y="${y-s*.03}" text-anchor="middle" font-family="Inter" font-weight="900" font-size="${s}" fill="${light}">${txt}</text><text x="${x+s*.03}" y="${y+s*.04}" text-anchor="middle" font-family="Inter" font-weight="900" font-size="${s}" fill="${dark}" opacity=".7">${txt}</text><text x="${x}" y="${y}" text-anchor="middle" font-family="Inter" font-weight="900" font-size="${s}" fill="${main}">${txt}</text>`;
@@ -210,24 +300,24 @@ $('#g0').innerHTML=A(0.6,'pop',`<g class="bobwrap">${goldie(450,330,1.55,'happy'
 $('#g1').innerHTML=A(1.2,'pop',sphere(160,260,110,'sT',1,'Spread rendah','#25C2A0'))+A(1.7,'pop',sphere(450,260,110,'sO',2,'Jual semula','#FF8A1F'))+A(2.2,'pop',sphere(740,260,110,'sP',3,'Ketulenan','#8B6CFF'))+A(2.4,'pop',`<g>${goldie(450,560,.55,'wow',0)}</g>`);
 // g2 spread
 $('#g2').innerHTML=
- A(1.8,'pop',bar3d(250,160,340,230,{g:'100g'}),4.4)+A(2.6,'pop',pillTag(310,430,260,84,'#FF8A1F','#B24F00','100 GRAM',40),4.4)+
+ A(1.8,'pop',goldBar100(450,310,440),4.4)+A(2.6,'pop',pillTag(320,590,260,84,'#FF8A1F','#B24F00','100 GRAM',40),4.4)+
  A(4.4,'pop',`<g>${pillTag(230,60,440,96,'#FFFFFF','#B7D2F0','HARGA BELI',48,'#1E2A55')}${T(450,330,170,'7%','#FF8A1F')}${T(450,396,46,'SPREAD','#1E2A55')}${pillTag(230,450,440,96,'#FFFFFF','#B7D2F0','JUAL SEMULA',48,'#1E2A55')}<path d="M150 190 L150 430" stroke="#25C2A0" stroke-width="14" stroke-linecap="round"/><polygon points="118,200 150,148 182,200" fill="#25C2A0"/><polygon points="118,420 150,472 182,420" fill="#25C2A0"/><path d="M750 190 L750 430" stroke="#25C2A0" stroke-width="14" stroke-linecap="round"/><polygon points="718,200 750,148 782,200" fill="#25C2A0"/><polygon points="718,420 750,472 782,420" fill="#25C2A0"/></g>`,6.4)+
  A(6.7,'pop',`<g>${goldie(450,330,1.2,'happy',0)}</g>${pillTag(230,520,440,90,'#25C2A0','#12806C','KOS LEBIH RENDAH',40)}<g transform="translate(750,190)"><circle r="70" fill="#25C2A0" stroke="#12806C" stroke-width="6"/><polygon points="-30,-26 30,-26 30,2 52,2 0,52 -52,2 -30,2" fill="#fff"/></g>`,8.9)+
  A(9.2,'pop',`<g>${shadow(250,590,150,20)}<rect x="160" y="450" width="180" height="140" rx="24" fill="url(#grF)" stroke="#0E8A58" stroke-width="5"/><rect x="160" y="450" width="180" height="40" rx="24" fill="#C6FFE0" opacity=".6"/>${T(250,545,64,'7%','#fff')}${T(250,640,32,'PUBLIC GOLD','#1E2A55')}${shadow(650,590,150,20)}<rect x="560" y="250" width="180" height="340" rx="24" fill="#FF8F8F" stroke="#B52B2B" stroke-width="5"/><rect x="560" y="250" width="180" height="40" rx="24" fill="#FFD1D1" opacity=".6"/>${T(650,440,40,'LEBIH','#fff')}${T(650,490,40,'TINGGI','#fff')}${T(650,640,32,'SESETENGAH','#1E2A55')}${T(650,676,32,'TEMPAT','#1E2A55')}</g>`);
 // g3 jual semula
 $('#g3').innerHTML=
- A(1.3,'pop',bar3d(40,200,250,170,{g:'100g'}),5.4)+A(2.9,'left',arrowR(330,500,285),5.4)+A(3.5,'pop',cash3d(520,200,300,170),5.4)+A(4.0,'pop',pillTag(300,430,300,84,'#FF8A1F','#B24F00','TUNAI',46),5.4)+
+ A(1.3,'pop',goldBar100(170,300,330),5.4)+A(2.9,'left',arrowR(330,500,285),5.4)+A(3.5,'pop',cash3d(520,200,300,170),5.4)+A(4.0,'pop',pillTag(300,430,300,84,'#FF8A1F','#B24F00','TUNAI',46),5.4)+
  A(5.9,'pop',`<g>${shadow(450,420,330,24)}<rect x="90" y="40" width="720" height="150" rx="34" fill="#FFF7D6" stroke="#E0A020" stroke-width="8"/><rect x="90" y="40" width="720" height="150" rx="34" fill="none" stroke="#fff" stroke-width="4" opacity=".7" transform="translate(6,6)"/>${T(450,120,74,'PUBLIC GOLD','#B87400')}${T(450,170,40,'BUYBACK','#25A06E')}</g>${goldie(450,400,.9,'happy',0)}${[0,1,2,3,4,5].map(i=>`<circle cx="${130+i*128}" cy="64" r="9" fill="#FFE45C" stroke="#B87400" stroke-width="3"/>`).join('')}`,8.0)+
  A(8.3,'pop',`<g>${goldie(250,420,1.0,'sad',-1)}${magn(560,300,90)}${pillTag(520,520,360,84,'#FF8A1F','#B24F00','CARI PEMBELI',38)}${xmark(450,360,110)}</g>`)+A(9.4,'pop',pillTag(150,640,600,92,'#25C2A0','#12806C','TAK PERLU PENING',44));
 // g4 ketulenan
-$('#g4').innerHTML=A(1.4,'pop',bar3d(130,170,440,290,{g:'999.9',big:98}))+A(3.9,'pop',seal(700,330,112))+A(4.4,'pop',sparkle(740,160,1.3))+A(4.6,'pop',sparkle(100,120,1.0,'#BFF3FF'))+
+$('#g4').innerHTML=A(1.4,'pop',goldBar100(300,300,480))+A(3.9,'pop',seal(560,250,105))+A(4.4,'pop',sparkle(740,160,1.3))+A(4.6,'pop',sparkle(100,120,1.0,'#BFF3FF'))+
  A(5.2,'pop',pillTag(150,560,600,92,'#8B6CFF','#4A2FB0','SIJIL KETULENAN',44))+A(6.4,'pop',`<g>${goldie(770,500,.62,'happy',0)}<g transform="translate(640,380)"><circle r="46" fill="#FFF7D6" stroke="#E0A020" stroke-width="5"/>${T(0,14,44,'✓','#25A06E')}</g></g>`);
 // g5 GAP
 $('#g5').innerHTML=
  A(1.0,'pop',`<g>${goldie(250,400,.95,'think',1)}<g transform="translate(560,160)"><circle cx="60" cy="140" r="20" fill="#fff" stroke="#B7D2F0" stroke-width="4"/><circle cx="20" cy="200" r="12" fill="#fff" stroke="#B7D2F0" stroke-width="4"/><rect x="20" y="-20" width="300" height="190" rx="70" fill="#fff" stroke="#B7D2F0" stroke-width="6"/>${T(170,92,82,'100g?','#FF6B6B')}</g></g>`,6.8)+
  A(7.3,'pop',`<g>${shadow(450,650,330,26)}<rect x="40" y="318" width="820" height="360" rx="56" fill="#3B2FA8"/><rect x="40" y="300" width="820" height="360" rx="56" fill="url(#cardG)" stroke="#fff" stroke-width="5"/><rect x="40" y="300" width="820" height="360" rx="56" fill="none" stroke="#fff" stroke-width="3" opacity=".3" transform="translate(8,8)"/><rect x="90" y="350" width="110" height="80" rx="16" fill="url(#gF)" stroke="#C98100" stroke-width="4"/>${T(470,410,54,'AKAUN GAP','#fff',900,'start')}<text id="gcnt" x="450" y="560" text-anchor="middle" font-family="Inter" font-weight="900" font-size="150" fill="#FFE45C">0 g</text><rect x="90" y="600" width="720" height="28" rx="14" fill="rgba(255,255,255,.3)"/><rect id="gbar" x="90" y="600" width="0" height="28" rx="14" fill="#FFE45C"/></g>`)+
  `<g id="tok"></g>`+
- A(13.4,'pop',`<g>${bar3d(280,150,340,220,{g:'100g'})}${pillTag(250,20,400,84,'#FF6B6B','#B52B2B','FIZIKALKAN',46)}</g>`);
+ A(13.4,'pop',`<g>${goldBar100(450,330,420)}${pillTag(250,20,400,84,'#FF6B6B','#B52B2B','FIZIKALKAN',46)}</g>`);
 // g6 stairs + goldie
 {let st='';for(let i=0;i<4;i++){const x=70+i*190,h=110+i*90,y=640-h;st+=A((0.4+i*0.25).toFixed(2),'up',`<g>${shadow(x+85,650,100,12,.2)}<polygon points="${x+170},${y} ${x+200},${y-26} ${x+200},${640-26} ${x+170},640" fill="#9FB8E0"/><polygon points="${x},${y} ${x+30},${y-26} ${x+200},${y-26} ${x+170},${y}" fill="#fff"/><rect x="${x}" y="${y}" width="170" height="${h}" rx="10" fill="url(#stepG)" stroke="#9FB8E0" stroke-width="4"/>${T(x+85,y+h*.55,56,i+1,'#8B6CFF')}</g>`)}
  $('#g6').innerHTML=st+`<g id="climb" class="a" data-d="2.8" data-k="fade">${goldie(0,0,.55,'happy',1)}</g>`+A(5.6,'pop',sparkle(800,110,1.3))+A(5.8,'pop',sparkle(610,60,.9,'#BFF3FF'))}
