@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="ms"><head><meta charset="utf-8"><title>Berapa Kilo Emas Untuk Bersara</title>
+<style>
+:root{--gold:#E8C463;--gold2:#B8892B;--ink:#0A0B10}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;background:#07080c;overflow:hidden;font-family:Inter,'Inter Display',sans-serif;color:#fff}
+#stage{position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:hidden;background:#07080c}
+.scene{position:absolute;inset:0;opacity:0}
+.bgw{position:absolute;inset:0;overflow:hidden}
+.bg{position:absolute;left:-8%;top:-8%;width:116%;height:116%;background-size:cover;background-position:center;filter:blur(var(--bl,6px)) brightness(var(--br,.5)) saturate(1.1)}
+.shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,5,9,.78) 0%,rgba(4,5,9,.45) 38%,rgba(4,5,9,.8) 100%)}
+.c{position:absolute;left:90px;width:900px;text-align:center}
+.h{position:absolute;left:40px;width:1000px;text-align:center;white-space:nowrap;font-weight:800;letter-spacing:-2px;line-height:1.02;text-transform:uppercase;text-shadow:0 8px 40px rgba(0,0,0,.65)}
+.gold{color:var(--gold)}
+.sub{position:absolute;left:40px;width:1000px;text-align:center;white-space:nowrap;font-weight:600;font-size:54px;letter-spacing:-1px;color:rgba(255,255,255,.88);text-shadow:0 6px 28px rgba(0,0,0,.7)}
+.tag{display:inline-block;padding:12px 30px;border-radius:999px;border:2px solid rgba(232,196,99,.6);color:var(--gold);font-weight:700;font-size:28px;letter-spacing:6px;text-transform:uppercase;background:rgba(10,11,16,.45);backdrop-filter:blur(16px)}
+.glass{position:absolute;background:linear-gradient(180deg,rgba(255,255,255,.16),rgba(255,255,255,.05));backdrop-filter:blur(28px);border:1.5px solid rgba(255,255,255,.22);border-radius:40px;box-shadow:0 36px 90px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.38)}
+.photo{position:absolute;overflow:hidden;border-radius:40px;box-shadow:0 40px 100px rgba(0,0,0,.65),0 0 0 2px rgba(232,196,99,.55)}
+.photo i{position:absolute;left:-6%;top:-6%;width:112%;height:112%;background-size:cover;background-position:center}
+.a{opacity:0}
+#bar{position:absolute;left:90px;top:176px;width:900px;height:5px;border-radius:3px;background:rgba(255,255,255,.14)}
+#barf{height:100%;width:0;border-radius:3px;background:linear-gradient(90deg,#9A6F1E,#F4D982)}
+#fx{position:absolute;inset:0;pointer-events:none}
+#vig{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 46%,rgba(0,0,0,0) 45%,rgba(0,0,0,.6) 100%);pointer-events:none}
+#grain{position:absolute;inset:0;width:1080px;height:1920px;image-rendering:pixelated;opacity:.09;mix-blend-mode:overlay;pointer-events:none}
+#flare{position:absolute;top:-10%;height:120%;width:260px;background:linear-gradient(90deg,rgba(255,236,170,0),rgba(255,236,170,.22),rgba(255,236,170,0));transform:skewX(-18deg);pointer-events:none;opacity:0}
+#cap{position:absolute;left:110px;width:860px;top:1522px;text-align:center;font-weight:700;font-size:50px;line-height:1.32;text-shadow:0 4px 20px rgba(0,0,0,.8)}
+#cap span{display:inline-block;margin:0 10px;color:rgba(255,255,255,.4)}
+#cap span.done{color:#fff}
+#cap span.on{color:var(--gold);transform:scale(1.06)}
+#capbg{position:absolute;left:70px;width:940px;top:1500px;height:190px;border-radius:36px;background:rgba(8,9,13,.6);backdrop-filter:blur(22px);border:1.5px solid rgba(255,255,255,.2);box-shadow:0 24px 60px rgba(0,0,0,.5)}
+.sl{position:absolute;left:-10px;top:50%;height:7px;width:0;background:#E5484D;border-radius:4px;transform:rotate(-1.5deg);box-shadow:0 0 18px rgba(229,72,77,.7)}
+.btn{display:inline-flex;align-items:center;gap:18px;padding:30px 64px;border-radius:999px;font-weight:800;font-size:60px;letter-spacing:1px;text-transform:uppercase}
+</style></head><body>
+<div id="stage">
+
+<!-- 0 hook -->
+<div class="scene" id="s0">
+  <div class="bgw"><div class="bg" id="bg0" style="background-image:url(ph/tray.jpg);--bl:3px;--br:.62"></div></div><div class="shade"></div>
+  <div class="c a" data-d="0.05" data-k="down" style="top:290px"><span class="tag">Perancangan persaraan</span></div>
+  <div class="h a" data-d="0.2" data-k="up" style="top:390px;font-size:128px">BERAPA</div>
+  <div class="h gold a" data-d="0.6" data-k="up" style="top:530px;font-size:158px;letter-spacing:-4px">KILO EMAS</div>
+  <div class="h a" data-d="1.7" data-k="up" style="top:728px;font-size:96px;letter-spacing:-2px">UNTUK BERSARA?</div>
+  <div class="a" id="line0" data-d="1.0" data-k="fade" style="position:absolute;left:270px;top:880px;width:540px;height:3px;background:linear-gradient(90deg,transparent,#E8C463,transparent)"></div>
+</div>
+
+<!-- 1 1 kilo cukup? -->
+<div class="scene" id="s1">
+  <div class="bgw"><div class="bg" style="background-image:url(ph/b250.jpg);--bl:22px;--br:.32"></div></div><div class="shade"></div>
+  <div class="c a" data-d="0.05" data-k="down" style="top:290px"><span class="tag">Ramai orang fikir</span></div>
+  <div class="photo a" data-d="0.3" data-k="up" style="left:90px;top:410px;width:900px;height:560px"><i id="ph1" style="background-image:url(ph/kg.jpg)"></i></div>
+  <div class="glass a" data-d="1.9" data-k="pop" style="left:120px;top:830px;width:330px;height:190px;border-radius:30px"><div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center"><div style="font-weight:800;font-size:110px;line-height:1;color:var(--gold)">1 KG</div><div style="font-weight:600;font-size:28px;letter-spacing:5px;color:rgba(255,255,255,.8);margin-top:6px">EMAS</div></div></div>
+  <div class="h a" data-d="2.8" data-k="up" style="top:1100px;font-size:110px;letter-spacing:-3px">DAH <span class="gold">CUKUP</span> KOT?</div>
+</div>
+
+<!-- 2 tapi betul ke -->
+<div class="scene" id="s2">
+  <div class="bgw"><div class="bg" style="background-image:url(ph/tray.jpg);--bl:30px;--br:.18"></div></div><div class="shade" style="background:rgba(3,4,7,.72)"></div>
+  <div class="h a" data-d="0.15" data-k="up" style="top:600px;font-size:150px;letter-spacing:-4px">TAPI</div>
+  <div class="h gold a" data-d="0.7" data-k="pop" style="top:770px;font-size:150px;letter-spacing:-4px">BETUL KE?</div>
+</div>
+
+<!-- 3 kiraan -->
+<div class="scene" id="s3">
+  <div class="bgw"><div class="bg" style="background-image:url(ph/kg.jpg);--bl:26px;--br:.3"></div></div><div class="shade"></div>
+  <div class="c a" data-d="0.05" data-k="down" style="top:280px"><span class="tag">Contoh kiraan</span></div>
+  <!-- P1 -->
+  <div class="glass a" data-d="0.5" data-k="up" style="left:90px;top:370px;width:900px;height:300px">
+    <div class="photo" style="left:34px;top:34px;width:232px;height:232px;border-radius:28px"><i style="background-image:url(ph/kg.jpg)"></i></div>
+    <div style="position:absolute;left:300px;top:44px;font-weight:700;font-size:28px;letter-spacing:6px;color:var(--gold)">1 KILO EMAS BERNILAI</div>
+    <div id="v1" style="position:absolute;left:300px;top:98px;font-weight:800;font-size:92px;letter-spacing:-3px;line-height:1.1;white-space:nowrap">RM 0</div>
+    <div style="position:absolute;left:300px;top:216px;font-weight:600;font-size:30px;color:rgba(255,255,255,.7)">600 ribu ringgit</div>
+  </div>
+  <div class="a" data-d="4.2" data-k="pop" style="position:absolute;left:495px;top:668px;width:90px;height:90px;border-radius:50%;background:linear-gradient(180deg,#F4D982,#B8892B);box-shadow:0 12px 36px rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:60px;color:#1a1204;z-index:3">÷</div>
+  <!-- P2 -->
+  <div class="glass a" data-d="4.4" data-k="up" style="left:90px;top:760px;width:900px;height:290px">
+    <div style="position:absolute;left:44px;top:34px;font-weight:700;font-size:28px;letter-spacing:6px;color:var(--gold)">BERSARA SELAMA</div>
+    <div style="position:absolute;left:44px;top:74px;font-weight:800;font-size:112px;letter-spacing:-3px;line-height:1.1">30 <span style="font-size:70px;font-weight:700;letter-spacing:-1px">TAHUN</span></div>
+    <svg style="position:absolute;left:0;top:0" width="900" height="290" viewBox="0 0 900 290" id="tl3"></svg>
+  </div>
+  <div class="a" data-d="6.2" data-k="pop" style="position:absolute;left:495px;top:1045px;width:90px;height:90px;border-radius:50%;background:linear-gradient(180deg,#F4D982,#B8892B);box-shadow:0 12px 36px rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:60px;color:#1a1204;z-index:3">=</div>
+  <!-- P3 -->
+  <div class="glass a" data-d="6.4" data-k="up" style="left:90px;top:1130px;width:900px;height:300px;border-color:rgba(232,196,99,.7);box-shadow:0 36px 90px rgba(0,0,0,.55),0 0 80px rgba(232,196,99,.28),inset 0 1px 0 rgba(255,255,255,.38)">
+    <div style="position:absolute;left:0;right:0;top:44px;text-align:center;font-weight:700;font-size:28px;letter-spacing:6px;color:rgba(255,255,255,.8)">LEBIH KURANG</div>
+    <div id="v3" style="position:absolute;left:0;right:0;top:86px;text-align:center;font-weight:800;font-size:150px;letter-spacing:-5px;line-height:1.1;color:var(--gold)">RM 0</div>
+    <div style="position:absolute;left:0;right:0;top:232px;text-align:center;font-weight:600;font-size:40px;letter-spacing:6px;color:rgba(255,255,255,.88)">SEBULAN</div>
+  </div>
+</div>
+
+<!-- 4 cukup tak -->
+<div class="scene" id="s4">
+  <div class="bgw"><div class="bg" style="background-image:url(ph/b250.jpg);--bl:16px;--br:.38"></div></div><div class="shade"></div>
+  <div class="c a" data-d="0.05" data-k="down" style="top:290px"><span class="tag">Persoalannya</span></div>
+  <div class="h a" data-d="1.0" data-k="up" style="top:430px;font-size:150px;letter-spacing:-4px">CUKUP <span class="gold">TAK?</span></div>
+  <div class="glass a" data-d="1.6" data-k="pop" style="left:150px;top:690px;width:780px;height:430px;border-color:rgba(232,196,99,.6)">
+    <svg style="position:absolute;left:0;top:0" width="780" height="430" viewBox="0 0 780 430"><circle id="ring4" cx="390" cy="215" r="196" fill="none" stroke="#E8C463" stroke-width="5" stroke-linecap="round" opacity=".8"/></svg>
+    <div style="position:absolute;left:0;right:0;top:92px;text-align:center;font-weight:800;font-size:132px;letter-spacing:-4px;color:var(--gold)">RM 1,600</div>
+    <div style="position:absolute;left:0;right:0;top:250px;text-align:center;font-weight:600;font-size:40px;letter-spacing:8px;color:rgba(255,255,255,.88)">SEBULAN</div>
+  </div>
+  <div class="sub a" data-d="3.1" data-k="up" style="top:1190px">untuk kehidupan kita nanti</div>
+</div>
+
+<!-- 5 3000 -->
+<div class="scene" id="s5">
+  <div class="bgw"><div class="bg" style="background-image:url(ph/tray.jpg);--bl:22px;--br:.28"></div></div><div class="shade"></div>
+  <div class="c a" data-d="0.05" data-k="down" style="top:290px"><span class="tag">Kalau perlukan</span></div>
+  <div class="h a" data-d="0.5" data-k="up" style="top:395px;font-size:92px;letter-spacing:-3px"><span class="gold">RM 3,000</span> SEBULAN</div>
+  <svg class="c" style="top:560px;height:860px" viewBox="0 0 900 860" id="g5"></svg>
+</div>
+
+<!-- 6 tanya -->
+<div class="scene" id="s6">
+  <div class="bgw"><div class="bg" style="background-image:url(ph/b100.jpg);--bl:14px;--br:.34"></div></div><div class="shade"></div>
+  <div class="glass a" data-d="0.8" data-k="up" style="left:90px;top:330px;width:900px;height:330px" id="q1">
+    <div style="position:absolute;left:44px;top:36px;font-weight:700;font-size:26px;letter-spacing:6px;color:rgba(255,255,255,.7)">JANGAN SEKADAR TANYA</div>
+    <div style="position:absolute;left:44px;top:100px;right:44px;font-weight:700;font-size:60px;letter-spacing:-2px;line-height:1.1;white-space:nowrap"><span style="position:relative;display:inline-block">Berapa harga emas hari ini?<i class="sl" data-strike="2.9"></i></span></div>
+  </div>
+  <div class="glass a" data-d="3.7" data-k="up" style="left:90px;top:760px;width:900px;height:470px;border-color:rgba(232,196,99,.75);box-shadow:0 36px 90px rgba(0,0,0,.55),0 0 90px rgba(232,196,99,.3),inset 0 1px 0 rgba(255,255,255,.38)">
+    <div style="position:absolute;left:44px;top:38px;font-weight:700;font-size:26px;letter-spacing:6px;color:var(--gold)">TANYA JUGA</div>
+    <div style="position:absolute;left:44px;top:100px;right:44px;font-weight:800;font-size:84px;letter-spacing:-2px;line-height:1.08">Berapa yang <span class="gold">saya perlukan</span> bila <span class="gold">bersara</span> nanti?</div>
+  </div>
+</div>
+
+<!-- 7 umur 55 -->
+<div class="scene" id="s7">
+  <div class="bgw"><div class="bg" style="background-image:url(ph/dinar.jpg);--bl:22px;--br:.3"></div></div><div class="shade"></div>
+  <div class="w" data-w="0,3.4">
+    <div class="h a" data-d="0.2" data-k="up" style="top:320px;font-size:96px;letter-spacing:-3px">JANGAN TUNGGU</div>
+    <div class="h gold a" data-d="0.6" data-k="up" style="top:440px;font-size:150px;letter-spacing:-4px">UMUR 55</div>
+    <div class="sub a" data-d="1.5" data-k="up" style="top:630px">baru nak fikir pasal persaraan</div>
+  </div>
+  <div class="w" data-w="3.4,8">
+    <div class="h a" data-d="3.6" data-k="up" style="top:320px;font-size:68px;letter-spacing:-2px">PERSARAAN YANG SELESA</div>
+    <div class="h gold a" data-d="4.0" data-k="up" style="top:420px;font-size:68px;letter-spacing:-2px">DIBINA KETIKA MASIH</div>
+    <div class="h gold a" data-d="4.4" data-k="up" style="top:510px;font-size:68px;letter-spacing:-2px">ADA PENDAPATAN</div>
+  </div>
+  <svg class="c" style="top:760px;height:560px" viewBox="0 0 900 560" id="g7"></svg>
+</div>
+
+<!-- 8 mula -->
+<div class="scene" id="s8">
+  <div class="bgw"><div class="bg" style="background-image:url(ph/dinar.jpg);--bl:20px;--br:.3"></div></div><div class="shade"></div>
+  <div class="w" data-w="0,2.6">
+    <div class="h a" data-d="0.15" data-k="up" style="top:340px;font-size:84px;letter-spacing:-2px">MULA DENGAN KEMAMPUAN</div>
+    <div class="h gold a" data-d="1.5" data-k="pop" style="top:450px;font-size:150px;letter-spacing:-4px">HARI INI</div>
+  </div>
+  <div class="w" data-w="2.6,4.2"><div class="h a" data-d="2.7" data-k="up" style="top:400px;font-size:94px;letter-spacing:-3px">SIKIT-SIKIT <span class="gold">EMAS</span></div></div>
+  <div class="w" data-w="4.2,8"><div class="h a" data-d="4.3" data-k="up" style="top:340px;font-size:100px;letter-spacing:-3px">LAMA-LAMA</div><div class="h gold a" data-d="4.7" data-k="pop" style="top:460px;font-size:150px;letter-spacing:-4px">JADI ASET</div></div>
+  <div class="photo a" data-d="0.4" data-k="up" style="left:90px;top:690px;width:900px;height:700px"><i id="ph8a" style="background-image:url(ph/dinar.jpg)"></i><i id="ph8b" style="background-image:url(ph/tray.jpg);opacity:0"></i></div>
+</div>
+
+<!-- 9 CTA -->
+<div class="scene" id="s9">
+  <div class="bgw"><div class="bg" style="background-image:url(ph/tray.jpg);--bl:10px;--br:.32"></div></div><div class="shade"></div>
+  <div class="a" data-d="0.1" data-k="pop" style="position:absolute;left:410px;top:300px;width:260px;height:260px;border-radius:50%;box-shadow:0 0 0 3px rgba(232,196,99,.7),0 30px 80px rgba(0,0,0,.6),0 0 110px rgba(232,196,99,.35);overflow:hidden"><img src="../../assets/logo-dark.png" style="width:100%;height:100%;display:block"></div>
+  <div class="h gold a" data-d="0.9" data-k="up" style="top:610px;font-size:68px;text-transform:none;letter-spacing:-1px">@theazminapg</div>
+  <div class="a" data-d="0.0" data-k="pop" style="position:absolute;left:90px;top:760px;width:430px;text-align:center"><span class="btn" id="lbtn" style="background:rgba(255,255,255,.12);border:2px solid rgba(255,255,255,.4);backdrop-filter:blur(20px);color:#fff">♥ Like</span></div>
+  <div class="a" data-d="0.35" data-k="pop" style="position:absolute;left:560px;top:760px;width:430px;text-align:center"><span class="btn" id="fbtn" style="background:linear-gradient(180deg,#F4D982,#B8892B);color:#1a1204;box-shadow:0 20px 60px rgba(232,196,99,.4)">Follow</span></div>
+  <div class="sub a" data-d="1.8" data-k="up" style="top:1000px;font-size:46px">perkongsian <span class="gold">emas</span> dan <span class="gold">kewangan</span></div>
+</div>
+
+<canvas id="fx" width="1080" height="1920"></canvas>
+<div id="flare"></div>
+<div id="vig"></div>
+<canvas id="grain" width="270" height="480"></canvas>
+<img id="wm" src="../../assets/logo-dark.png" style="position:absolute;left:896px;top:232px;width:94px;height:94px;border-radius:50%;opacity:0;box-shadow:0 0 0 2px rgba(232,196,99,.6),0 12px 30px rgba(0,0,0,.5)">
+<div id="bar"><div id="barf"></div></div>
+<div id="capbg" style="opacity:0"></div>
+<div id="cap"></div>
+</div>
+
+<script>
+const DUR=56.88, CTA=52.28;
+const SEGS=[{"a": 0.0, "b": 2.74, "words": [{"w": "Berapa", "a": 0.0, "b": 0.56}, {"w": "kilo", "a": 0.56, "b": 0.82}, {"w": "emas", "a": 0.82, "b": 1.18}, {"w": "yang", "a": 1.18, "b": 1.38}, {"w": "kita", "a": 1.38, "b": 1.56}, {"w": "perlukan", "a": 1.56, "b": 1.9}, {"w": "untuk", "a": 1.9, "b": 2.14}, {"w": "bersara?", "a": 2.14, "b": 2.74}]}, {"a": 3.4, "b": 4.84, "words": [{"w": "Ramai", "a": 3.4, "b": 3.82}, {"w": "orang", "a": 3.82, "b": 3.96}, {"w": "fikir,", "a": 3.96, "b": 4.84}]}, {"a": 4.84, "b": 6.28, "words": [{"w": "kalau", "a": 4.84, "b": 5.12}, {"w": "ada", "a": 5.12, "b": 5.28}, {"w": "satu", "a": 5.28, "b": 5.52}, {"w": "kilo", "a": 5.52, "b": 5.74}, {"w": "emas,", "a": 5.74, "b": 6.28}]}, {"a": 6.28, "b": 7.359999999999999, "words": [{"w": "dah", "a": 6.28, "b": 6.4}, {"w": "cukup", "a": 6.4, "b": 6.76}, {"w": "kot.", "a": 6.76, "b": 7.359999999999999}]}, {"a": 7.54, "b": 8.86, "words": [{"w": "Tapi", "a": 7.54, "b": 7.86}, {"w": "betul", "a": 7.86, "b": 8.26}, {"w": "ke?", "a": 8.26, "b": 8.86}]}, {"a": 9.4, "b": 12.52, "words": [{"w": "Contohnya", "a": 9.4, "b": 9.9}, {"w": "kalau", "a": 9.9, "b": 10.14}, {"w": "satu", "a": 10.14, "b": 10.5}, {"w": "kilo", "a": 10.5, "b": 10.74}, {"w": "emas", "a": 10.74, "b": 11.16}, {"w": "bernilai", "a": 11.16, "b": 11.64}, {"w": "600", "a": 11.64, "b": 12.0}, {"w": "ribu", "a": 12.0, "b": 12.52}]}, {"a": 12.52, "b": 13.12, "words": [{"w": "ringgit", "a": 12.52, "b": 13.12}]}, {"a": 12.92, "b": 15.6, "words": [{"w": "dan", "a": 12.92, "b": 13.44}, {"w": "kita", "a": 13.44, "b": 13.66}, {"w": "bersara", "a": 13.66, "b": 14.04}, {"w": "selama", "a": 14.04, "b": 14.38}, {"w": "30", "a": 14.38, "b": 14.7}, {"w": "tahun,", "a": 14.7, "b": 15.6}]}, {"a": 15.8, "b": 18.72, "words": [{"w": "jumlah", "a": 15.8, "b": 16.06}, {"w": "itu", "a": 16.06, "b": 16.34}, {"w": "bersamaan", "a": 16.34, "b": 16.8}, {"w": "lebih", "a": 16.8, "b": 17.08}, {"w": "kurang", "a": 17.08, "b": 17.46}, {"w": "1,600", "a": 17.46, "b": 18.18}, {"w": "ringgit", "a": 18.18, "b": 18.72}]}, {"a": 18.72, "b": 19.32, "words": [{"w": "sebulan.", "a": 18.72, "b": 19.32}]}, {"a": 19.9, "b": 23.02, "words": [{"w": "Persoalannya,", "a": 19.9, "b": 20.799999999999997}, {"w": "cukup", "a": 21.1, "b": 21.5}, {"w": "tak", "a": 21.5, "b": 21.64}, {"w": "1,600", "a": 21.64, "b": 22.22}, {"w": "ringgit", "a": 22.22, "b": 22.66}, {"w": "sebulan", "a": 22.66, "b": 23.02}]}, {"a": 23.02, "b": 24.42, "words": [{"w": "untuk", "a": 23.02, "b": 23.2}, {"w": "kehidupan", "a": 23.2, "b": 23.64}, {"w": "kita", "a": 23.64, "b": 23.82}, {"w": "nanti.", "a": 23.82, "b": 24.42}]}, {"a": 25.0, "b": 27.16, "words": [{"w": "Kalau", "a": 25.0, "b": 25.28}, {"w": "perlukan", "a": 25.28, "b": 25.64}, {"w": "3,000", "a": 25.64, "b": 26.32}, {"w": "ringgit", "a": 26.32, "b": 26.56}, {"w": "sebulan,", "a": 26.56, "b": 27.16}]}, {"a": 27.06, "b": 30.14, "words": [{"w": "mungkin", "a": 27.06, "b": 27.76}, {"w": "sasaran", "a": 27.76, "b": 28.32}, {"w": "simpanan", "a": 28.32, "b": 28.9}, {"w": "perlu", "a": 28.9, "b": 29.28}, {"w": "lebih", "a": 29.28, "b": 29.54}, {"w": "besar.", "a": 29.54, "b": 30.14}]}, {"a": 30.62, "b": 33.44, "words": [{"w": "Sebab", "a": 30.62, "b": 31.14}, {"w": "itu,", "a": 31.14, "b": 31.54}, {"w": "jangan", "a": 31.54, "b": 31.7}, {"w": "sekadar", "a": 31.7, "b": 32.06}, {"w": "tanya", "a": 32.06, "b": 32.32}, {"w": "berapa", "a": 32.32, "b": 33.1}, {"w": "harga", "a": 33.1, "b": 33.44}]}, {"a": 33.44, "b": 34.42, "words": [{"w": "emas", "a": 33.44, "b": 33.62}, {"w": "hari", "a": 33.62, "b": 33.82}, {"w": "ini.", "a": 33.82, "b": 34.42}]}, {"a": 34.4, "b": 37.26, "words": [{"w": "Tanya", "a": 34.4, "b": 34.78}, {"w": "juga,", "a": 34.78, "b": 35.62}, {"w": "berapa", "a": 35.62, "b": 35.96}, {"w": "yang", "a": 35.96, "b": 36.16}, {"w": "saya", "a": 36.16, "b": 36.34}, {"w": "perlukan", "a": 36.34, "b": 36.72}, {"w": "bila", "a": 36.72, "b": 36.96}, {"w": "bersara", "a": 36.96, "b": 37.26}]}, {"a": 37.26, "b": 37.86, "words": [{"w": "nanti.", "a": 37.26, "b": 37.86}]}, {"a": 38.58, "b": 41.1, "words": [{"w": "Jangan", "a": 38.58, "b": 38.9}, {"w": "tunggu", "a": 38.9, "b": 39.16}, {"w": "umur", "a": 39.16, "b": 39.42}, {"w": "55", "a": 39.42, "b": 39.8}, {"w": "baru", "a": 39.8, "b": 40.34}, {"w": "nak", "a": 40.34, "b": 40.5}, {"w": "fikir", "a": 40.5, "b": 40.78}, {"w": "pasal", "a": 40.78, "b": 41.1}]}, {"a": 41.1, "b": 41.7, "words": [{"w": "persaraan.", "a": 41.1, "b": 41.7}]}, {"a": 42.14, "b": 44.78, "words": [{"w": "Pesaraan", "a": 42.14, "b": 42.72}, {"w": "yang", "a": 42.72, "b": 42.84}, {"w": "selesa", "a": 42.84, "b": 43.24}, {"w": "dibina", "a": 43.24, "b": 43.76}, {"w": "ketika", "a": 43.76, "b": 44.08}, {"w": "kita", "a": 44.08, "b": 44.36}, {"w": "masih", "a": 44.36, "b": 44.78}]}, {"a": 44.78, "b": 45.7, "words": [{"w": "ada", "a": 44.78, "b": 45.1}, {"w": "pendapatan.", "a": 45.1, "b": 45.7}]}, {"a": 46.34, "b": 48.86, "words": [{"w": "Jadi,", "a": 46.34, "b": 47.04}, {"w": "mula", "a": 47.04, "b": 47.44}, {"w": "dengan", "a": 47.44, "b": 47.68}, {"w": "kemampuan", "a": 47.68, "b": 48.06}, {"w": "hari", "a": 48.06, "b": 48.26}, {"w": "ini.", "a": 48.26, "b": 48.86}]}, {"a": 49.04, "b": 51.5, "words": [{"w": "Sikit-sikit", "a": 49.04, "b": 49.62}, {"w": "emas,", "a": 49.62, "b": 50.36}, {"w": "lama-lama", "a": 50.36, "b": 50.68}, {"w": "jadi", "a": 50.68, "b": 50.9}, {"w": "aset.", "a": 50.9, "b": 51.5}]}, {"a": 51.97, "b": 53.440000000000005, "words": [{"w": "Like", "a": 51.97, "b": 52.36}, {"w": "dan", "a": 52.36, "b": 52.56}, {"w": "follow", "a": 52.56, "b": 52.84}, {"w": "@theazminapg", "a": 52.84, "b": 53.440000000000005}]}, {"a": 54.12, "b": 56.7, "words": [{"w": "untuk", "a": 54.12, "b": 54.54}, {"w": "perkongsian", "a": 54.54, "b": 55.12}, {"w": "emas", "a": 55.12, "b": 55.5}, {"w": "dan", "a": 55.5, "b": 55.7}, {"w": "kewangan", "a": 55.7, "b": 56.1}, {"w": "seterusnya.", "a": 56.1, "b": 56.7}]}];
+const SC=[[0,3.4],[3.4,7.54],[7.54,9.4],[9.4,19.9],[19.9,25.0],[25.0,30.62],[30.62,38.58],[38.58,46.34],[46.34,52.28],[52.28,56.88]];
+const HLW=new Set(['kilo','emas','600','ribu','ringgit','30','tahun','1,600','3,000','sasaran','simpanan','bersara','persaraan','55','aset','kemampuan','follow','like','kewangan','perkongsian','sikit-sikit','lama-lama']);
+const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const eo=p=>1-Math.pow(1-p,3);
+const eio=p=>p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2;
+const $=s=>document.querySelector(s);
+const fmt=n=>Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g,',');
+// timeline (P2) ticks
+{let h=`<rect x="44" y="214" width="812" height="14" rx="7" fill="rgba(255,255,255,.14)"/><rect id="tlf" x="44" y="214" width="0" height="14" rx="7" fill="url(#tg)"/><defs><linearGradient id="tg" x1="0" x2="1"><stop offset="0" stop-color="#9A6F1E"/><stop offset="1" stop-color="#F4D982"/></linearGradient></defs>`;
+ for(let i=0;i<=6;i++){const x=44+i*(812/6);h+=`<line x1="${x}" y1="206" x2="${x}" y2="236" stroke="rgba(255,255,255,.45)" stroke-width="3"/><text x="${x}" y="266" text-anchor="middle" font-family="Inter" font-weight="600" font-size="24" fill="rgba(255,255,255,.65)">${i*5}</text>`}
+ $('#tl3').innerHTML=h}
+// chart g5
+{const B=800,H3=620,H16=H3*1600/3000;
+ $('#g5').innerHTML=`<defs><linearGradient id="b2g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE9A0"/><stop offset=".5" stop-color="#E8C463"/><stop offset="1" stop-color="#9A6F1E"/></linearGradient><linearGradient id="b1g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="rgba(255,255,255,.55)"/><stop offset="1" stop-color="rgba(255,255,255,.12)"/></linearGradient></defs>
+ <g stroke="rgba(255,255,255,.14)" stroke-width="2">${[0,1,2,3].map(i=>`<line x1="40" x2="860" y1="${B-i*207}" y2="${B-i*207}"/>`).join('')}</g>
+ <rect id="c1" x="150" y="${B}" width="230" height="0" rx="14" fill="url(#b1g)" stroke="rgba(255,255,255,.4)" stroke-width="2"/>
+ <rect id="c2" x="520" y="${B}" width="230" height="0" rx="14" fill="url(#b2g)"/>
+ <text id="t1" x="265" y="${B-H16-24}" text-anchor="middle" font-family="Inter" font-weight="800" font-size="52" fill="#fff" opacity="0">RM 1,600</text>
+ <text id="t2" x="635" y="${B-H3-24}" text-anchor="middle" font-family="Inter" font-weight="800" font-size="60" fill="#E8C463" opacity="0">RM 3,000</text>
+ <text x="265" y="${B+54}" text-anchor="middle" font-family="Inter" font-weight="600" font-size="30" letter-spacing="4" fill="rgba(255,255,255,.7)">CONTOH TADI</text>
+ <text x="635" y="${B+54}" text-anchor="middle" font-family="Inter" font-weight="700" font-size="30" letter-spacing="4" fill="#E8C463">KEPERLUAN</text>
+ <g id="tgt" opacity="0"><rect x="60" y="20" width="780" height="104" rx="52" fill="rgba(10,11,16,.6)" stroke="#E8C463" stroke-width="2.5"/><text x="450" y="86" text-anchor="middle" font-family="Inter" font-weight="800" font-size="40" letter-spacing="3" fill="#E8C463">SASARAN SIMPANAN LEBIH BESAR</text></g>`;
+ window.__C={B,H3,H16}}
+// timeline g7
+{let h=`<defs><linearGradient id="zg" x1="0" x2="1"><stop offset="0" stop-color="#B8892B"/><stop offset="1" stop-color="#F4D982"/></linearGradient></defs>
+ <rect x="30" y="250" width="840" height="36" rx="18" fill="rgba(255,255,255,.12)"/>
+ <rect id="zone" x="30" y="250" width="0" height="36" rx="18" fill="url(#zg)"/>
+ <text x="30" y="214" font-family="Inter" font-weight="700" font-size="26" letter-spacing="4" fill="rgba(255,255,255,.75)">HARI INI</text>
+ <g id="m55" opacity="0"><line x1="640" y1="160" x2="640" y2="330" stroke="#fff" stroke-width="4"/><circle cx="640" cy="268" r="46" fill="#0A0B10" stroke="#E8C463" stroke-width="5"/><text x="640" y="286" text-anchor="middle" font-family="Inter" font-weight="800" font-size="52" fill="#E8C463">55</text><text x="640" y="136" text-anchor="middle" font-family="Inter" font-weight="700" font-size="30" letter-spacing="4" fill="#fff">UMUR</text></g>
+ <text id="lbl1" x="335" y="360" text-anchor="middle" font-family="Inter" font-weight="800" font-size="34" letter-spacing="2" fill="#E8C463" opacity="0">MASIH ADA PENDAPATAN</text>
+ <text id="lbl2" x="760" y="380" text-anchor="middle" font-family="Inter" font-weight="700" font-size="32" letter-spacing="3" fill="rgba(255,255,255,.65)" opacity="0">BERSARA</text>
+ <g id="build" opacity="0"><rect x="60" y="410" width="540" height="96" rx="48" fill="rgba(232,196,99,.16)" stroke="#E8C463" stroke-width="2.5"/><text x="330" y="472" text-anchor="middle" font-family="Inter" font-weight="800" font-size="38" letter-spacing="2" fill="#fff">BINA PERSARAAN DI SINI</text></g>`;
+ $('#g7').innerHTML=h}
+
+// canvas fx: gold dust
+const fx=$('#fx').getContext('2d');
+function dust(t,idx){fx.clearRect(0,0,1080,1920);fx.globalCompositeOperation='lighter';
+ for(let i=0;i<46;i++){const sx=(i*197)%1080,sp=10+(i*29)%26,y=(1980-(((i*331)%1920)+t*sp*2.6)%2040),x=sx+Math.sin(t*.6+i)*26,r=1.2+(i%5)*.9,a=(.16+((i*7)%10)/48)*(.6+.4*Math.sin(t*1.6+i));
+  const g=fx.createRadialGradient(x,y,0,x,y,r*5);g.addColorStop(0,`rgba(255,226,140,${a})`);g.addColorStop(1,'rgba(255,226,140,0)');fx.fillStyle=g;fx.beginPath();fx.arc(x,y,r*5,0,7);fx.fill()}
+ fx.globalCompositeOperation='source-over'}
+const gr=$('#grain'),gx=gr.getContext('2d'),gimg=gx.createImageData(270,480);
+function grain(t){const d=gimg.data;let s=Math.floor(t*24)*9301+49297;for(let i=0;i<d.length;i+=4){s=(s*1103515245+12345)&0x7fffffff;const v=(s>>16)&255;d[i]=d[i+1]=d[i+2]=v;d[i+3]=255}gx.putImageData(gimg,0,0)}
+
+const ANIMS=[...document.querySelectorAll('.a')];
+ANIMS.forEach(el=>{const sc=el.closest('.scene');el._si=sc?parseInt(sc.id.slice(1)):-1});
+function anim(el,l){const d=parseFloat(el.dataset.d||0),k=el.dataset.k||'fade';const p=clamp((l-d)/0.7),e=eo(p);let tf='';const op=p>0?Math.min(1,p*2):0;
+ if(k==='up')tf=`translateY(${(1-e)*46}px)`;else if(k==='down')tf=`translateY(${-(1-e)*34}px)`;else if(k==='pop')tf=`scale(${0.92+0.08*e})`;
+ el.style.opacity=op;el.style.transform=tf}
+const sceneAlpha=(t,[a,b],f,l)=>Math.min(f?1:clamp((t-a)/0.35),l?1:clamp((b-t)/0.3));
+function render(t){
+ $('#barf').style.width=(t/DUR*100)+'%';
+ {const w=$('#wm');w.style.opacity=(t<0.5||t>=CTA)?0:Math.min(1,(t-0.5)/0.5)*clamp((CTA-t)/0.3)}
+ SC.forEach((w,i)=>{const el=document.getElementById('s'+i);const on=t>=w[0]&&t<w[1];el.style.display=on?'block':'none';el.style.opacity=on?sceneAlpha(t,w,i===0,i===SC.length-1):0});
+ let idx=SC.findIndex(w=>t>=w[0]&&t<w[1]);if(idx<0)idx=SC.length-1;const l=t-SC[idx][0];const len=SC[idx][1]-SC[idx][0];const scn=document.getElementById('s'+idx);
+ // Ken Burns on backgrounds and photos
+ scn.querySelectorAll('.bg').forEach((b,i)=>{const z=1.0+0.07*(l/len);b.style.transform=`scale(${z}) translate(${(i%2?1:-1)*l*4}px,${-l*3}px)`});
+ scn.querySelectorAll('.photo i').forEach((b,i)=>{const z=1.02+0.09*(l/len);b.style.transform=`scale(${z}) translate(${(i%2?-1:1)*l*5}px,${l*-3}px)`});
+ ANIMS.filter(e=>e._si===idx).forEach(e=>anim(e,l));
+ scn.querySelectorAll('.w[data-w]').forEach(w=>{const [a,b]=w.dataset.w.split(',').map(Number);w.style.opacity=clamp((l-a)/0.3)*clamp((b-l)/0.3)});
+ scn.querySelectorAll('[data-strike]').forEach(s=>{s.style.width=(clamp((l-parseFloat(s.dataset.strike))/0.4)*104)+'%'});
+ // light flare sweep at scene start
+ {const f=$('#flare');const q=clamp(l/1.1);f.style.left=(-300+q*1500)+'px';f.style.opacity=(q>0&&q<1)?0.9*Math.sin(q*Math.PI):0}
+ dust(t,idx);grain(t);
+ if(idx===1){const e=$('#ph1')}
+ if(idx===3){
+  const c1=eo(clamp((l-0.8)/2.6));$('#v1').textContent='RM '+fmt(600000*c1);
+  $('#tlf').setAttribute('width',812*eo(clamp((l-4.7)/1.6)));
+  const c3=eo(clamp((l-6.4)/2.0));$('#v3').textContent='RM '+fmt(1600*c3)}
+ if(idx===4){const r=$('#ring4');const L=2*Math.PI*196;r.style.strokeDasharray=L;r.style.strokeDashoffset=L*(1-eo(clamp((l-1.7)/2.4)));}
+ if(idx===5){const {B,H3,H16}=window.__C;
+  const q1=eo(clamp((l-0.2)/1.0)),q2=eo(clamp((l-0.7)/1.3));
+  $('#c1').setAttribute('height',H16*q1);$('#c1').setAttribute('y',B-H16*q1);$('#t1').setAttribute('opacity',q1>.6?1:0);
+  $('#c2').setAttribute('height',H3*q2);$('#c2').setAttribute('y',B-H3*q2);$('#t2').setAttribute('opacity',q2>.7?1:0);
+  const g=$('#tgt'),a=clamp((l-2.8)/0.5);g.setAttribute('opacity',a);g.setAttribute('transform',`translate(0,${(1-eo(a))*30})`)}
+ if(idx===7){
+  $('#zone').setAttribute('width',610*eo(clamp((l-0.3)/1.4)));
+  $('#m55').setAttribute('opacity',clamp((l-0.7)/0.4));
+  $('#lbl1').setAttribute('opacity',clamp((l-1.8)/0.5));$('#lbl2').setAttribute('opacity',clamp((l-2.2)/0.5));
+  const b=clamp((l-3.8)/0.5);$('#build').setAttribute('opacity',b);
+  $('#zone').setAttribute('opacity',l>3.8?0.75+0.25*Math.sin(l*4):1)}
+ if(idx===8){const x=clamp((l-4.1)/0.7);$('#ph8a').style.opacity=1-x;$('#ph8b').style.opacity=x}
+ if(idx===9){$('#fbtn').style.transform=`scale(${1+0.035*Math.sin(l*7)})`;$('#lbtn').style.transform=`scale(${1+0.045*Math.sin(l*7+1.2)})`}
+ const seg=SEGS.find(s=>t>=s.a-0.05&&t<=s.b+0.15);const cap=$('#cap'),cbg=$('#capbg');
+ if(!seg){cap.innerHTML='';cap._k=-1;cap.style.opacity=0;cbg.style.opacity=0}
+ else{cap.style.opacity=1;cbg.style.opacity=1;const key=SEGS.indexOf(seg);
+  if(cap._k!==key){cap._k=key;cap.innerHTML=seg.words.map(w=>`<span>${w.w}</span>`).join('');cbg.style.height=(cap.offsetHeight+44)+'px'}
+  cap.querySelectorAll('span').forEach((s,i)=>{const w=seg.words[i];const cur=t>=w.a&&t<w.b,past=t>=w.b;s.className=cur?'on':(past?'done':'');
+   const k=w.w.toLowerCase().replace(/[^\w@,\-]/g,'').replace(/[,\-]$/,'');s.style.color=(HLW.has(k)&&(cur||past))?'#E8C463':''})}
+}
+window.render=render;render(0);
+</script></body></html>
