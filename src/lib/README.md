@@ -9,3 +9,11 @@
 Kedua-dua tanpa logo atau nama jenama. Letak `GOLDBAR_DEFS` dan `GOLDDINAR_DEFS` sekali dalam `<defs>` SVG tersembunyi (bukan `display:none`), kemudian panggil `goldBar(cx, cy, tinggi, {rot})` dan `goldDinar(cx, cy, jejari)`.
 
 Video sedia ada belum menggunakan komponen ini.
+
+## Gaya realistik (untuk video akan datang)
+
+`realistik-style.html` ialah blok CSS gaya realistik **dengan latar foto yang cerah**. Guna ia untuk semua video realistik baharu.
+- Foto latar: kecerahan kira-kira 2x (`brightness(min(1.12, br*2.2))`), kabur dikurangkan (`blur(bl*0.4)`).
+- Lapisan teduhan ringan: gelap sedikit di atas dan bawah sahaja, tengah hampir terbuka supaya foto kelihatan jelas.
+- Kad kaca gelap, bayang teks berlapis, supaya teks putih dan emas kekal terang di atas foto cerah.
+- Video realistik lama (persaraan, daya tahan) sengaja tidak dikemas kini.
