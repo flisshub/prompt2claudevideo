@@ -157,7 +157,7 @@ const chipSVG=(x,y,w,h,txt,s,col=GD)=>`<rect x="${x}" y="${y}" width="${w}" heig
 
 const SCN=[];
 // 0 hook
-SCN.push({bg:'dinar',bl:4,br:.55,html:TAG(0.05,290,'Soalan besar')+H(0.2,390,88,'APA ISTIMEWANYA')+H(1.0,500,138,'SATU DINAR?','gold',-4)+SV(700,720,'0 0 900 720',HG+A(1.3,'pop',halo(450,350,380)+D1(450,350,230)))});
+SCN.push({bg:'coins',bl:0,br:.82,origin:'44% 74%',zoom:0.4,html:TAG(0.05,290,'Soalan besar')+H(0.2,390,88,'APA ISTIMEWANYA')+H(1.0,500,138,'SATU DINAR?','gold',-4)});
 // 1 ramai tertanya
 SCN.push({bg:'tray',bl:18,br:.32,html:TAG(0.05,290,'Ramai orang')+H(0.4,390,92,'RAMAI ORANG')+H(1.0,510,92,'TERTANYA-TANYA','gold',-3)+
  [0,1,2].map(i=>G(1.0+i*0.35,90+i*310,760,280,280,`<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:190px;color:${GD}">?</div>`)).join('')});
@@ -168,7 +168,7 @@ SCN.push({bg:'b250',bl:20,br:.32,html:TAG(0.05,290,'Kenapa orang sanggup')+H(0.5
 SCN.push({bg:'kg',bl:22,br:.3,html:TAG(0.05,290,'Sedangkan nilainya')+
  G(0.5,90,420,900,560,`<div style="position:absolute;left:0;right:0;top:40px;text-align:center;font-weight:700;font-size:28px;letter-spacing:6px;color:rgba(255,255,255,.75)">NILAI SEKEPING DINAR</div><div style="position:absolute;left:0;right:0;top:120px;text-align:center;font-weight:600;font-size:46px;color:rgba(255,255,255,.8)">mungkin hanya</div><div style="position:absolute;left:0;right:0;top:200px;text-align:center;font-weight:800;font-size:118px;letter-spacing:-4px;line-height:1;color:${GD}">BEBERAPA RIBU</div><div style="position:absolute;left:0;right:0;top:330px;text-align:center;font-weight:800;font-size:96px;letter-spacing:-3px">RINGGIT</div>`)});
 // 4 istimewa sangat
-SCN.push({bg:'b250',bl:20,br:.32,html:H(0.1,300,92,'APA YANG')+H(0.6,410,92,'ISTIMEWA SANGAT','gold',-3)+`<div class="photo a" data-d="1.4" data-k="up" style="left:90px;top:600px;width:900px;height:780px"><i style="background-image:url(ph/dinar.jpg)"></i></div>`});
+SCN.push({bg:'b250',bl:20,br:.32,html:H(0.1,300,92,'APA YANG')+H(0.6,410,92,'ISTIMEWA SANGAT','gold',-3)+`<div class="photo a" data-d="1.4" data-k="up" style="left:90px;top:600px;width:900px;height:780px"><i style="background-image:url(ph/cardfront.jpg)"></i></div>`});
 // 5 cepat kaya
 SCN.push({bg:'b100',bl:14,br:.3,html:
  W(0,4.4,TAG(0.05,290,'Orang yang simpan dinar')+H(0.8,400,86,'BUKAN SEMATA-MATA')+H(1.5,520,150,`<span style="position:relative;display:inline-block">CEPAT KAYA<i class="sl" data-strike="3.7" style="height:11px"></i></span>`,'gold',-4))+
@@ -185,10 +185,7 @@ SCN.push({bg:'tray',bl:20,br:.3,html:TAG(0.05,290,'Satu dinar tak')+
  arcs+=`<circle id="ring7" cx="450" cy="330" r="${R}" fill="none" stroke="${GD}" stroke-width="72" stroke-dasharray="${C*0.31} ${C*0.69}" stroke-dashoffset="${-C*(0.9)}" transform="rotate(-90 450 330)" stroke-linecap="butt" style="filter:drop-shadow(0 0 22px rgba(232,196,99,.8))"/>`;
  SCN.push({bg:'dinar',bl:22,br:.3,html:TAG(0.05,290,'Tapi')+H(0.3,380,70,'SEBAHAGIAN DARIPADA')+H(3.6,470,118,'KEKAYAAN','gold',-4)+SV(660,720,'0 0 900 720',A(2.0,'pop',arcs+T(450,318,48,'KEKAYAAN','rgba(255,255,255,.85)',700)+T(450,372,30,'KITA','rgba(255,255,255,.6)',700))+A(3.0,'pop',chipSVG(560,60,300,70,'SATU DINAR',34))+A(6.0,'pop',chipSVG(220,640,460,84,'ASET SEBENAR',40)))})}
 // 8 berat
-SCN.push({bg:'b250',bl:20,br:.3,html:H(0.1,320,82,'BERATNYA SEKITAR')+SV(450,900,'0 0 900 900',HG+A(0.4,'pop',halo(450,420,420)+D1(450,420,215))+
- A(1.0,'pop',chipSVG(40,120,270,84,'4.25 g',44)+`<path d="M310 162 L300 250" stroke="${GD}" stroke-width="4" stroke-dasharray="2 10" stroke-linecap="round"/>`)+
- A(2.8,'pop',chipSVG(600,120,290,84,'EMAS TULEN',38)+`<path d="M600 162 L610 250" stroke="${GD}" stroke-width="4" stroke-dasharray="2 10" stroke-linecap="round"/>`)+
- A(3.8,'pop',chipSVG(270,750,360,92,'999.9',58)+`<path d="M450 650 L450 750" stroke="${GD}" stroke-width="4" stroke-dasharray="2 10" stroke-linecap="round"/>`))});
+SCN.push({bg:'b250',bl:22,br:.3,html:H(0.1,320,82,'BERATNYA SEKITAR')+`<div class="photo a" data-d="0.4" data-k="up" style="left:90px;top:460px;width:900px;height:700px"><i style="background-image:url(ph/cert.jpg)"></i></div>`+G(1.0,90,1210,260,110,`<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:46px;color:${GD}">4.25 g</div>`,GOLDG)+G(2.8,380,1210,340,110,`<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:46px;color:${GD}">EMAS TULEN</div>`,GOLDG)+G(3.8,750,1210,240,110,`<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:46px;color:${GD}">999.9</div>`,GOLDG)});
 // 9 timeline ribuan tahun
 SCN.push({bg:'tray',bl:20,br:.3,html:TAG(0.05,290,'Sejak ribuan tahun')+H(0.4,390,72,'EMAS SUDAH DIGUNAKAN')+SV(620,780,'0 0 900 780',`<rect x="60" y="260" width="780" height="14" rx="7" fill="rgba(255,255,255,.14)"/><rect id="tl9" x="60" y="260" width="0" height="14" rx="7" fill="${GD}"/>${T(60,230,28,'DAHULU','rgba(255,255,255,.75)',700,'start','letter-spacing="5"')}${T(840,230,28,'HARI INI','rgba(255,255,255,.75)',700,'end','letter-spacing="5"')}`+[0,1,2,3,4].map(i=>A((0.8+i*0.3).toFixed(2),'pop',`<circle cx="${100+i*175}" cy="267" r="16" fill="#0A0B10" stroke="${GD}" stroke-width="5"/>`)).join('')+A(3.0,'pop',chipSVG(110,360,680,100,'SEBAGAI PENYIMPAN NILAI',42))+A(4.8,'pop',chipSVG(110,500,680,100,'DAN MEDIUM PERDAGANGAN',42))+A(5.4,'pop',T(450,700,64,'RIBUAN TAHUN',GD,800)))});
 // 10 matawang berubah
@@ -213,16 +210,16 @@ SCN.push({bg:'dinar',bl:22,br:.3,html:G(0.4,90,420,420,640,`<div style="position
 SCN.push({bg:'b100',bl:14,br:.3,html:G(0.5,90,420,900,420,`<div style="position:absolute;left:44px;top:36px;font-weight:700;font-size:26px;letter-spacing:6px;color:rgba(255,255,255,.7)">KALAU BELUM ADA</div><div style="position:absolute;left:44px;top:100px;right:44px;font-weight:800;font-size:92px;letter-spacing:-3px;line-height:1.05">SATU <span style="color:${GD}">DINAR</span> PUN HARI INI?</div>`)+
  G(3.7,90,900,900,300,`<div style="position:absolute;left:44px;top:50px;font-weight:800;font-size:110px;letter-spacing:-3px;color:${GD}">TAK MENGAPA</div>`,GOLDG)+`<svg class="a" data-d="3.9" data-k="pop" style="position:absolute;left:760px;top:970px" width="140" height="140" viewBox="-70 -70 140 140">${chk(0,0,60)}</svg>`});
 // 17 mulakan
-SCN.push({bg:'dinar',bl:18,br:.34,html:H(0.1,330,84,'MULAKAN DENGAN')+H(0.5,420,420,'1','gold',-10)+H(1.1,880,120,'SATU','',-4)});
+SCN.push({bg:'fence',bl:12,br:.4,html:H(0.1,330,84,'MULAKAN DENGAN')+H(0.5,420,420,'1','gold',-10)+H(1.1,880,120,'SATU','',-4)});
 // 18 simpanan pertama
 {let b='';const hs=[90,150,220,300,390,490];hs.forEach((h,i)=>{const x=40+i*140,y=520-h;b+=A((0.8+i*0.3).toFixed(2),'pop',`<rect x="${x}" y="${y}" width="112" height="${h}" rx="12" fill="url(#bgx)" ${i===0?'style="filter:drop-shadow(0 0 20px rgba(255,226,140,.9))"':''}/>`)});
  SCN.push({bg:'kg',bl:22,br:.3,html:H(0.2,340,76,'KEKAYAAN YANG BESAR')+H(2.9,450,92,'BERMULA DENGAN','gold',-3)+SV(640,640,'0 0 900 640',`<defs><linearGradient id="bgx" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE9A0"/><stop offset=".5" stop-color="#E8C463"/><stop offset="1" stop-color="#9A6F1E"/></linearGradient></defs>`+b+A(4.3,'pop',chipSVG(20,540,380,84,'SIMPANAN PERTAMA',34)))})}
 // 19 CTA
-SCN.push({bg:'tray',bl:10,br:.32,html:`<div class="a" data-d="0.0" data-k="pop" style="position:absolute;left:90px;top:640px;width:430px;text-align:center"><span class="btn" id="lbtn" style="background:rgba(255,255,255,.12);border:2px solid rgba(255,255,255,.4);backdrop-filter:blur(20px);color:#fff">♥ Like</span></div><div class="a" data-d="0.4" data-k="pop" style="position:absolute;left:560px;top:640px;width:430px;text-align:center"><span class="btn" id="fbtn" style="background:linear-gradient(180deg,#F4D982,#B8892B);color:#1a1204;box-shadow:0 20px 60px rgba(232,196,99,.4)">Follow</span></div>`+
+SCN.push({bg:'makkah',bl:8,br:.42,html:`<div class="a" data-d="0.0" data-k="pop" style="position:absolute;left:90px;top:640px;width:430px;text-align:center"><span class="btn" id="lbtn" style="background:rgba(255,255,255,.12);border:2px solid rgba(255,255,255,.4);backdrop-filter:blur(20px);color:#fff">♥ Like</span></div><div class="a" data-d="0.4" data-k="pop" style="position:absolute;left:560px;top:640px;width:430px;text-align:center"><span class="btn" id="fbtn" style="background:linear-gradient(180deg,#F4D982,#B8892B);color:#1a1204;box-shadow:0 20px 60px rgba(232,196,99,.4)">Follow</span></div>`+
  `<div class="a" data-d="1.2" data-k="pop" style="position:absolute;left:410px;top:300px;width:260px;height:260px;border-radius:50%;box-shadow:0 0 0 3px rgba(232,196,99,.7),0 30px 80px rgba(0,0,0,.6),0 0 110px rgba(232,196,99,.35);overflow:hidden"><img src="../../assets/logo-dark.png" style="width:100%;height:100%;display:block"></div>`+`<div class="h gold a" data-d="2.0" data-k="up" style="top:860px;font-size:66px;text-transform:none;letter-spacing:-1px">@theazminapg</div>`+SUB(3.4,990,46,'untuk ilmu <span class="gold">emas</span> dan <span class="gold">kewangan</span>')});
 // build DOM
 SCN.forEach((s,i)=>{const d=document.createElement('div');d.className='scene';d.id='s'+i;
- d.innerHTML=`<div class="bgw"><div class="bg" style="background-image:url(ph/${s.bg}.jpg);--bl:${s.bl}px;--br:${s.br}"></div></div><div class="shade"></div>`+s.html;$('#scenes').appendChild(d)});
+ d.innerHTML=`<div class="bgw"><div class="bg" style="background-image:url(ph/${s.bg}.jpg);--bl:${s.bl}px;--br:${s.br};transform-origin:${s.origin||'50% 50%'}"></div></div><div class="shade"></div>`+s.html;$('#scenes').appendChild(d)});
 // canvas fx: gold dust
 const fx=$('#fx').getContext('2d');
 function dust(t,idx){fx.clearRect(0,0,1080,1920);fx.globalCompositeOperation='lighter';
@@ -246,7 +243,7 @@ function render(t){
  {const w=$('#wm');w.style.opacity=(t<0.5||t>=CTA)?0:Math.min(1,(t-0.5)/0.5)*clamp((CTA-t)/0.3)}
  SC.forEach((w,i)=>{const el=document.getElementById('s'+i);const on=t>=w[0]&&t<w[1];el.style.display=on?'block':'none';el.style.opacity=on?sceneAlpha(t,w,i===0,i===SC.length-1):0});
  let idx=SC.findIndex(w=>t>=w[0]&&t<w[1]);if(idx<0)idx=SC.length-1;const l=t-SC[idx][0];const len=SC[idx][1]-SC[idx][0];const scn=document.getElementById('s'+idx);
- scn.querySelectorAll('.bg').forEach((b,i)=>{const z=1.0+0.07*(l/len);b.style.transform=`scale(${z}) translate(${(idx%2?1:-1)*l*4}px,${-l*3}px)`});
+ scn.querySelectorAll('.bg').forEach((b,i)=>{const z=1.0+((SCN[idx]&&SCN[idx].zoom)||0.07)*(l/len);b.style.transform=`scale(${z}) translate(${(idx%2?1:-1)*l*4}px,${-l*3}px)`});
  scn.querySelectorAll('.photo i').forEach(b=>{b.style.transform=`scale(${1.02+0.09*(l/len)}) translate(${l*5}px,${-l*3}px)`});
  ANIMS.filter(e=>e._si===idx).forEach(e=>anim(e,l));
  scn.querySelectorAll('.w[data-w]').forEach(w=>{const [a,b]=w.dataset.w.split(',').map(Number);w.style.opacity=clamp((l-a)/0.3)*clamp((b-l)/0.3)});
