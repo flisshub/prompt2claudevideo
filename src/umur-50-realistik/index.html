@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="ms"><head><meta charset="utf-8"><title>Apa Istimewanya Satu Dinar</title>
+<style>
+:root{--gold:#E8C463;--gold2:#B8892B;--ink:#0A0B10}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;background:#07080c;overflow:hidden;font-family:Inter,'Inter Display',sans-serif;color:#fff}
+#stage{position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:hidden;background:#07080c}
+.scene{position:absolute;inset:0;opacity:0}
+.bgw{position:absolute;inset:0;overflow:hidden}
+.bg{position:absolute;left:-8%;top:-8%;width:116%;height:116%;background-size:cover;background-position:center;filter:blur(calc(var(--bl,6px)*.4)) brightness(min(1.12,calc(var(--br,.5)*2.2))) saturate(1.12)}
+.shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,5,9,.58) 0%,rgba(4,5,9,.24) 34%,rgba(4,5,9,.24) 62%,rgba(4,5,9,.66) 100%)}
+.c{position:absolute;left:90px;width:900px;text-align:center}
+.h{position:absolute;left:40px;width:1000px;text-align:center;white-space:nowrap;font-weight:800;letter-spacing:-2px;line-height:1.02;text-transform:uppercase;text-shadow:0 2px 6px rgba(0,0,0,.55),0 8px 40px rgba(0,0,0,.75)}
+.gold{color:var(--gold)}
+.sub{position:absolute;left:40px;width:1000px;text-align:center;white-space:nowrap;font-weight:600;font-size:54px;letter-spacing:-1px;color:rgba(255,255,255,.88);text-shadow:0 6px 28px rgba(0,0,0,.7)}
+.tag{display:inline-block;padding:12px 30px;border-radius:999px;border:2px solid rgba(232,196,99,.6);color:var(--gold);font-weight:700;font-size:28px;letter-spacing:6px;text-transform:uppercase;background:rgba(10,11,16,.45);backdrop-filter:blur(16px)}
+.glass{position:absolute;background:linear-gradient(180deg,rgba(10,11,16,.46),rgba(10,11,16,.30));backdrop-filter:blur(26px);border:1.5px solid rgba(255,255,255,.22);border-radius:40px;box-shadow:0 36px 90px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.38)}
+.photo{position:absolute;overflow:hidden;border-radius:40px;box-shadow:0 40px 100px rgba(0,0,0,.65),0 0 0 2px rgba(232,196,99,.55)}
+.photo i{position:absolute;left:-6%;top:-6%;width:112%;height:112%;background-size:cover;background-position:center}
+.a{opacity:0}
+#bar{position:absolute;left:90px;top:176px;width:900px;height:5px;border-radius:3px;background:rgba(255,255,255,.14)}
+#barf{height:100%;width:0;border-radius:3px;background:linear-gradient(90deg,#9A6F1E,#F4D982)}
+#fx{position:absolute;inset:0;pointer-events:none}
+#vig{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 46%,rgba(0,0,0,0) 45%,rgba(0,0,0,.6) 100%);pointer-events:none}
+#grain{position:absolute;inset:0;width:1080px;height:1920px;image-rendering:pixelated;opacity:.09;mix-blend-mode:overlay;pointer-events:none}
+#flare{position:absolute;top:-10%;height:120%;width:260px;background:linear-gradient(90deg,rgba(255,236,170,0),rgba(255,236,170,.22),rgba(255,236,170,0));transform:skewX(-18deg);pointer-events:none;opacity:0}
+#cap{position:absolute;left:110px;width:860px;top:1522px;text-align:center;font-weight:700;font-size:50px;line-height:1.32;text-shadow:0 4px 20px rgba(0,0,0,.8)}
+#cap span{display:inline-block;margin:0 10px;color:rgba(255,255,255,.4)}
+#cap span.done{color:#fff}
+#cap span.on{color:var(--gold);transform:scale(1.06)}
+#capbg{position:absolute;left:70px;width:940px;top:1500px;height:190px;border-radius:36px;background:rgba(8,9,13,.6);backdrop-filter:blur(22px);border:1.5px solid rgba(255,255,255,.2);box-shadow:0 24px 60px rgba(0,0,0,.5)}
+.sl{position:absolute;left:-10px;top:50%;height:7px;width:0;background:#E5484D;border-radius:4px;transform:rotate(-1.5deg);box-shadow:0 0 18px rgba(229,72,77,.7)}
+.btn{display:inline-flex;align-items:center;gap:18px;padding:30px 64px;border-radius:999px;font-weight:800;font-size:60px;letter-spacing:1px;text-transform:uppercase}
+</style>
+</head><body>
+<div id="stage">
+<svg width="0" height="0" style="position:absolute"><defs id="gdefs"></defs></svg>
+<div id="scenes"></div>
+<canvas id="fx" width="1080" height="1920"></canvas>
+<div id="flare"></div>
+<div id="vig"></div>
+<canvas id="grain" width="270" height="480"></canvas>
+<img id="wm" src="../../assets/logo-dark.png" style="position:absolute;left:896px;top:232px;width:94px;height:94px;border-radius:50%;opacity:0;box-shadow:0 0 0 2px rgba(232,196,99,.6),0 12px 30px rgba(0,0,0,.5)">
+<div id="bar"><div id="barf"></div></div>
+<div id="capbg" style="opacity:0"></div>
+<div id="cap"></div>
+</div>
+<script>
+// Dinar emas 10 realistik. Digunakan semula dalam video akan datang.
+//
+// Rujukan: gambar 10 Dinar 42.5g Au999.9 (tepi berfacet 12 sisi, cincin titik-titik,
+// bunga teratai 8 kelopak timbul, "10 Dinar" di tengah, teks melengkung di tepi,
+// medan licin lebih gelap dan unsur timbul lebih cerah). Tiada logo atau nama jenama.
+//
+// Guna:
+//   1. Letak GOLDDINAR_DEFS sekali dalam <svg width="0" height="0" style="position:absolute"><defs>...</defs></svg>
+//   2. goldDinar(cx, cy, jejari, {denom:'10', weight:'42.5g', purity:'999.9', top:'DINAR EMAS'})
+
+const GOLDDINAR_DEFS = `
+<radialGradient id="gdRim" cx=".35" cy=".3" r="1">
+  <stop offset="0" stop-color="#FFF1B0"/><stop offset=".5" stop-color="#E8B83F"/><stop offset="1" stop-color="#93640F"/>
+</radialGradient>
+<radialGradient id="gdField" cx=".4" cy=".32" r=".95">
+  <stop offset="0" stop-color="#E6B33C"/><stop offset=".55" stop-color="#C99428"/><stop offset="1" stop-color="#8A5C0C"/>
+</radialGradient>
+<radialGradient id="gdRelief" cx=".35" cy=".3" r=".95">
+  <stop offset="0" stop-color="#FFF4C0"/><stop offset=".55" stop-color="#F3C95A"/><stop offset="1" stop-color="#D9A02A"/>
+</radialGradient>
+<linearGradient id="gdSheen" x1="0" y1="0" x2="1" y2="1">
+  <stop offset="0" stop-color="#fff" stop-opacity=".0"/><stop offset=".45" stop-color="#fff" stop-opacity=".45"/><stop offset=".6" stop-color="#fff" stop-opacity="0"/>
+</linearGradient>
+<filter id="gdBlur" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="12"/></filter>`;
+
+let _gdN = 0;
+
+function gdFacet(r, sides, round) {
+  const sec = (Math.PI * 2) / sides;
+  let d = '';
+  for (let i = 0; i <= 360; i++) {
+    const a = (i / 360) * Math.PI * 2 - Math.PI / 2;
+    const m = ((a % sec) + sec) % sec;
+    const poly = Math.cos(Math.PI / sides) / Math.cos(m - sec / 2);
+    const rr = r * (1 - round + round * poly);
+    d += (i ? 'L' : 'M') + (rr * Math.cos(a)).toFixed(1) + ' ' + (rr * Math.sin(a)).toFixed(1);
+  }
+  return d + 'Z';
+}
+
+// Bunga teratai 8 kelopak bulat, bertakuk di antara kelopak.
+function gdLotus(R) {
+  let d = '';
+  for (let i = 0; i <= 360; i++) {
+    const a = (i / 360) * Math.PI * 2 - Math.PI / 2;
+    const rr = R * (0.72 + 0.28 * Math.pow(Math.abs(Math.cos(4 * a)), 0.7));
+    d += (i ? 'L' : 'M') + (rr * Math.cos(a)).toFixed(1) + ' ' + (rr * Math.sin(a)).toFixed(1);
+  }
+  return d + 'Z';
+}
+
+function goldDinar(cx, cy, r, opts = {}) {
+  const { denom = '10', weight = '42.5g', purity = '999.9', top = 'DINAR EMAS' } = opts;
+  const id = 'gdp' + _gdN++;
+  const lotus = gdLotus(r * 0.52);
+  const ring = r * 0.8, topR = r * 0.7, botR = r * 0.74;
+  const emb = (x, y, size, txt, style) => {
+    const f = `font-family="DejaVu Serif, Georgia, serif" font-weight="700" font-size="${size}" text-anchor="middle" ${style || ''}`;
+    return `<text x="${x - r * 0.012}" y="${y - r * 0.012}" ${f} fill="#FFF6D0" opacity=".9">${txt}</text>` +
+           `<text x="${x + r * 0.014}" y="${y + r * 0.016}" ${f} fill="#5E3C05" opacity=".6">${txt}</text>` +
+           `<text x="${x}" y="${y}" ${f} fill="#F7D26A">${txt}</text>`;
+  };
+  return `<g transform="translate(${cx},${cy})">
+    <ellipse cx="0" cy="${r * 0.12}" rx="${r}" ry="${r * 0.94}" fill="#000" opacity=".3" filter="url(#gdBlur)"/>
+    <path d="${gdFacet(r, 12, 0.55)}" fill="url(#gdRim)" stroke="#8A5C0C" stroke-width="${r * 0.025}"/>
+    <path d="${gdFacet(r * 0.93, 12, 0.55)}" fill="url(#gdField)" stroke="#F3D27A" stroke-width="${r * 0.02}" opacity=".98"/>
+    <path d="${gdFacet(r * 0.93, 12, 0.55)}" fill="url(#gdSheen)" opacity=".7"/>
+    <circle r="${ring}" fill="none" stroke="#FFE9A0" stroke-width="${r * 0.03}" stroke-dasharray="${r * 0.004} ${r * 0.058}" stroke-linecap="round" opacity=".9"/>
+    <path id="${id}t" d="M ${-topR} 0 A ${topR} ${topR} 0 0 1 ${topR} 0" fill="none"/>
+    <path id="${id}b" d="M ${-botR} 0 A ${botR} ${botR} 0 0 0 ${botR} 0" fill="none"/>
+    <text font-family="DejaVu Serif, Georgia, serif" font-weight="700" font-size="${r * 0.12}" letter-spacing="${r * 0.02}" fill="#FFF0B0" opacity=".95">
+      <textPath href="#${id}t" startOffset="50%" text-anchor="middle">${top}</textPath></text>
+    <text font-family="DejaVu Serif, Georgia, serif" font-weight="700" font-size="${r * 0.1}" letter-spacing="${r * 0.012}" fill="#FFF0B0" opacity=".95" dy="${r * 0.08}">
+      <textPath href="#${id}b" startOffset="50%" text-anchor="middle">${weight}  Au ${purity}</textPath></text>
+    <path d="${lotus}" fill="url(#gdRelief)" stroke="#7A4F08" stroke-width="${r * 0.025}" transform="translate(${r * 0.012},${r * 0.016})" opacity=".5"/>
+    <path d="${lotus}" fill="url(#gdRelief)" stroke="#8A5C0C" stroke-width="${r * 0.02}"/>
+    <path d="${lotus}" fill="none" stroke="#FFF6D0" stroke-width="${r * 0.012}" transform="scale(.9)" opacity=".75"/>
+    ${emb(0, -r * 0.02, r * 0.3, denom)}
+    ${emb(0, r * 0.2, r * 0.17, 'Dinar', 'font-style="italic"')}
+  </g>`;
+}
+
+
+const DUR=58.72, CTA=53.8;
+const SEGS=[{"a": 0.0, "b": 1.76, "words": [{"w": "Umur", "a": 0.0, "b": 0.62}, {"w": "50", "a": 0.62, "b": 1.0}, {"w": "tahun,", "a": 1.0, "b": 1.76}]}, {"a": 1.76, "b": 5.199999999999999, "words": [{"w": "sebenarnya", "a": 1.76, "b": 2.3}, {"w": "gaji", "a": 2.3, "b": 2.68}, {"w": "tinggal", "a": 2.68, "b": 3.1}, {"w": "120", "a": 3.1, "b": 3.64}, {"w": "bulan", "a": 3.64, "b": 4.54}, {"w": "sahaja.", "a": 4.6, "b": 5.199999999999999}]}, {"a": 5.62, "b": 8.82, "words": [{"w": "Kalau", "a": 5.62, "b": 5.9}, {"w": "Tuan", "a": 5.9, "b": 6.2}, {"w": "atau", "a": 6.2, "b": 6.42}, {"w": "Puan", "a": 6.42, "b": 6.72}, {"w": "bercadang", "a": 6.72, "b": 7.18}, {"w": "bersara", "a": 7.18, "b": 7.5}, {"w": "umur", "a": 7.5, "b": 7.92}, {"w": "60,", "a": 7.92, "b": 8.82}]}, {"a": 8.82, "b": 10.74, "words": [{"w": "jangan", "a": 8.82, "b": 9.04}, {"w": "fikir", "a": 9.04, "b": 9.36}, {"w": "masih", "a": 9.36, "b": 9.58}, {"w": "ada", "a": 9.58, "b": 9.86}, {"w": "10", "a": 9.86, "b": 10.14}, {"w": "tahun.", "a": 10.14, "b": 10.74}]}, {"a": 11.08, "b": 13.1, "words": [{"w": "Lihat", "a": 11.08, "b": 11.4}, {"w": "dalam", "a": 11.4, "b": 11.72}, {"w": "bentuk", "a": 11.72, "b": 12.2}, {"w": "bulan,", "a": 12.2, "b": 13.1}]}, {"a": 13.2, "b": 15.82, "words": [{"w": "10", "a": 13.2, "b": 13.5}, {"w": "tahun", "a": 13.5, "b": 13.9}, {"w": "bersamaan", "a": 13.9, "b": 14.44}, {"w": "120", "a": 14.44, "b": 15.22}, {"w": "bulan.", "a": 15.22, "b": 15.82}]}, {"a": 16.74, "b": 20.32, "words": [{"w": "Maksudnya,", "a": 16.74, "b": 17.639999999999997}, {"w": "mungkin", "a": 17.72, "b": 17.94}, {"w": "tinggal", "a": 17.94, "b": 18.4}, {"w": "sekitar", "a": 18.4, "b": 18.8}, {"w": "120", "a": 18.8, "b": 19.36}, {"w": "kali", "a": 19.36, "b": 19.88}, {"w": "gaji", "a": 19.88, "b": 20.32}]}, {"a": 20.32, "b": 22.8, "words": [{"w": "sebelum", "a": 20.32, "b": 20.76}, {"w": "pendapatan", "a": 20.76, "b": 21.26}, {"w": "daripada", "a": 21.26, "b": 21.6}, {"w": "pekerjaan", "a": 21.6, "b": 22.2}, {"w": "berhenti.", "a": 22.2, "b": 22.8}]}, {"a": 23.32, "b": 26.2, "words": [{"w": "Sebab", "a": 23.32, "b": 23.78}, {"w": "itu,", "a": 23.78, "b": 24.42}, {"w": "10", "a": 24.42, "b": 24.68}, {"w": "tahun", "a": 24.68, "b": 25.08}, {"w": "terakhir", "a": 25.08, "b": 25.54}, {"w": "sebelum", "a": 25.54, "b": 25.9}, {"w": "bersara", "a": 25.9, "b": 26.2}]}, {"a": 26.2, "b": 27.34, "words": [{"w": "sangat", "a": 26.2, "b": 26.74}, {"w": "penting.", "a": 26.74, "b": 27.34}]}, {"a": 27.3, "b": 30.900000000000002, "words": [{"w": "Kurangkan", "a": 27.3, "b": 28.2}, {"w": "hutang,", "a": 28.26, "b": 29.16}, {"w": "elakkan", "a": 29.18, "b": 29.62}, {"w": "komitmen", "a": 29.62, "b": 30.02}, {"w": "yang", "a": 30.02, "b": 30.16}, {"w": "tak", "a": 30.16, "b": 30.3}, {"w": "perlu,", "a": 30.3, "b": 30.900000000000002}]}, {"a": 31.12, "b": 32.68, "words": [{"w": "tambah", "a": 31.12, "b": 31.48}, {"w": "dana", "a": 31.48, "b": 31.78}, {"w": "kecemasan,", "a": 31.78, "b": 32.68}]}, {"a": 32.88, "b": 36.28, "words": [{"w": "semak", "a": 32.88, "b": 33.18}, {"w": "KWSP,", "a": 33.18, "b": 34.08}, {"w": "dan", "a": 34.18, "b": 34.44}, {"w": "mula", "a": 34.44, "b": 34.76}, {"w": "bina", "a": 34.76, "b": 35.08}, {"w": "aset", "a": 35.08, "b": 35.46}, {"w": "untuk", "a": 35.46, "b": 35.68}, {"w": "persaraan.", "a": 35.68, "b": 36.28}]}, {"a": 37.04, "b": 38.58, "words": [{"w": "Kalau", "a": 37.04, "b": 37.28}, {"w": "nak", "a": 37.28, "b": 37.46}, {"w": "simpan", "a": 37.46, "b": 37.78}, {"w": "emas,", "a": 37.78, "b": 38.58}]}, {"a": 38.58, "b": 40.22, "words": [{"w": "tak", "a": 38.58, "b": 38.76}, {"w": "perlu", "a": 38.76, "b": 39.0}, {"w": "tunggu", "a": 39.0, "b": 39.26}, {"w": "ada", "a": 39.26, "b": 39.46}, {"w": "duit", "a": 39.46, "b": 39.62}, {"w": "banyak.", "a": 39.62, "b": 40.22}]}, {"a": 40.4, "b": 42.14, "words": [{"w": "Simpan", "a": 40.4, "b": 40.88}, {"w": "sedikit", "a": 40.88, "b": 41.26}, {"w": "daripada", "a": 41.26, "b": 41.6}, {"w": "gaji,", "a": 41.6, "b": 42.14}]}, {"a": 42.14, "b": 43.04, "words": [{"w": "tetapi", "a": 42.14, "b": 42.44}, {"w": "konsisten.", "a": 42.44, "b": 43.04}]}, {"a": 43.54, "b": 45.48, "words": [{"w": "Sebab", "a": 43.54, "b": 43.88}, {"w": "bila", "a": 43.88, "b": 44.18}, {"w": "dah", "a": 44.18, "b": 44.38}, {"w": "bersara", "a": 44.38, "b": 44.68}, {"w": "nanti,", "a": 44.68, "b": 45.48}]}, {"a": 45.48, "b": 47.4, "words": [{"w": "kita", "a": 45.48, "b": 45.6}, {"w": "tak", "a": 45.6, "b": 45.76}, {"w": "boleh", "a": 45.76, "b": 45.98}, {"w": "kembali", "a": 45.98, "b": 46.36}, {"w": "ke", "a": 46.36, "b": 46.54}, {"w": "umur", "a": 46.54, "b": 46.78}, {"w": "50", "a": 46.78, "b": 47.28}, {"w": "dan", "a": 47.28, "b": 47.4}]}, {"a": 47.4, "b": 48.0, "words": [{"w": "berkata,", "a": 47.4, "b": 48.0}]}, {"a": 48.5, "b": 50.18, "words": [{"w": "kalaulah", "a": 48.5, "b": 49.06}, {"w": "dulu", "a": 49.06, "b": 49.28}, {"w": "saya", "a": 49.28, "b": 49.58}, {"w": "mula.", "a": 49.58, "b": 50.18}]}, {"a": 50.58, "b": 51.8, "words": [{"w": "Isi", "a": 50.58, "b": 51.08}, {"w": "borang", "a": 51.08, "b": 51.26}, {"w": "di", "a": 51.26, "b": 51.36}, {"w": "bio,", "a": 51.36, "b": 51.8}]}, {"a": 51.8, "b": 54.02, "words": [{"w": "sign", "a": 51.8, "b": 52.06}, {"w": "up", "a": 52.06, "b": 52.26}, {"w": "untuk", "a": 52.26, "b": 52.6}, {"w": "bermula", "a": 52.6, "b": 53.02}, {"w": "menyimpan", "a": 53.02, "b": 53.42}, {"w": "emas.", "a": 53.42, "b": 54.02}]}, {"a": 53.8, "b": 57.26, "words": [{"w": "Like", "a": 53.8, "b": 54.58}, {"w": "dan", "a": 54.58, "b": 54.78}, {"w": "follow", "a": 54.78, "b": 55.06}, {"w": "@theazminapg", "a": 55.06, "b": 55.96}, {"w": "untuk", "a": 56.18, "b": 56.56}, {"w": "ilmu", "a": 56.56, "b": 56.94}, {"w": "emas", "a": 56.94, "b": 57.26}]}, {"a": 57.26, "b": 58.42, "words": [{"w": "dan", "a": 57.26, "b": 57.44}, {"w": "kewangan", "a": 57.44, "b": 57.82}, {"w": "seterusnya.", "a": 57.82, "b": 58.42}]}];
+const SC=[[0,5.62],[5.62,11.08],[11.08,16.74],[16.74,23.32],[23.32,27.3],[27.3,37.04],[37.04,43.54],[43.54,50.58],[50.58,53.8],[53.8,58.72]];
+const HLW=new Set(['umur','gaji','120','bulan','60','10','tahun','bersara','persaraan','hutang','komitmen','kecemasan','kwsp','aset','emas','simpan','konsisten','sedikit','kalaulah','mula','follow','like','sign','up','kewangan','ilmu','terakhir','penting','pendapatan']);
+const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const eo=p=>1-Math.pow(1-p,3);
+const $=s=>document.querySelector(s);
+const GD='#E8C463';
+$('#gdefs').insertAdjacentHTML('beforeend',GOLDDINAR_DEFS);
+// ---------- DSL ----------
+const H=(d,top,size,txt,cls='',ls=-2)=>`<div class="h ${cls} a" data-d="${d}" data-k="up" style="top:${top}px;font-size:${size}px;letter-spacing:${ls}px">${txt}</div>`;
+const SUB=(d,top,size,txt)=>`<div class="sub a" data-d="${d}" data-k="up" style="top:${top}px;font-size:${size}px">${txt}</div>`;
+const TAG=(d,top,txt)=>`<div class="c a" data-d="${d}" data-k="down" style="top:${top}px"><span class="tag">${txt}</span></div>`;
+const G=(d,l,t,w,h,inner,extra='')=>`<div class="glass a" data-d="${d}" data-k="up" style="left:${l}px;top:${t}px;width:${w}px;height:${h}px;${extra}">${inner}</div>`;
+const GOLDG='border-color:rgba(232,196,99,.8);box-shadow:0 36px 90px rgba(0,0,0,.55),0 0 90px rgba(232,196,99,.3),inset 0 1px 0 rgba(255,255,255,.38)';
+const SV=(top,h,vb,inner,id='')=>`<svg class="c" ${id?`id="${id}"`:''} style="top:${top}px;height:${h}px" viewBox="${vb}">${inner}</svg>`;
+const A=(d,k,inner,e)=>`<g class="a" data-d="${d}" data-k="${k}"${e!==undefined?` data-e="${e}"`:''}>${inner}</g>`;
+const W=(a,b,inner)=>`<div class="w" data-w="${a},${b}">${inner}</div>`;
+const T=(x,y,s,txt,fill='#fff',w=800,anchor='middle',extra='')=>`<text x="${x}" y="${y}" text-anchor="${anchor}" font-family="Inter" font-weight="${w}" font-size="${s}" fill="${fill}" ${extra}>${txt}</text>`;
+const D1=(x,y,r)=>goldDinar(x,y,r,{denom:'1',weight:'4.25g',top:'DINAR EMAS'});
+const halo=(x,y,r)=>`<circle cx="${x}" cy="${y}" r="${r}" fill="url(#hg)"/>`;
+$('#gdefs').insertAdjacentHTML('beforeend','<radialGradient id="hg"><stop offset="0" stop-color="rgba(255,222,130,.4)"/><stop offset="1" stop-color="rgba(255,222,130,0)"/></radialGradient>');const HG='';
+const xIcon=(x,y,r)=>`<g transform="translate(${x},${y})"><circle r="${r}" fill="rgba(229,72,77,.18)" stroke="#E5484D" stroke-width="5"/><line x1="${-r*.38}" y1="${-r*.38}" x2="${r*.38}" y2="${r*.38}" stroke="#E5484D" stroke-width="8" stroke-linecap="round"/><line x1="${r*.38}" y1="${-r*.38}" x2="${-r*.38}" y2="${r*.38}" stroke="#E5484D" stroke-width="8" stroke-linecap="round"/></g>`;
+const chk=(x,y,r,c='#2FBF7F')=>`<g transform="translate(${x},${y})"><circle r="${r}" fill="${c}"/><path d="M${-r*.4} ${r*.02} L${-r*.1} ${r*.34} L${r*.46} ${-r*.34}" fill="none" stroke="#fff" stroke-width="${r*.2}" stroke-linecap="round" stroke-linejoin="round"/></g>`;
+const chipSVG=(x,y,w,h,txt,s,col=GD)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${h/2}" fill="rgba(10,11,16,.6)" stroke="${col}" stroke-width="3"/>${T(x+w/2,y+h/2+s*.35,s,txt,col,800)}`;
+
+const SCN=[];
+const grid120=(id)=>`<div id="${id}" style="position:absolute;left:138px;top:36px;width:624px">`+Array.from({length:120},(_,i)=>`<i class="cell" data-i="${i}" style="position:absolute;left:${(i%12)*52}px;top:${Math.floor(i/12)*52}px;width:42px;height:42px;border-radius:11px;background:rgba(255,255,255,.14);border:1.5px solid rgba(255,255,255,.28)"></i>`).join('')+`</div>`;
+// 0 hook
+SCN.push({bg:'tray',bl:6,br:.34,html:TAG(0.05,290,'Hakikatnya')+H(0.3,380,98,'UMUR 50 TAHUN')+H(2.0,495,84,'GAJI TINGGAL','',-3)+H(3.0,590,124,'120 BULAN','gold',-4)+SUB(4.4,740,52,'sahaja')+
+ G(1.0,90,810,900,640,grid120('g0cells')+`<div style="position:absolute;left:0;right:0;top:582px;text-align:center;font-weight:700;font-size:24px;letter-spacing:6px;color:rgba(255,255,255,.8)">SETIAP KOTAK = SATU BULAN GAJI</div>`)});
+// 1 umur 60
+SCN.push({bg:'b250',bl:20,br:.34,html:TAG(0.05,290,'Kalau bercadang bersara')+H(0.5,390,96,'UMUR <span class="gold">60</span>','',-3)+
+ SV(560,760,'0 0 900 760',`<rect x="60" y="300" width="780" height="22" rx="11" fill="rgba(255,255,255,.2)"/><rect id="tl1" x="60" y="300" width="0" height="22" rx="11" fill="url(#gx)"/><defs><linearGradient id="gx" x1="0" x2="1"><stop offset="0" stop-color="#B8892B"/><stop offset="1" stop-color="#F4D982"/></linearGradient></defs>`+
+ A(0.6,'pop',`<circle cx="60" cy="311" r="38" fill="#0A0B10" stroke="${GD}" stroke-width="6"/>${T(60,328,44,'50',GD,800)}${T(60,230,28,'SEKARANG','#fff',800,'middle','letter-spacing="4"')}`)+
+ A(2.0,'pop',`<circle cx="840" cy="311" r="38" fill="#0A0B10" stroke="${GD}" stroke-width="6"/>${T(840,328,44,'60',GD,800)}${T(840,230,28,'BERSARA','#fff',800,'middle','letter-spacing="4"')}`)+
+ A(3.4,'pop',chipSVG(250,420,400,90,'10 TAHUN?',44))+A(4.3,'pop',`<line x1="300" y1="465" x2="600" y2="435" stroke="#E5484D" stroke-width="9" stroke-linecap="round"/>`)+A(4.8,'pop',T(450,640,54,'JANGAN FIKIR ADA 10 TAHUN',GD,800)))});
+// 2 tukar bulan
+SCN.push({bg:'kg',bl:22,br:.34,html:TAG(0.05,290,'Lihat dalam bentuk bulan')+
+ G(1.0,90,420,900,230,`<div style="position:absolute;left:50px;top:40px;font-weight:700;font-size:26px;letter-spacing:6px;color:rgba(255,255,255,.8)">TEMPOH</div><div style="position:absolute;left:50px;top:84px;font-weight:800;font-size:110px;letter-spacing:-3px;line-height:1">10 <span style="font-size:70px">TAHUN</span></div>`)+
+ `<div class="a" data-d="1.9" data-k="pop" style="position:absolute;left:495px;top:668px;width:90px;height:90px;border-radius:50%;background:linear-gradient(180deg,#F4D982,#B8892B);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:50px;color:#1a1204;box-shadow:0 12px 36px rgba(0,0,0,.5);z-index:3">×12</div>`+
+ G(2.2,90,770,900,360,`<div style="position:absolute;left:0;right:0;top:34px;text-align:center;font-weight:700;font-size:26px;letter-spacing:6px;color:rgba(255,255,255,.85)">BERSAMAAN</div><div id="v2" style="position:absolute;left:0;right:0;top:80px;text-align:center;font-weight:800;font-size:190px;letter-spacing:-6px;line-height:1;color:${GD}">0</div><div style="position:absolute;left:0;right:0;top:282px;text-align:center;font-weight:700;font-size:54px;letter-spacing:8px">BULAN</div>`,GOLDG)});
+// 3 120 kali gaji
+SCN.push({bg:'tray',bl:6,br:.34,html:TAG(0.05,290,'Maksudnya')+H(0.4,390,88,'<span class="gold">120</span> KALI GAJI','',-3)+
+ G(1.0,90,520,900,640,grid120('g3cells')+`<div id="stop3" style="position:absolute;left:0;right:0;top:582px;text-align:center;font-weight:800;font-size:34px;letter-spacing:6px;color:#E5484D;opacity:0">PENDAPATAN BERHENTI</div>`)+
+ SUB(5.0,1200,46,'sebelum pendapatan pekerjaan berhenti')});
+// 4 10 tahun terakhir
+SCN.push({bg:'b100',bl:14,br:.34,html:TAG(0.05,290,'Sebab itu')+H(0.3,380,92,'10 TAHUN')+H(1.0,490,120,'TERAKHIR','gold',-4)+H(2.0,650,66,'SEBELUM BERSARA')+
+ G(2.7,90,810,900,300,`<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:96px;letter-spacing:-3px;color:${GD}">SANGAT PENTING</div>`,GOLDG)});
+// 5 checklist
+{const items=[['KURANGKAN HUTANG',0.9],['ELAKKAN KOMITMEN TAK PERLU',1.9],['TAMBAH DANA KECEMASAN',3.8],['SEMAK KWSP',5.6],['BINA ASET UNTUK PERSARAAN',7.1]];
+ SCN.push({bg:'b250',bl:18,br:.34,html:TAG(0.05,290,'Langkah penting')+items.map((it,i)=>G(it[1],90,380+i*196,900,170,`<div style="position:absolute;left:34px;top:34px;width:100px;height:100px;border-radius:50%;background:rgba(47,191,127,.22);border:3px solid #2FBF7F;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:56px;color:#2FBF7F">✓</div><div style="position:absolute;left:164px;top:30px;font-weight:600;font-size:24px;letter-spacing:5px;color:${GD}">LANGKAH ${i+1}</div><div style="position:absolute;left:164px;top:72px;right:20px;font-weight:800;font-size:${it[0].length>22?46:56}px;letter-spacing:-1px;white-space:nowrap">${it[0]}</div>`,i===4?GOLDG:'')).join('')})}
+// 6 simpan emas konsisten
+SCN.push({bg:'coins',bl:0,br:.46,origin:'44% 72%',zoom:0.15,html:W(0,3.2,TAG(0.05,290,'Kalau nak simpan emas')+H(0.5,390,84,'TAK PERLU TUNGGU')+H(1.2,500,130,`<span style="position:relative;display:inline-block">DUIT BANYAK<i class="sl" data-strike="2.5" style="height:11px"></i></span>`,'gold',-4))+
+ W(3.2,7,H(3.4,330,86,'SIMPAN SEDIKIT')+H(3.9,440,86,'DARIPADA GAJI','gold',-3)+H(5.0,600,64,'tetapi <span class="gold">KONSISTEN</span>','',-2))});
+// 7 kalaulah dulu
+SCN.push({bg:'fence',bl:12,br:.36,html:TAG(0.05,290,'Bila dah bersara')+H(0.5,390,76,'KITA TAK BOLEH KEMBALI')+
+ G(1.4,90,520,900,300,`<div style="position:absolute;left:50px;top:36px;font-weight:700;font-size:24px;letter-spacing:6px;color:rgba(255,255,255,.7)">KE UMUR</div><div style="position:absolute;left:50px;top:78px;font-weight:800;font-size:150px;letter-spacing:-5px;line-height:1;color:rgba(255,255,255,.5)">50</div><div style="position:absolute;right:60px;top:60px;width:240px;height:190px;border-radius:30px;border:3px solid #E5484D;background:rgba(229,72,77,.18);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:110px;color:#E5484D">◀◀</div>`)+
+ G(4.6,90,890,900,340,`<div style="position:absolute;left:0;right:0;top:44px;text-align:center;font-weight:600;font-size:34px;letter-spacing:4px;color:rgba(255,255,255,.8)">dan berkata</div><div style="position:absolute;left:40px;right:40px;top:110px;text-align:center;font-weight:800;font-size:88px;letter-spacing:-3px;line-height:1.04;font-style:italic;color:${GD}">"Kalaulah dulu saya mula."</div>`,GOLDG)});
+// 8 sign up
+SCN.push({bg:'cardfront',bl:8,br:.4,html:H(0.2,400,84,'BERMULA MENYIMPAN')+H(0.8,510,150,'EMAS','gold',-5)+`<div class="c a" data-d="1.4" data-k="pop" style="top:760px"><span class="btn" id="sbtn" style="padding:36px 100px;font-size:110px;border-radius:34px;background:linear-gradient(180deg,#B79BFF,#7550F0);color:#fff;box-shadow:0 20px 60px rgba(117,80,240,.5)">SIGN UP</span></div><svg class="c" style="top:790px;height:200px;pointer-events:none;opacity:0" viewBox="0 0 900 200" id="hand"><g id="tap"><circle cx="640" cy="40" r="30" fill="none" stroke="#fff" stroke-width="8" opacity=".9"/><path d="M640 40 l0 100 l30 -22 l24 52 l22 -10 l-24 -52 l36 -4 z" fill="#fff" transform="translate(-20,-10)" stroke="#0A0B10" stroke-width="6"/></g></svg>`});
+// 9 CTA
+SCN.push({bg:'makkah',bl:8,br:.42,html:`<div class="a" data-d="0.0" data-k="pop" style="position:absolute;left:90px;top:640px;width:430px;text-align:center"><span class="btn" id="lbtn" style="background:rgba(10,11,16,.45);border:2px solid rgba(255,255,255,.5);backdrop-filter:blur(20px);color:#fff">♥ Like</span></div><div class="a" data-d="0.4" data-k="pop" style="position:absolute;left:560px;top:640px;width:430px;text-align:center"><span class="btn" id="fbtn" style="background:linear-gradient(180deg,#F4D982,#B8892B);color:#1a1204;box-shadow:0 20px 60px rgba(232,196,99,.4)">Follow</span></div><div class="a" data-d="1.0" data-k="pop" style="position:absolute;left:410px;top:300px;width:260px;height:260px;border-radius:50%;box-shadow:0 0 0 3px rgba(232,196,99,.7),0 30px 80px rgba(0,0,0,.6),0 0 110px rgba(232,196,99,.35);overflow:hidden"><img src="../../assets/logo-dark.png" style="width:100%;height:100%;display:block"></div>`+`<div class="h gold a" data-d="1.8" data-k="up" style="top:860px;font-size:66px;text-transform:none;letter-spacing:-1px">@theazminapg</div>`+SUB(3.2,990,46,'untuk ilmu <span class="gold">emas</span> dan <span class="gold">kewangan</span>')});
+
+// build DOM
+SCN.forEach((s,i)=>{const d=document.createElement('div');d.className='scene';d.id='s'+i;
+ d.innerHTML=`<div class="bgw"><div class="bg" style="background-image:url(ph/${s.bg}.jpg);--bl:${s.bl}px;--br:${s.br};transform-origin:${s.origin||'50% 50%'}"></div></div><div class="shade"></div>`+s.html;$('#scenes').appendChild(d)});
+// canvas fx: gold dust
+const fx=$('#fx').getContext('2d');
+function dust(t,idx){fx.clearRect(0,0,1080,1920);fx.globalCompositeOperation='lighter';
+ for(let i=0;i<46;i++){const sx=(i*197)%1080,sp=10+(i*29)%26,y=(1980-(((i*331)%1920)+t*sp*2.6)%2040),x=sx+Math.sin(t*.6+i)*26,r=1.2+(i%5)*.9,a=(.16+((i*7)%10)/48)*(.6+.4*Math.sin(t*1.6+i));
+  const g=fx.createRadialGradient(x,y,0,x,y,r*5);g.addColorStop(0,`rgba(255,226,140,${a})`);g.addColorStop(1,'rgba(255,226,140,0)');fx.fillStyle=g;fx.beginPath();fx.arc(x,y,r*5,0,7);fx.fill()}
+ fx.globalCompositeOperation='source-over'}
+const gr=$('#grain'),gx=gr.getContext('2d'),gimg=gx.createImageData(270,480);
+function grain(t){const d=gimg.data;let s=Math.floor(t*24)*9301+49297;for(let i=0;i<d.length;i+=4){s=(s*1103515245+12345)&0x7fffffff;const v=(s>>16)&255;d[i]=d[i+1]=d[i+2]=v;d[i+3]=255}gx.putImageData(gimg,0,0)}
+
+
+const ANIMS=[...document.querySelectorAll('.a')];
+ANIMS.forEach(el=>{const sc=el.closest('.scene');el._si=sc?parseInt(sc.id.slice(1)):-1});
+function anim(el,l){const d=parseFloat(el.dataset.d||0),k=el.dataset.k||'fade';const p=clamp((l-d)/0.7),e=eo(p);let tf='';let op=p>0?Math.min(1,p*2):0;
+ if(el.dataset.e!==undefined)op*=clamp((parseFloat(el.dataset.e)-l)/0.3);
+ if(k==='up')tf=`translateY(${(1-e)*46}px)`;else if(k==='down')tf=`translateY(${-(1-e)*34}px)`;else if(k==='pop')tf=`scale(${0.92+0.08*e})`;
+ el.style.opacity=op;el.style.transform=tf}
+const sceneAlpha=(t,[a,b],f,l)=>Math.min(f?1:clamp((t-a)/0.35),l?1:clamp((b-t)/0.3));
+function wave(id,l,seed,amp){const pts=[];for(let i=0;i<=40;i++){const x=40+i*20.5;const y=190+amp*(Math.sin(i*.55+l*3+seed)*.6+Math.sin(i*1.3+l*5.3+seed*2)*.4);pts.push((i?'L':'M')+x.toFixed(1)+' '+y.toFixed(1))}$(id).setAttribute('d',pts.join(' '))}
+function render(t){
+ $('#barf').style.width=(t/DUR*100)+'%';
+ {const w=$('#wm');w.style.opacity=(t<0.5||t>=CTA)?0:Math.min(1,(t-0.5)/0.5)*clamp((CTA-t)/0.3)}
+ SC.forEach((w,i)=>{const el=document.getElementById('s'+i);const on=t>=w[0]&&t<w[1];el.style.display=on?'block':'none';el.style.opacity=on?sceneAlpha(t,w,i===0,i===SC.length-1):0});
+ let idx=SC.findIndex(w=>t>=w[0]&&t<w[1]);if(idx<0)idx=SC.length-1;const l=t-SC[idx][0];const len=SC[idx][1]-SC[idx][0];const scn=document.getElementById('s'+idx);
+ scn.querySelectorAll('.bg').forEach((b,i)=>{const z=1.0+((SCN[idx]&&SCN[idx].zoom)||0.07)*(l/len);b.style.transform=`scale(${z}) translate(${(idx%2?1:-1)*l*4}px,${-l*3}px)`});
+ ANIMS.filter(e=>e._si===idx).forEach(e=>anim(e,l));
+ scn.querySelectorAll('.w[data-w]').forEach(w=>{const [a,b]=w.dataset.w.split(',').map(Number);w.style.opacity=clamp((l-a)/0.3)*clamp((b-l)/0.3)});
+ scn.querySelectorAll('[data-strike]').forEach(s=>{s.style.width=(clamp((l-parseFloat(s.dataset.strike))/0.4)*104)+'%'});
+ {const f=$('#flare');const q=clamp(l/1.1);f.style.left=(-300+q*1500)+'px';f.style.opacity=(q>0&&q<1)?0.9*Math.sin(q*Math.PI):0}
+ dust(t,idx);grain(t);
+ if(idx===0){scn.querySelectorAll('#g0cells .cell').forEach(c=>{const i=+c.dataset.i;const q=clamp((l-2.2-i*0.016)/0.2);c.style.background=q>0.4?'linear-gradient(180deg,#F4D982,#B8892B)':'rgba(255,255,255,.14)';c.style.borderColor=q>0.4?'#F4D982':'rgba(255,255,255,.28)'})}
+ if(idx===1){$('#tl1').setAttribute('width',780*eo(clamp((l-0.7)/1.4)))}
+ if(idx===2){const q=eo(clamp((l-2.5)/1.2));$('#v2').textContent=Math.round(120*q)}
+ if(idx===3){const stopT=5.2;scn.querySelectorAll('#g3cells .cell').forEach(c=>{const i=+c.dataset.i;const q=clamp((l-1.2-i*0.03)/0.2);c.style.background=q>0.4?'linear-gradient(180deg,#F4D982,#B8892B)':'rgba(255,255,255,.14)';c.style.borderColor=q>0.4?'#F4D982':'rgba(255,255,255,.28)'});
+  $('#stop3').style.opacity=clamp((l-stopT)/0.4)}
+ if(idx===8){$('#hand').style.opacity=(l>1.8&&l<3.2)?1:0;$('#sbtn').style.transform=`scale(${l>2.3&&l<2.6?0.94:1+0.03*Math.sin(l*8)})`;$('#tap').style.transform=`scale(${l>2.3&&l<2.6?0.9:1})`}
+ if(idx===9){$('#fbtn').style.transform=`scale(${1+0.035*Math.sin(l*7)})`;$('#lbtn').style.transform=`scale(${1+0.045*Math.sin(l*7+1.2)})`}
+ const seg=SEGS.find(s=>t>=s.a-0.05&&t<=s.b+0.15);const cap=$('#cap'),cbg=$('#capbg');
+ if(!seg){cap.innerHTML='';cap._k=-1;cap.style.opacity=0;cbg.style.opacity=0}
+ else{cap.style.opacity=1;cbg.style.opacity=1;const key=SEGS.indexOf(seg);
+  if(cap._k!==key){cap._k=key;cap.innerHTML=seg.words.map(w=>`<span>${w.w}</span>`).join('');cbg.style.height=(cap.offsetHeight+44)+'px'}
+  cap.querySelectorAll('span').forEach((s,i)=>{const w=seg.words[i];const cur=t>=w.a&&t<w.b,past=t>=w.b;s.className=cur?'on':(past?'done':'');
+   const k=w.w.toLowerCase().replace(/[^\w@,.\-]/g,'').replace(/[,.\-]+$/,'');s.style.color=(HLW.has(k)&&(cur||past))?'#E8C463':''})}
+}
+window.render=render;render(0);
+</script></body></html>
